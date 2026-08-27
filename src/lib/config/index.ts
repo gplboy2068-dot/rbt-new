@@ -26,9 +26,9 @@ export interface CloudflareEnvBindings {
 }
 
 export const publicConfig: PublicConfig = {
-  appName: 'RBT Practice AI',
+  appName: 'RBT Practice Exam',
   appEnv: (typeof process !== 'undefined' && process.env.NODE_ENV === 'production') ? 'production' : 'development',
-  siteUrl: (typeof process !== 'undefined' && process.env.PUBLIC_SITE_URL) || 'https://rbtpracticeai.com',
+  siteUrl: (typeof process !== 'undefined' && process.env.PUBLIC_SITE_URL) || 'https://rbtpracticeexam.xyz',
   apiVersion: 'v1',
   isPublicOpenAccess: true,
 };

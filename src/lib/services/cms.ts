@@ -70,10 +70,10 @@ const faqStore = new Map<string, FAQItem>();
 const notificationsStore = new Map<string, InAppNotification>();
 
 let brandingConfig: SiteBrandingConfig = {
-  siteName: 'RBT Practice AI',
-  brandTagline: '100% Free BACB RBT Exam Practice, Mock Exams & AI Tutor',
-  supportEmail: 'support@rbtpracticeai.com',
-  copyrightText: '© 2026 RBT Practice AI (rbtpracticeai.com). Not affiliated with the Behavior Analyst Certification Board (BACB).',
+  siteName: 'RBT Practice Exam',
+  brandTagline: '100% Free BACB RBT Practice Exams, Mock Exams & AI Prep',
+  supportEmail: 'support@rbtpracticeexam.xyz',
+  copyrightText: '© 2026 RBT Practice Exam (rbtpracticeexam.xyz). Not affiliated with the Behavior Analyst Certification Board (BACB).',
   headerAnnouncement: '100% Free & Open Access — No Login Wall',
 };
 
