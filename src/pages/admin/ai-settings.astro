@@ -1,0 +1,11 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import AdminShellLayout from '@/components/AdminShellLayout';
+import AdminAISettingsIsland from '@/components/AdminAISettingsIsland';
+---
+
+<Layout title="AI Providers & Limits — Admin Control">
+  <AdminShellLayout client:load currentTab="ai-settings">
+    <AdminAISettingsIsland client:load />
+  </AdminShellLayout>
+</Layout>

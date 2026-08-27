@@ -1,0 +1,11 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import AdminShellLayout from '@/components/AdminShellLayout';
+import AdminDashboardIsland from '@/components/AdminDashboardIsland';
+---
+
+<Layout title="Admin Control Dashboard — RBT Practice AI">
+  <AdminShellLayout client:load currentTab="dashboard">
+    <AdminDashboardIsland client:load />
+  </AdminShellLayout>
+</Layout>

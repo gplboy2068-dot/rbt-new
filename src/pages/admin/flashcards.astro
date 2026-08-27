@@ -1,0 +1,11 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import AdminShellLayout from '@/components/AdminShellLayout';
+import AdminFlashcardsIsland from '@/components/AdminFlashcardsIsland';
+---
+
+<Layout title="Flashcards & Conversion Studio — Admin Control">
+  <AdminShellLayout client:load currentTab="flashcards">
+    <AdminFlashcardsIsland client:load />
+  </AdminShellLayout>
+</Layout>

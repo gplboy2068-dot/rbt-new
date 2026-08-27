@@ -1,0 +1,13 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import MockExamRunnerIsland from '@/components/MockExamRunnerIsland';
+
+const { id } = Astro.params;
+---
+
+<Layout 
+  title="RBT Full Timed Mock Exam Simulator"
+  description="Take a complete 85-question timed mock exam with real-time countdown timer, flagging palette, and diagnostic scorecards."
+>
+  <MockExamRunnerIsland client:load examId={id || 'mock_rbt_full_diagnostic'} />
+</Layout>

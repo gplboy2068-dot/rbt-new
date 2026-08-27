@@ -1,0 +1,73 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { CMSService } from '@/lib/services/cms';
+import { ArrowLeft, Clock, User, Share2, HelpCircle, Layers } from 'lucide-react';
+
+const { slug } = Astro.params;
+const article = slug ? CMSService.getArticleBySlug(slug) : null;
+
+if (!article) {
+  return Astro.redirect('/404');
+}
+---
+
+<Layout title={`${article.seoTitle || article.title} | RBT Practice AI`}>
+  <div class="max-w-4xl mx-auto px-4 py-8 sm:py-12 space-y-8">
+    <a href="/articles" class="inline-flex items-center gap-1.5 text-xs font-bold text-slate-500 hover:text-brand-600 transition-colors">
+      <ArrowLeft className="w-4 h-4" />
+      <span>Back to All Articles</span>
+    </a>
+
+    <header class="space-y-4 border-b border-slate-200 dark:border-slate-800 pb-8">
+      <div class="flex items-center gap-2 text-xs">
+        <span class="px-3 py-1 rounded-full font-bold bg-brand-50 text-brand-700 dark:bg-brand-950/60 dark:text-brand-300 border border-brand-200">
+          {article.domain}
+        </span>
+        <span class="text-slate-400 flex items-center gap-1">
+          <Clock className="w-3.5 h-3.5" /> {article.readTimeMinutes} min read
+        </span>
+      </div>
+
+      <h1 class="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight leading-tight">
+        {article.title}
+      </h1>
+
+      <p class="text-xs sm:text-base text-slate-600 dark:text-slate-400 font-medium leading-relaxed">
+        {article.excerpt}
+      </p>
+
+      <div class="text-xs text-slate-400 flex items-center gap-1.5 pt-2">
+        <User className="w-4 h-4" />
+        <span>Written by <strong>{article.author}</strong></span>
+      </div>
+    </header>
+
+    {/* Content Prose */}
+    <div class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-10 shadow-sm space-y-6 text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+      <div class="whitespace-pre-line space-y-4">
+        {article.content}
+      </div>
+    </div>
+
+    {/* Related Action Hub */}
+    <div class="bg-slate-50 dark:bg-slate-800/60 rounded-3xl border border-slate-200 dark:border-slate-700 p-6 sm:p-8 space-y-4">
+      <h2 class="text-sm font-bold text-slate-900 dark:text-white">Ready to test what you learned?</h2>
+      <div class="flex flex-wrap gap-3">
+        <a
+          href="/practice-questions"
+          class="px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white text-xs font-bold shadow-md flex items-center gap-1.5"
+        >
+          <HelpCircle className="w-4 h-4" />
+          <span>Practice Domain Questions</span>
+        </a>
+        <a
+          href="/flashcards"
+          class="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-black text-white text-xs font-bold shadow-md flex items-center gap-1.5"
+        >
+          <Layers className="w-4 h-4" />
+          <span>Review Flashcards</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>

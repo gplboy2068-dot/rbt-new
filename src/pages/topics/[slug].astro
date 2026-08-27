@@ -1,0 +1,72 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import TopicDetailIsland from '@/components/TopicDetailIsland';
+
+const { slug } = Astro.params;
+
+const TOPICS_DATA: Record<string, { code: string; name: string; domainName: string; summary: string; keyPoints: string[] }> = {
+  'continuous-measurement': {
+    code: 'A-01',
+    name: 'Continuous Measurement Procedures',
+    domainName: 'Domain A: Measurement',
+    summary: 'Continuous measurement records every single occurrence of the target behavior during an observation period. Core dimensions include Frequency, Rate, Duration, Latency, and Inter-response Time (IRT).',
+    keyPoints: [
+      'Rate = Frequency / Observation Time (e.g., 6 instances in 30 mins = 12 / hour).',
+      'Latency = Elapsed time from SD presentation until the client initiates the response.',
+      'Duration = Total elapsed time from behavior onset to termination.',
+      'Inter-Response Time (IRT) = Elapsed time between the end of one response and start of the next.',
+    ],
+  },
+  'discontinuous-measurement': {
+    code: 'A-02',
+    name: 'Discontinuous Measurement (Time Sampling)',
+    domainName: 'Domain A: Measurement',
+    summary: 'Discontinuous measurement captures an estimate of behavior by dividing an observation session into intervals. Includes Whole Interval, Partial Interval, and Momentary Time Sampling (MTS).',
+    keyPoints: [
+      'Whole Interval: Behavior must occur during the ENTIRE interval (underestimates duration).',
+      'Partial Interval: Behavior occurs at ANY point during the interval (overestimates duration).',
+      'Momentary Time Sampling: Behavior occurs at the EXACT moment the interval ends.',
+    ],
+  },
+  'differential-reinforcement': {
+    code: 'D-02',
+    name: 'Differential Reinforcement (DRA, DRI, DRO)',
+    domainName: 'Domain D: Behavior Reduction',
+    summary: 'Differential reinforcement combines reinforcement of desired replacement behaviors with extinction for problem behavior.',
+    keyPoints: [
+      'DRA (Alternative): Reinforcing an alternative behavior serving the same function.',
+      'DRI (Incompatible): Reinforcing a behavior that cannot physically occur at the same time.',
+      'DRO (Other): Delivering reinforcement contingent on the ABSENCE of problem behavior for an interval.',
+    ],
+  },
+  'prompting-hierarchies': {
+    code: 'C-02',
+    name: 'Prompting & Prompt Fading Hierarchies',
+    domainName: 'Domain C: Skill Acquisition',
+    summary: 'Prompts are supplemental stimuli provided before or during a response to increase the likelihood of correct behavior. Fading transfers stimulus control to the natural SD.',
+    keyPoints: [
+      'Hierarchy: Full Physical > Partial Physical > Model > Gestural > Verbal > Independent.',
+      'Most-to-Least: Starts with intrusive prompts, fading down as mastery improves.',
+      'Least-to-Most: Starts independent, increasing prompt invasiveness only if errors occur.',
+      'Time Delay: Introducing a fixed or progressive latency before delivering the prompt.',
+    ],
+  },
+};
+
+const topic = TOPICS_DATA[slug || 'continuous-measurement'] || TOPICS_DATA['continuous-measurement'];
+---
+
+<Layout 
+  title={`${topic.name} (${topic.code}) — RBT Prep Hub`}
+  description={topic.summary}
+>
+  <TopicDetailIsland 
+    client:load
+    slug={slug || 'continuous-measurement'}
+    code={topic.code}
+    name={topic.name}
+    domainName={topic.domainName}
+    summary={topic.summary}
+    keyPoints={topic.keyPoints}
+  />
+</Layout>

@@ -1,0 +1,11 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import AdminShellLayout from '@/components/AdminShellLayout';
+import AdminCSVImportIsland from '@/components/AdminCSVImportIsland';
+---
+
+<Layout title="CSV Ingestion Studio — Admin Control">
+  <AdminShellLayout client:load currentTab="csv-import">
+    <AdminCSVImportIsland client:load />
+  </AdminShellLayout>
+</Layout>

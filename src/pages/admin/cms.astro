@@ -1,0 +1,11 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import AdminShellLayout from '@/components/AdminShellLayout';
+import AdminCMSIsland from '@/components/AdminCMSIsland';
+---
+
+<Layout title="CMS, Cheatsheets & SEO — Admin Control">
+  <AdminShellLayout client:load currentTab="cms">
+    <AdminCMSIsland client:load />
+  </AdminShellLayout>
+</Layout>

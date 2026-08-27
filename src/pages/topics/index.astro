@@ -1,0 +1,99 @@
+---
+import Layout from '@/layouts/Layout.astro';
+
+const TOPIC_DIRECTORIES = [
+  {
+    domain: 'Domain A: Measurement',
+    description: 'Continuous measurement procedures, discontinuous sampling, and graphical data analysis.',
+    topics: [
+      { code: 'A-01', name: 'Continuous Measurement', slug: 'continuous-measurement', count: '14 Questions' },
+      { code: 'A-02', name: 'Discontinuous Measurement', slug: 'discontinuous-measurement', count: '12 Questions' },
+      { code: 'A-03', name: 'Permanent Product Recording', slug: 'permanent-product', count: '8 Questions' },
+      { code: 'A-04', name: 'Enter Data & Update Graphs', slug: 'graphing-data', count: '6 Questions' },
+    ],
+  },
+  {
+    domain: 'Domain B: Assessment',
+    description: 'Preference assessments, ABC data collection, and functional behavior assessments.',
+    topics: [
+      { code: 'B-01', name: 'Preference Assessments (MSWO/MSW)', slug: 'preference-assessments', count: '10 Questions' },
+      { code: 'B-02', name: 'Functional Assessment & ABC Data', slug: 'abc-narrative-data', count: '9 Questions' },
+    ],
+  },
+  {
+    domain: 'Domain C: Skill Acquisition',
+    description: 'DTT protocols, task analysis chaining, prompting hierarchies, and generalization.',
+    topics: [
+      { code: 'C-01', name: 'Skill Acquisition Plans', slug: 'skill-acquisition-plans', count: '11 Questions' },
+      { code: 'C-02', name: 'Prompting & Prompt Fading', slug: 'prompting-hierarchies', count: '15 Questions' },
+      { code: 'C-03', name: 'Shaping & Chaining', slug: 'shaping-chaining', count: '10 Questions' },
+    ],
+  },
+  {
+    domain: 'Domain D: Behavior Reduction',
+    description: 'Functional extinction, differential reinforcement (DRA/DRI/DRO), and crisis intervention.',
+    topics: [
+      { code: 'D-01', name: 'Behavior Reduction Plans', slug: 'behavior-reduction-plans', count: '12 Questions' },
+      { code: 'D-02', name: 'Differential Reinforcement (DRA/DRI/DRO)', slug: 'differential-reinforcement', count: '16 Questions' },
+      { code: 'D-03', name: 'Extinction Procedures', slug: 'extinction-procedures', count: '8 Questions' },
+    ],
+  },
+  {
+    domain: 'Domain F: Professional Conduct & Ethics',
+    description: 'BACB Ethics Code 2.0, dual relationships, client dignity, and mandatory reporting.',
+    topics: [
+      { code: 'F-01', name: 'Professional Boundaries & Gifts', slug: 'professional-boundaries-gifts', count: '10 Questions' },
+      { code: 'F-02', name: 'Client Dignity & Communication', slug: 'client-dignity-communication', count: '8 Questions' },
+    ],
+  },
+];
+---
+
+<Layout 
+  title="BACB RBT Task List 2nd Edition Topics Directory"
+  description="Explore comprehensive exam topics across all BACB domains with high-yield formulas, practice quizzes, and flashcards."
+>
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+    <div class="border-b border-slate-200 dark:border-slate-800 pb-6 space-y-2">
+      <div class="text-xs font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">
+        Task List 2nd Edition Directory
+      </div>
+      <h1 class="text-3xl font-extrabold text-slate-900 dark:text-white">
+        RBT Exam Topics & Task Items
+      </h1>
+      <p class="text-slate-600 dark:text-slate-400 text-sm max-w-2xl">
+        Complete syllabus directory for the BACB Registered Behavior Technician exam. Choose any topic for key concept breakdowns, formulas, and instant practice.
+      </p>
+    </div>
+
+    <div class="space-y-8">
+      {TOPIC_DIRECTORIES.map((cat) => (
+        <div class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 space-y-4 shadow-sm">
+          <div>
+            <h2 class="text-xl font-bold text-slate-900 dark:text-white">{cat.domain}</h2>
+            <p class="text-xs text-slate-500 mt-0.5">{cat.description}</p>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+            {cat.topics.map((t) => (
+              <a
+                href={`/topics/${t.slug}`}
+                class="p-4 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-brand-500 hover:bg-brand-50/20 dark:hover:bg-brand-950/30 transition-all flex items-center justify-between group"
+              >
+                <div>
+                  <div class="text-[11px] font-bold text-brand-600 dark:text-brand-400">
+                    Item {t.code}
+                  </div>
+                  <div class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-brand-600">
+                    {t.name}
+                  </div>
+                </div>
+                <span class="text-xs text-slate-400 font-medium">{t.count}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</Layout>

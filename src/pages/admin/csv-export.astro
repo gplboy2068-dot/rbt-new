@@ -1,0 +1,11 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import AdminShellLayout from '@/components/AdminShellLayout';
+import AdminCSVExportIsland from '@/components/AdminCSVExportIsland';
+---
+
+<Layout title="CSV Export Engine — Admin Control">
+  <AdminShellLayout client:load currentTab="csv-export">
+    <AdminCSVExportIsland client:load />
+  </AdminShellLayout>
+</Layout>

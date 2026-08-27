@@ -1,0 +1,25 @@
+---
+import Layout from '@/layouts/Layout.astro';
+---
+
+<Layout title="500 — Server Error | RBT Practice AI">
+  <div class="min-h-[60vh] flex items-center justify-center px-4 py-16 text-center">
+    <div class="max-w-md space-y-4">
+      <div class="w-16 h-16 rounded-3xl bg-rose-50 dark:bg-rose-950/60 text-rose-600 flex items-center justify-center mx-auto text-2xl font-black shadow-sm">
+        500
+      </div>
+      <h1 class="text-2xl font-black text-slate-900 dark:text-white">Internal System Error</h1>
+      <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+        An unexpected edge runtime error occurred. Our team has been notified.
+      </p>
+      <div class="pt-4">
+        <a
+          href="/"
+          class="px-6 py-3 rounded-xl bg-slate-900 hover:bg-black text-white text-xs font-bold shadow-md inline-block transition-all"
+        >
+          Return to Study Center
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>

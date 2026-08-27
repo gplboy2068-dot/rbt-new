@@ -1,0 +1,19 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/admin/dashboard/page": "app/admin/dashboard/page.js",
+  "/admin/login/page": "app/admin/login/page.js",
+  "/ai-tutor/page": "app/ai-tutor/page.js",
+  "/analytics/page": "app/analytics/page.js",
+  "/api/admin/config/route": "app/api/admin/config/route.js",
+  "/api/admin/login/route": "app/api/admin/login/route.js",
+  "/api/admin/metrics/route": "app/api/admin/metrics/route.js",
+  "/api/ai/limits/route": "app/api/ai/limits/route.js",
+  "/api/ai/tutor/route": "app/api/ai/tutor/route.js",
+  "/api/public/questions/route": "app/api/public/questions/route.js",
+  "/flashcards/page": "app/flashcards/page.js",
+  "/mock-exam/[id]/page": "app/mock-exam/[id]/page.js",
+  "/mock-exam/page": "app/mock-exam/page.js",
+  "/page": "app/page.js",
+  "/practice/page": "app/practice/page.js",
+  "/study-guides/page": "app/study-guides/page.js"
+}

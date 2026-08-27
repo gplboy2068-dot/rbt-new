@@ -1,0 +1,35 @@
+name = "rtb-exam-platform"
+account_id = "8ae7dd4a86c2253fe2b4597a9ac54b8a"
+main = "./dist/_worker.js/index.js"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+
+# Static asset configuration for Astro client output
+assets = { directory = "./dist" }
+
+# Cloudflare D1 Database Binding
+[[d1_databases]]
+binding = "DB"
+database_name = "rtb-exam-db"
+database_id = "d56b1e23-63cd-43d2-9705-a5fa51300427"
+migrations_dir = "./migrations"
+
+# Cloudflare R2 Bucket Binding (for CSVs & Backups)
+[[r2_buckets]]
+binding = "STORAGE_BUCKET"
+bucket_name = "rtb-exam-assets"
+
+# Cloudflare KV Namespace Binding (for Edge Rate Limiting & Settings)
+[[kv_namespaces]]
+binding = "EDGE_KV"
+id = "9c53fe7363334755992a81e61675573d"
+
+# Cloudflare Queues Binding (optional for async batch jobs on Workers Paid)
+# [[queues.producers]]
+# binding = "JOBS_QUEUE"
+# queue = "rtb-async-jobs"
+
+[vars]
+ENVIRONMENT = "development"
+PUBLIC_SITE_NAME = "RBT Practice AI"
+PUBLIC_SITE_URL = "https://rbtpracticeai.com"

@@ -1,0 +1,13 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import MockExamRunnerIsland from '@/components/MockExamRunnerIsland';
+
+const { id } = Astro.params;
+---
+
+<Layout 
+  title="RBT Practice Test Runner — Real-time Evaluation"
+  description="Focused timed practice drill with question flagging, timer, and domain performance breakdown."
+>
+  <MockExamRunnerIsland client:load examId={id || 'test_measurement_drill'} />
+</Layout>

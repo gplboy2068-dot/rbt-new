@@ -1,0 +1,11 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import AdminShellLayout from '@/components/AdminShellLayout';
+import AdminAnalyticsIsland from '@/components/AdminAnalyticsIsland';
+---
+
+<Layout title="Platform Analytics — Admin Control">
+  <AdminShellLayout client:load currentTab="dashboard">
+    <AdminAnalyticsIsland client:load />
+  </AdminShellLayout>
+</Layout>
