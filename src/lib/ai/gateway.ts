@@ -1,4 +1,5 @@
 import { AIProviderConfig, Question } from '@/types';
+import { DeepSeekProvider, LLMMessage } from './providers';
 
 export interface AITutorRequest {
   query: string;
@@ -24,6 +25,56 @@ export class AIGateway {
     apiKey?: string
   ): Promise<AITutorResponse> {
     const { action, query, questionContext, domain } = req;
+
+    const deepSeekKey = apiKey || (typeof process !== 'undefined' ? process.env.DEEPSEEK_API_KEY : '');
+    if (deepSeekKey) {
+      try {
+        const provider = new DeepSeekProvider();
+        const systemPrompt = `You are an expert Registered Behavior Technician (RBT) Board Exam Tutor and Board Certified Behavior Analyst (BCBA) clinician.
+You help students prepare for the RBT examination (BACB Task List 2nd and 6th Editions).
+Always provide concise, clinically accurate, high-yield explanations using ABA principles (Measurement, Assessment, Skill Acquisition, Behavior Reduction, Professional Conduct).
+Format your answers in clean Markdown with clear headings, bold terms, and bullet points.`;
+
+        const messages: LLMMessage[] = [
+          { role: 'system', content: systemPrompt },
+        ];
+
+        if (action === 'explain_question' && questionContext) {
+          messages.push({
+            role: 'user',
+            content: `Please explain this RBT Exam question for a student:
+Question: "${questionContext.content}"
+Domain: ${questionContext.domainName} — ${questionContext.topicName}
+Options:
+${questionContext.options.map((opt, i) => `${String.fromCharCode(65 + i)}) ${opt}`).join('\n')}
+Correct Answer: Option ${String.fromCharCode(65 + questionContext.correctAnswer)} (${questionContext.options[questionContext.correctAnswer]})
+Clinical Explanation: ${questionContext.explanation || ''}
+
+Explain clearly:
+1. The core ABA concept tested.
+2. Why the correct answer is correct.
+3. Why the other options are wrong/distractors.
+4. A memory tip/rule of thumb for the exam.`,
+          });
+        } else {
+          messages.push({
+            role: 'user',
+            content: query || 'Explain the key RBT Exam principles.',
+          });
+        }
+
+        const completion = await provider.generateCompletion(messages, deepSeekKey);
+        if (completion?.content) {
+          return {
+            reply: completion.content,
+            modelUsed: completion.model || 'DeepSeek-V3 (Live)',
+            tokensUsed: completion.tokensUsed,
+          };
+        }
+      } catch (err) {
+        console.error('DeepSeek Live API error, using curriculum fallback:', err);
+      }
+    }
 
     if (action === 'explain_question' && questionContext) {
       const explanation = `### 🧠 RBT Exam Clinical Rationale\n\n**Task List Area:** ${questionContext.domainName} — ${questionContext.topicName}\n**Question:** *"${questionContext.content}"*\n\n#### 1. Applied Behavior Analysis (ABA) Core Principle\nIn RBT practice, determining the correct response requires identifying the exact behavioral definition, environmental antecedent, or operational measurement parameter.\n\n#### 2. Why Option ${String.fromCharCode(65 + questionContext.correctAnswer)} is Correct:\n${questionContext.explanation}\n\n#### 3. Why Other Distractors Are Incorrect:\n* Distractors often confuse continuous vs discontinuous metrics or confuse DRA with DRI/DRO.\n* Pay attention to absolute conditions (e.g. "at any moment" vs "for the entire duration").\n\n#### 💡 Exam Pro-Tip:\n*${questionContext.hint || 'Always eliminate choices that do not reference objective, observable behavior.'}*`;

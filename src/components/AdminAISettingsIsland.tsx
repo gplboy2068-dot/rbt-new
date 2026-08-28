@@ -123,6 +123,36 @@ export default function AdminAISettingsIsland() {
         </div>
       </div>
 
+      {/* DeepSeek API Key Configuration Guide */}
+      <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-4">
+        <div className="flex items-center justify-between">
+          <h2 className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2">
+            <Bot className="w-4 h-4 text-brand-600" />
+            <span>DeepSeek API Key Integration</span>
+          </h2>
+          <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
+            Active Provider
+          </span>
+        </div>
+
+        <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+          DeepSeek V3 powers instant clinical question rationale, distractor analysis, and real-time AI tutor dialogues.
+        </p>
+
+        <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-xs space-y-3">
+          <div className="font-bold text-slate-800 dark:text-slate-200">How to add your DeepSeek API Key:</div>
+          <ol className="list-decimal list-inside space-y-1.5 text-slate-600 dark:text-slate-400 text-[11px] leading-relaxed">
+            <li>
+              <strong>Cloudflare Dashboard (Production):</strong> Go to <code>Workers & Pages</code> &rarr; select <code>rtb-exam-platform</code> &rarr; <code>Settings</code> &rarr; <code>Variables and Secrets</code> &rarr; Add secret named <code className="bg-slate-200 dark:bg-slate-700 px-1 py-0.5 rounded font-mono font-bold text-brand-600">DEEPSEEK_API_KEY</code> with your key value (e.g. <code>sk-xxxxxxxx</code>).
+            </li>
+            <li>
+              <strong>Local Development:</strong> Create a file named <code>.dev.vars</code> or <code>.env</code> in the project root containing:
+              <pre className="mt-1 p-2 rounded-lg bg-slate-900 text-slate-100 font-mono text-[10px] overflow-x-auto">DEEPSEEK_API_KEY="sk-your-deepseek-api-key"</pre>
+            </li>
+          </ol>
+        </div>
+      </div>
+
       {/* Dynamic Rate Limit Configuration Form */}
       <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-6">
         <h2 className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2">

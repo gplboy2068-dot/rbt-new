@@ -2,7 +2,7 @@ import type { APIRoute } from 'astro';
 import { rateLimiter } from '@/lib/rate-limit/rate-limiter';
 import { AIGateway } from '@/lib/ai/gateway';
 
-export const POST: APIRoute = async ({ request }) => {
+export const POST: APIRoute = async ({ request, locals }) => {
   const forwarded = request.headers.get('x-forwarded-for');
   const ip = forwarded ? forwarded.split(',')[0].trim() : '127.0.0.1';
 
@@ -21,7 +21,10 @@ export const POST: APIRoute = async ({ request }) => {
     const body = await request.json();
     rateLimiter.recordUsage(ip);
 
-    const result = await AIGateway.executeTutorQuery(body);
+    const runtimeEnv = (locals as any)?.runtime?.env;
+    const apiKey = runtimeEnv?.DEEPSEEK_API_KEY || (typeof process !== 'undefined' ? process.env.DEEPSEEK_API_KEY : '');
+
+    const result = await AIGateway.executeTutorQuery(body, apiKey);
     const updatedStatus = rateLimiter.checkLimit(ip);
 
     return new Response(
