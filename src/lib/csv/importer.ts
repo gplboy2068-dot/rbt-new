@@ -336,6 +336,8 @@ export function processCSVToQuestions(
   const topicIdx = getIdx(['topic', 'subcategory', 'tasklisttopic']);
   const difficultyIdx = getIdx(['difficulty', 'level']);
   const referenceIdx = getIdx(['references', 'reference', 'source']);
+  const certIdx = getIdx(['certification', 'track', 'cert', 'exam']);
+  const versionIdx = getIdx(['certificationversion', 'version', 'edition', 'blueprint']);
 
   const questions: Question[] = [];
   const seenStems = new Set<string>();
@@ -383,6 +385,9 @@ export function processCSVToQuestions(
 
     const domainName = domainIdx >= 0 && row[domainIdx] ? row[domainIdx].trim() : 'Measurement';
     const topicName = topicIdx >= 0 && row[topicIdx] ? row[topicIdx].trim() : 'Continuous Measurement';
+    const rawCert = (certIdx >= 0 && row[certIdx] ? row[certIdx].trim() : 'RBT').toUpperCase();
+    const certification = rawCert.includes('BACB') || rawCert.includes('BCBA') ? 'BACB' : 'RBT';
+    const certificationVersion = versionIdx >= 0 && row[versionIdx] ? row[versionIdx].trim() : '6th Edition';
 
     questions.push({
       id,
@@ -396,9 +401,9 @@ export function processCSVToQuestions(
       options: [optA, optB, optC, optD].filter(Boolean),
       correctAnswer: correctIdxNum,
       explanation: explanationIdx >= 0 && row[explanationIdx] ? row[explanationIdx].trim() : 'Applied Behavior Analysis rationale.',
-      referenceSource: referenceIdx >= 0 && row[referenceIdx] ? row[referenceIdx].trim() : 'BACB RBT 6th Edition Task List',
-      certification: 'RBT',
-      certificationVersion: '6th Edition',
+      referenceSource: referenceIdx >= 0 && row[referenceIdx] ? row[referenceIdx].trim() : 'BACB Task List Specification',
+      certification,
+      certificationVersion,
       status: 'active',
       tags: [domainName, topicName, 'Imported'],
     });
