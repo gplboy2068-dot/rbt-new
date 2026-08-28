@@ -21,6 +21,7 @@ export default function AdminCSVImportIsland() {
     duplicateRows?: CSVDuplicateInfo[];
   } | null>(null);
   const [conflictMode, setConflictMode] = useState<'UPSERT' | 'SKIP_DUPLICATES'>('UPSERT');
+  const [targetTrack, setTargetTrack] = useState<'AUTO' | 'BACB' | 'RBT'>('AUTO');
   const [importedCount, setImportedCount] = useState(0);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [notification, setNotification] = useState<string | null>(null);
@@ -76,6 +77,7 @@ export default function AdminCSVImportIsland() {
         body: JSON.stringify({
           csvText: csvContent,
           conflictResolution: conflictMode,
+          targetCertification: targetTrack !== 'AUTO' ? targetTrack : undefined,
         }),
       });
       const data = await res.json();
@@ -87,7 +89,10 @@ export default function AdminCSVImportIsland() {
         // Also sync local client memory repository
         const parsed = processCSVToQuestions(csvContent, conflictMode);
         if (parsed.questions.length > 0) {
-          QuestionLifecycleRepository.addOrUpsertQuestions(parsed.questions);
+          const mapped = targetTrack !== 'AUTO' 
+            ? parsed.questions.map((q) => ({ ...q, certification: targetTrack }))
+            : parsed.questions;
+          QuestionLifecycleRepository.addOrUpsertQuestions(mapped);
         }
 
         setStatus('completed');
@@ -211,6 +216,48 @@ export default function AdminCSVImportIsland() {
               <CheckCircle className="w-4 h-4" />
               <span>Commit Ingestion to Database</span>
             </button>
+          </div>
+
+          {/* Target Track Selection */}
+          <div className="p-4 rounded-2xl bg-purple-50/70 dark:bg-purple-950/30 border border-purple-200 dark:border-purple-900/60 space-y-2">
+            <div className="text-xs font-bold text-purple-900 dark:text-purple-200 flex items-center gap-1.5">
+              <span>🎯 Target Certification Track for this CSV:</span>
+            </div>
+            <div className="flex flex-wrap gap-4 text-xs font-medium">
+              <label className="flex items-center gap-2 cursor-pointer">
+                <input
+                  type="radio"
+                  name="targetTrack"
+                  value="AUTO"
+                  checked={targetTrack === 'AUTO'}
+                  onChange={() => setTargetTrack('AUTO')}
+                  className="text-purple-600 focus:ring-purple-500 cursor-pointer"
+                />
+                <span><strong>Auto-Detect from CSV</strong> (uses track column in file)</span>
+              </label>
+              <label className="flex items-center gap-2 cursor-pointer">
+                <input
+                  type="radio"
+                  name="targetTrack"
+                  value="BACB"
+                  checked={targetTrack === 'BACB'}
+                  onChange={() => setTargetTrack('BACB')}
+                  className="text-purple-600 focus:ring-purple-500 cursor-pointer"
+                />
+                <span><strong className="text-purple-700 dark:text-purple-300">🟣 Set All to BACB Practice Track</strong></span>
+              </label>
+              <label className="flex items-center gap-2 cursor-pointer">
+                <input
+                  type="radio"
+                  name="targetTrack"
+                  value="RBT"
+                  checked={targetTrack === 'RBT'}
+                  onChange={() => setTargetTrack('RBT')}
+                  className="text-purple-600 focus:ring-purple-500 cursor-pointer"
+                />
+                <span><strong className="text-emerald-700 dark:text-emerald-300">🟢 Set All to RBT Track</strong></span>
+              </label>
+            </div>
           </div>
 
           {/* Import / Duplicate Strategy */}

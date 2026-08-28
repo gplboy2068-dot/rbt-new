@@ -269,6 +269,32 @@ export class ServerQuestionStore {
   }
 
   /**
+   * BATCH BULK CERTIFICATION UPDATE (RBT vs BACB)
+   */
+  static async bulkUpdateCertification(
+    ids: string[],
+    certification: 'RBT' | 'BACB',
+    locals?: any
+  ): Promise<number> {
+    await this.loadMasterState(locals);
+    let count = 0;
+    const idSet = new Set(ids);
+
+    for (const [id, q] of memoryQuestions.entries()) {
+      if (idSet.has(id) || idSet.has(q.code)) {
+        q.certification = certification;
+        memoryQuestions.set(id, q);
+        count++;
+      }
+    }
+
+    if (count > 0) {
+      await this.saveMasterState(locals);
+    }
+    return count;
+  }
+
+  /**
    * PURGE ALL: Mutates in memory and writes to KV ONLY ONCE.
    */
   static async purgeAllQuestions(locals?: any): Promise<number> {

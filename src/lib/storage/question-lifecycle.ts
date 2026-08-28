@@ -212,6 +212,27 @@ export class QuestionLifecycleRepository {
   }
 
   /**
+   * BULK UPDATE CERTIFICATION TRACK (RBT vs BACB)
+   */
+  static bulkUpdateCertification(ids: string[], certification: 'RBT' | 'BACB'): number {
+    loadClientStorage();
+    let count = 0;
+    const idSet = new Set(ids);
+    for (const [id, q] of inMemoryQuestions.entries()) {
+      if (idSet.has(id) || idSet.has(q.code)) {
+        q.certification = certification;
+        count++;
+      }
+    }
+    const deletedRecord: Record<string, any> = {};
+    deletedAuditRegistry.forEach((val, key) => {
+      deletedRecord[key] = val;
+    });
+    syncClientStorage(Array.from(inMemoryQuestions.values()), deletedRecord);
+    return count;
+  }
+
+  /**
    * EXPLICIT RESTORE OF A DELIBERATELY DELETED QUESTION
    * Re-activates a question back to active pool only upon direct Admin request.
    */

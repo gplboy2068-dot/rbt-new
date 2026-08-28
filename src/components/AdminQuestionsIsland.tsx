@@ -296,6 +296,50 @@ export default function AdminQuestionsIsland() {
     }
   };
 
+  // BULK SET CERTIFICATION TRACK (RBT / BACB)
+  const handleBulkSetTrack = async (targetTrack: 'BACB' | 'RBT') => {
+    if (selectedIds.size === 0) return;
+    const ids = Array.from(selectedIds);
+    setLoading(true);
+    try {
+      const res = await fetch('/api/v1/admin/questions/bulk-track', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          questionIds: ids,
+          certification: targetTrack,
+        }),
+      });
+      const data = await res.json();
+      if (res.ok && data.success) {
+        setNotification(`✅ Successfully moved ${data.data?.updatedCount || ids.length} questions to ${targetTrack} track!`);
+        setAllQuestions((prev) =>
+          prev.map((q) => (selectedIds.has(q.id) || selectedIds.has(q.code) ? { ...q, certification: targetTrack } : q))
+        );
+        QuestionLifecycleRepository.bulkUpdateCertification(ids, targetTrack);
+        setSelectedIds(new Set());
+      } else {
+        setNotification(`❌ Error updating track: ${data.error?.message || 'Failed'}`);
+      }
+    } catch {
+      QuestionLifecycleRepository.bulkUpdateCertification(ids, targetTrack);
+      setAllQuestions((prev) =>
+        prev.map((q) => (selectedIds.has(q.id) || selectedIds.has(q.code) ? { ...q, certification: targetTrack } : q))
+      );
+      setNotification(`✅ Moved ${ids.length} questions to ${targetTrack} track.`);
+      setSelectedIds(new Set());
+    } finally {
+      setLoading(false);
+      setTimeout(() => setNotification(null), 4000);
+    }
+  };
+
+  const handleSelectAllFiltered = () => {
+    const nextSet = new Set<string>();
+    filtered.forEach((q) => nextSet.add(q.id));
+    setSelectedIds(nextSet);
+  };
+
   const handleConvertToFlashcard = async (q: Question) => {
     try {
       const res = await fetch('/api/v1/flashcards/convert-questions', {
@@ -469,13 +513,39 @@ export default function AdminQuestionsIsland() {
                 <span>Restore Selected ({selectedIds.size})</span>
               </button>
             ) : (
+              <>
+                <button
+                  onClick={() => handleBulkSetTrack('BACB')}
+                  disabled={loading}
+                  title="Assign selected questions to BACB Practice Track"
+                  className="px-3.5 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 text-white text-xs font-bold shadow-md flex items-center gap-1.5 transition-colors"
+                >
+                  <span>🟣 Move to BACB Track ({selectedIds.size})</span>
+                </button>
+                <button
+                  onClick={() => handleBulkSetTrack('RBT')}
+                  disabled={loading}
+                  title="Assign selected questions to RBT Track"
+                  className="px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-md flex items-center gap-1.5 transition-colors"
+                >
+                  <span>🟢 Move to RBT Track ({selectedIds.size})</span>
+                </button>
+                <button
+                  onClick={handleBulkDelete}
+                  disabled={loading}
+                  className="px-3.5 py-2 rounded-xl bg-rose-600 hover:bg-rose-700 text-white text-xs font-bold shadow-md flex items-center gap-1.5 transition-colors"
+                >
+                  <Trash2 className="w-3.5 h-3.5" />
+                  <span>Delete ({selectedIds.size})</span>
+                </button>
+              </>
+            )}
+            {filtered.length > selectedIds.size && (
               <button
-                onClick={handleBulkDelete}
-                disabled={loading}
-                className="px-4 py-2 rounded-xl bg-rose-600 hover:bg-rose-700 text-white text-xs font-bold shadow-md flex items-center gap-1.5 transition-colors"
+                onClick={handleSelectAllFiltered}
+                className="px-3 py-2 rounded-xl border border-brand-300 dark:border-brand-700 bg-brand-50 dark:bg-brand-950/60 text-brand-700 dark:text-brand-300 text-xs font-bold hover:bg-brand-100 transition-colors"
               >
-                <Trash2 className="w-3.5 h-3.5" />
-                <span>Delete Selected ({selectedIds.size})</span>
+                Select All Filtered ({filtered.length})
               </button>
             )}
             <button

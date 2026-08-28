@@ -15,7 +15,7 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
 
   try {
     const body = await request.json().catch(() => ({}));
-    const { csvText, questions: rawQuestions, conflictResolution = 'UPSERT' } = body;
+    const { csvText, questions: rawQuestions, conflictResolution = 'UPSERT', targetCertification } = body;
 
     let questionsToIngest = [];
 
@@ -24,6 +24,13 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
     } else if (csvText && typeof csvText === 'string') {
       const parsed = processCSVToQuestions(csvText, conflictResolution);
       questionsToIngest = parsed.questions;
+    }
+
+    if (targetCertification === 'BACB' || targetCertification === 'RBT') {
+      questionsToIngest = questionsToIngest.map((q: any) => ({
+        ...q,
+        certification: targetCertification,
+      }));
     }
 
     if (questionsToIngest.length === 0) {
