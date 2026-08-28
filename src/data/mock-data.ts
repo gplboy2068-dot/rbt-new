@@ -1522,6 +1522,116 @@ export const INITIAL_QUESTIONS: Question[] = [
     ],
     "certification": "RBT",
     "certificationVersion": "6th Edition"
+  },
+  {
+    "id": "bacb-prac-001",
+    "code": "BACB-DOM-B-001",
+    "domainId": "B",
+    "domainName": "B — Assessment and Preference Testing",
+    "topicId": "Preference",
+    "topicName": "Preference Assessments (B-01)",
+    "difficulty": "Medium",
+    "content": "An assessor conducts a preference assessment where 6 stimuli are presented simultaneously. Once the client selects an item, they are allowed 30 seconds of access, and the item is NOT returned to the array for subsequent trials. Which assessment is this?",
+    "options": [
+      "Paired Stimulus (Forced Choice) Assessment",
+      "Multiple Stimulus Without Replacement (MSWO)",
+      "Multiple Stimulus With Replacement (MSW)",
+      "Free Operant Observation"
+    ],
+    "correctAnswer": 1,
+    "explanation": "In Multiple Stimulus Without Replacement (MSWO), all items are presented together; when one item is chosen, it is permanently removed from the remaining array for the remaining trials.",
+    "referenceSource": "BACB Task List Specification",
+    "tags": ["BACB", "Assessment", "Medium", "MSWO"],
+    "certification": "BACB",
+    "certificationVersion": "6th Edition"
+  },
+  {
+    "id": "bacb-prac-002",
+    "code": "BACB-DOM-A-002",
+    "domainId": "A",
+    "domainName": "A — Data Collection and Graphing",
+    "topicId": "Discontinuous",
+    "topicName": "Discontinuous Measurement (A-02)",
+    "difficulty": "Medium",
+    "content": "Which discontinuous measurement system is known to systematically overestimate the overall occurrence of the target behavior?",
+    "options": [
+      "Whole Interval Recording",
+      "Partial Interval Recording",
+      "Momentary Time Sampling",
+      "Duration Recording"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Partial Interval Recording scores an occurrence if the behavior happens at any time during the interval, leading to a systematic overestimation of total duration/percentage.",
+    "referenceSource": "BACB Task List Specification",
+    "tags": ["BACB", "Measurement", "Medium"],
+    "certification": "BACB",
+    "certificationVersion": "6th Edition"
+  },
+  {
+    "id": "bacb-prac-003",
+    "code": "BACB-DOM-C-003",
+    "domainId": "C",
+    "domainName": "C — Skill Acquisition",
+    "topicId": "Prompting",
+    "topicName": "Prompting & Prompt Fading (C-02)",
+    "difficulty": "Medium",
+    "content": "During discrete trial teaching, a practitioner begins with a full physical prompt and gradually fades to a partial physical prompt, model, and then gestural prompt across sessions. What prompting strategy is being applied?",
+    "options": [
+      "Least-to-Most Prompting",
+      "Most-to-Least Prompting",
+      "Graduated Guidance",
+      "Stimulus Shaping"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Most-to-Least prompting starts with the most intrusive prompt (e.g. full physical) to ensure errorless responding and fades toward less intrusive prompts over time.",
+    "referenceSource": "BACB Task List Specification",
+    "tags": ["BACB", "Skill Acquisition", "Medium"],
+    "certification": "BACB",
+    "certificationVersion": "6th Edition"
+  },
+  {
+    "id": "bacb-prac-004",
+    "code": "BACB-DOM-D-004",
+    "domainId": "D",
+    "domainName": "D — Behavior Reduction",
+    "topicId": "Differential",
+    "topicName": "Differential Reinforcement (DRA/DRO/DRI)",
+    "difficulty": "Medium",
+    "content": "A clinician implements a procedure where reinforcement is delivered strictly if the client does NOT engage in skin-picking for a continuous 10-minute interval. Which procedure is this?",
+    "options": [
+      "DRA (Alternative Behavior)",
+      "DRI (Incompatible Behavior)",
+      "DRO (Other/Zero Behavior)",
+      "DRL (Low Rates)"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Differential Reinforcement of Other Behavior (DRO) delivers reinforcement contingent on the zero occurrence of the target behavior throughout a specified time interval.",
+    "referenceSource": "BACB Task List Specification",
+    "tags": ["BACB", "Behavior Reduction", "Medium", "DRO"],
+    "certification": "BACB",
+    "certificationVersion": "6th Edition"
+  },
+  {
+    "id": "bacb-prac-005",
+    "code": "BACB-DOM-F-005",
+    "domainId": "F",
+    "domainName": "F — Professional Conduct",
+    "topicId": "Ethics",
+    "topicName": "Professional Boundaries & Dual Relationships",
+    "difficulty": "Easy",
+    "content": "A client's parent invites the behavior technician to attend the child's weekend birthday party as a guest and offers a $50 gift card. According to BACB ethical compliance guidelines, what should the technician do?",
+    "options": [
+      "Accept both the invitation and gift card since building rapport with families is essential",
+      "Politely decline the gift card and party invitation to prevent a multiple/dual relationship, and notify the supervising BCBA",
+      "Accept only the party invitation but decline the gift card",
+      "Accept the gift card on behalf of the company clinic"
+    ],
+    "correctAnswer": 1,
+    "explanation": "BACB ethical codes strictly prohibit behavior technicians from entering into multiple relationships and accepting gifts above nominal limits. Practitioners must politely decline and inform their supervisor.",
+    "referenceSource": "BACB Ethics Code for Behavior Technicians",
+    "tags": ["BACB", "Ethics", "Easy"],
+    "certification": "BACB",
+    "certificationVersion": "6th Edition"
   }
 ];
 

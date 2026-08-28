@@ -31,6 +31,8 @@ import { Question, DifficultyLevel } from '@/types';
 import { progressRepo } from '@/lib/storage/progress-repo';
 import { AnalyticsService } from '@/lib/services/analytics';
 
+import { QuestionLifecycleRepository } from '@/lib/storage/question-lifecycle';
+
 // ==========================================
 // ERROR BOUNDARY
 // ==========================================
@@ -101,7 +103,7 @@ class UnlimitedStudyErrorBoundary extends Component<ErrorBoundaryProps, ErrorBou
 // ==========================================
 const DEFAULT_CONFIG: UnlimitedStudyConfig = {
   certification: 'RBT',
-  certificationVersion: '6th Edition',
+  certificationVersion: 'All',
   domain: 'All',
   topic: 'All',
   difficulty: 'All',
@@ -112,7 +114,14 @@ const DEFAULT_CONFIG: UnlimitedStudyConfig = {
 };
 
 function UnlimitedStudyContent() {
-  const [allQuestions, setAllQuestions] = useState<Question[]>(() => INITIAL_QUESTIONS);
+  const [allQuestions, setAllQuestions] = useState<Question[]>(() => {
+    try {
+      const local = QuestionLifecycleRepository.getActiveQuestions();
+      return local.length > 0 ? local : INITIAL_QUESTIONS;
+    } catch {
+      return INITIAL_QUESTIONS;
+    }
+  });
   const allQuestionsRef = useRef<Question[]>(INITIAL_QUESTIONS);
   const [weakTopics, setWeakTopics] = useState<string[]>([]);
   const [mounted, setMounted] = useState(false);
@@ -143,12 +152,22 @@ function UnlimitedStudyContent() {
   useEffect(() => {
     setMounted(true);
 
+    const localActive = QuestionLifecycleRepository.getActiveQuestions();
+    
     fetch('/api/v1/questions?status=active&limit=20000')
       .then((r) => r.json())
       .then((d) => {
-        const liveItems: Question[] = (d && d.success && Array.isArray(d.data?.items) && d.data.items.length > 0)
-          ? d.data.items
-          : INITIAL_QUESTIONS;
+        const serverItems: Question[] = (d && d.success && Array.isArray(d.data?.items)) ? d.data.items : [];
+        const questionMap = new Map<string, Question>();
+        
+        INITIAL_QUESTIONS.forEach((q) => questionMap.set(q.id, q));
+        serverItems.forEach((q) => questionMap.set(q.id, q));
+        localActive.forEach((q) => questionMap.set(q.id, q));
+
+        const liveItems = Array.from(questionMap.values()).filter(
+          (q) => q.status !== 'deleted' && q.status !== 'archived' && !QuestionLifecycleRepository.isDeleted(q.id)
+        );
+
         setAllQuestions(liveItems);
         allQuestionsRef.current = liveItems;
 
@@ -174,7 +193,11 @@ function UnlimitedStudyContent() {
           }
         }
       })
-      .catch(() => {});
+      .catch(() => {
+        const liveItems = localActive.length > 0 ? localActive : INITIAL_QUESTIONS;
+        setAllQuestions(liveItems);
+        allQuestionsRef.current = liveItems;
+      });
 
     try {
       progressRepo.getAllAttempts().then((attempts) => {
@@ -525,11 +548,41 @@ function UnlimitedStudyContent() {
             </label>
           </div>
 
+          {/* Zero Candidate Helper Banner */}
+          {candidatePreviewCount === 0 && (
+            <div className="p-4 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-900 text-xs text-amber-900 dark:text-amber-200 space-y-2.5 animate-fadeIn">
+              <div className="font-bold flex items-center gap-2 text-amber-800 dark:text-amber-300">
+                <AlertCircle className="w-4 h-4 shrink-0 text-amber-600" />
+                <span>No questions found matching this exact filter combination</span>
+              </div>
+              <p className="text-[11px] leading-relaxed text-amber-800/90 dark:text-amber-300/90">
+                You selected: <strong>{currentCert}</strong> + <strong>{currentDomain}</strong> + <strong>{currentDifficulty}</strong>. If your added questions belong to a different domain or difficulty level, broaden your filters to view all available questions.
+              </p>
+              <div className="flex flex-wrap items-center gap-2 pt-1">
+                <button
+                  type="button"
+                  onClick={() => setConfig({ ...(config || DEFAULT_CONFIG), domain: 'All', difficulty: 'All', certificationVersion: 'All' })}
+                  className="px-3.5 py-1.5 rounded-xl bg-amber-600 hover:bg-amber-700 text-white font-bold text-[11px] shadow-sm transition-all flex items-center gap-1.5"
+                >
+                  <RefreshCw className="w-3.5 h-3.5" />
+                  <span>Set Domain & Difficulty to "All" (Show All {currentCert} Questions)</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setConfig({ ...(config || DEFAULT_CONFIG), certification: 'All', domain: 'All', difficulty: 'All', certificationVersion: 'All' })}
+                  className="px-3.5 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-900 text-white font-bold text-[11px] shadow-sm transition-all"
+                >
+                  Show All Platform Questions ({allQuestions.length})
+                </button>
+              </div>
+            </div>
+          )}
+
           {/* Start CTA with Live Pool Counter */}
           <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div className="text-xs text-slate-500 font-medium">
               Available Question Pool:{' '}
-              <strong className="text-slate-900 dark:text-white text-sm">
+              <strong className={`text-sm ${candidatePreviewCount > 0 ? 'text-emerald-600 dark:text-emerald-400 font-black' : 'text-rose-500 font-bold'}`}>
                 {candidatePreviewCount} Active Question{candidatePreviewCount !== 1 ? 's' : ''}
               </strong>
             </div>

@@ -59,35 +59,102 @@ export class StudyEngine {
       const isArch = q.status === 'archived';
       if (isDel || isArch) return false;
 
-      // 2. Strict Track Separation (RBT vs BACB)
+      // 2. Strict Track Separation (RBT vs BACB vs All)
       if (config.certification !== 'All') {
-        const qCert = (q.certification || 'RBT').toUpperCase();
-        if (qCert !== config.certification.toUpperCase()) return false;
+        const qCert = (q.certification || '').toUpperCase();
+        const confCert = config.certification.toUpperCase();
+
+        if (confCert === 'BACB') {
+          const matchesBACB =
+            qCert.includes('BACB') ||
+            qCert.includes('BCBA') ||
+            qCert.includes('BCABA') ||
+            (Array.isArray(q.tags) && q.tags.some((t) => t.toUpperCase().includes('BACB')));
+          if (!matchesBACB) return false;
+        } else if (confCert === 'RBT') {
+          const matchesRBT = qCert === '' || qCert === 'RBT' || qCert.includes('RBT');
+          if (!matchesRBT) return false;
+        } else if (qCert !== confCert) {
+          return false;
+        }
       }
 
       // 3. Certification Version
       if (config.certificationVersion !== 'All') {
-        const qVer = q.certificationVersion || '6th Edition';
-        if (qVer !== config.certificationVersion) return false;
+        const qVer = q.certificationVersion;
+        if (qVer && qVer !== 'All' && qVer.toLowerCase() !== config.certificationVersion.toLowerCase()) {
+          const stripped = config.certificationVersion.toLowerCase().replace(' edition', '').trim();
+          if (!qVer.toLowerCase().includes(stripped)) {
+            return false;
+          }
+        }
       }
 
       // 4. Domain filter
       if (config.domain && config.domain !== 'All') {
         const domLower = config.domain.toLowerCase();
         const qDom = (q.domainName || '').toLowerCase();
+        const qDomId = (q.domainId || '').toLowerCase();
         const qTopic = (q.topicName || '').toLowerCase();
 
-        let matches = qDom.includes(domLower) || qTopic.includes(domLower);
+        let matches = qDom.includes(domLower) || qTopic.includes(domLower) || qDomId.includes(domLower);
         if (!matches) {
-          if (domLower.includes('measurement') && (qDom.includes('data collection') || qDom.includes('graphing') || qDom.includes('a —') || qDom.includes('a -') || qDom.includes('a:'))) {
+          if (
+            domLower.includes('measurement') &&
+            (qDom.includes('measurement') ||
+              qDom.includes('data collection') ||
+              qDom.includes('graphing') ||
+              qDomId === 'dom_a' ||
+              qDomId === 'a' ||
+              qDom.includes('a —') ||
+              qDom.includes('a -') ||
+              qDom.includes('a:'))
+          ) {
             matches = true;
-          } else if (domLower.includes('assessment') && (qDom.includes('preference') || qDom.includes('b —') || qDom.includes('b -') || qDom.includes('b:'))) {
+          } else if (
+            domLower.includes('assessment') &&
+            (qDom.includes('assessment') ||
+              qDom.includes('preference') ||
+              qDomId === 'dom_b' ||
+              qDomId === 'b' ||
+              qDom.includes('b —') ||
+              qDom.includes('b -') ||
+              qDom.includes('b:'))
+          ) {
             matches = true;
-          } else if (domLower.includes('skill') && (qDom.includes('acquisition') || qDom.includes('c —') || qDom.includes('c -') || qDom.includes('c:'))) {
+          } else if (
+            domLower.includes('skill') &&
+            (qDom.includes('skill') ||
+              qDom.includes('acquisition') ||
+              qDomId === 'dom_c' ||
+              qDomId === 'c' ||
+              qDom.includes('c —') ||
+              qDom.includes('c -') ||
+              qDom.includes('c:'))
+          ) {
             matches = true;
-          } else if (domLower.includes('behavior') && (qDom.includes('reduction') || qDom.includes('d —') || qDom.includes('d -') || qDom.includes('d:'))) {
+          } else if (
+            domLower.includes('behavior') &&
+            (qDom.includes('reduction') ||
+              qDom.includes('behavior reduction') ||
+              qDomId === 'dom_d' ||
+              qDomId === 'd' ||
+              qDom.includes('d —') ||
+              qDom.includes('d -') ||
+              qDom.includes('d:'))
+          ) {
             matches = true;
-          } else if ((domLower.includes('ethics') || domLower.includes('conduct') || domLower.includes('professional')) && (qDom.includes('professional') || qDom.includes('ethics') || qDom.includes('f —') || qDom.includes('f -') || qDom.includes('f:'))) {
+          } else if (
+            (domLower.includes('ethics') || domLower.includes('conduct') || domLower.includes('professional')) &&
+            (qDom.includes('professional') ||
+              qDom.includes('ethics') ||
+              qDom.includes('conduct') ||
+              qDomId === 'dom_f' ||
+              qDomId === 'f' ||
+              qDom.includes('f —') ||
+              qDom.includes('f -') ||
+              qDom.includes('f:'))
+          ) {
             matches = true;
           }
         }
@@ -103,8 +170,8 @@ export class StudyEngine {
 
       // 6. Difficulty filter
       if (config.difficulty && config.difficulty !== 'All') {
-        const qDiff = (q.difficulty || 'Medium').toLowerCase();
-        if (qDiff !== config.difficulty.toLowerCase()) return false;
+        const qDiff = (q.difficulty || '').toLowerCase();
+        if (qDiff && qDiff !== config.difficulty.toLowerCase()) return false;
       }
 
       return true;
