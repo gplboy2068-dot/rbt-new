@@ -64,18 +64,16 @@ export class StudyEngine {
         const qCert = (q.certification || '').toUpperCase();
         const confCert = config.certification.toUpperCase();
 
+        const isExplicitBACB =
+          qCert.includes('BACB') ||
+          qCert.includes('BCBA') ||
+          qCert.includes('BCABA') ||
+          (Array.isArray(q.tags) && q.tags.some((t) => t.toUpperCase().includes('BACB')));
+
         if (confCert === 'BACB') {
-          const matchesBACB =
-            qCert.includes('BACB') ||
-            qCert.includes('BCBA') ||
-            qCert.includes('BCABA') ||
-            (Array.isArray(q.tags) && q.tags.some((t) => t.toUpperCase().includes('BACB')));
-          if (!matchesBACB) return false;
+          if (!isExplicitBACB && qCert === 'RBT') return false;
         } else if (confCert === 'RBT') {
-          const matchesRBT = qCert === '' || qCert === 'RBT' || qCert.includes('RBT');
-          if (!matchesRBT) return false;
-        } else if (qCert !== confCert) {
-          return false;
+          if (isExplicitBACB) return false;
         }
       }
 

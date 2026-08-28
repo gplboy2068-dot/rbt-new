@@ -66,8 +66,14 @@ export class ServerQuestionStore {
         }
 
         if (initializedFlag === 'true' && Array.isArray(rawQuestions)) {
+          const rbtCount = rawQuestions.filter((q) => (q.certification || 'RBT').toUpperCase() === 'RBT').length;
+          const isUnsplit = rbtCount > 2250 && rawQuestions.length > 2250;
+
           memoryQuestions.clear();
-          rawQuestions.forEach((q: Question) => {
+          rawQuestions.forEach((q: Question, idx: number) => {
+            if (isUnsplit && idx >= 2250 && (!q.certification || q.certification === 'RBT')) {
+              q.certification = 'BACB';
+            }
             if (memoryDeletedRegistry.has(q.id)) {
               const meta = memoryDeletedRegistry.get(q.id)!;
               q.status = 'deleted';

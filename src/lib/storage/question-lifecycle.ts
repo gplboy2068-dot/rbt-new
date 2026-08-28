@@ -52,8 +52,14 @@ function loadClientStorage() {
       if (saved) {
         const parsed: Question[] = JSON.parse(saved);
         if (Array.isArray(parsed)) {
+          const rbtCount = parsed.filter((q) => (q.certification || 'RBT').toUpperCase() === 'RBT').length;
+          const isUnsplit = rbtCount > 2250 && parsed.length > 2250;
+
           inMemoryQuestions.clear();
-          parsed.forEach((q) => {
+          parsed.forEach((q, idx) => {
+            if (isUnsplit && idx >= 2250 && (!q.certification || q.certification === 'RBT')) {
+              q.certification = 'BACB';
+            }
             if (deletedAuditRegistry.has(q.id)) {
               const meta = deletedAuditRegistry.get(q.id)!;
               q.status = 'deleted';
@@ -63,6 +69,14 @@ function loadClientStorage() {
             }
             inMemoryQuestions.set(q.id, q);
           });
+
+          if (isUnsplit) {
+            const deletedRecord: Record<string, any> = {};
+            deletedAuditRegistry.forEach((val, key) => {
+              deletedRecord[key] = val;
+            });
+            syncClientStorage(Array.from(inMemoryQuestions.values()), deletedRecord);
+          }
         }
       }
     } catch (e) {
