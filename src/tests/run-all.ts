@@ -14,6 +14,7 @@ import { testQuestionDeletionLifecycle } from './question-deletion-lifecycle.tes
 import { testFlashcardDeletionLifecycle } from './flashcard-deletion-lifecycle.test';
 import { testMultiBrowserDatabaseSync } from './multi-browser-db-sync.test';
 import { testUnlimitedStudyMode } from './unlimited-study.test';
+import './indexnow.test';
 
 async function main() {
   console.log('================================================================');
