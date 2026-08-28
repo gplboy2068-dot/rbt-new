@@ -242,6 +242,7 @@ export class CMSService {
 
     const staticRoutes = [
       '',
+      '/study',
       '/practice-questions',
       '/practice-tests',
       '/mock-exams',
@@ -254,6 +255,9 @@ export class CMSService {
       '/faq',
       '/about',
       '/contact',
+      '/privacy',
+      '/terms',
+      '/disclaimer',
     ];
 
     let urls = staticRoutes.map(
