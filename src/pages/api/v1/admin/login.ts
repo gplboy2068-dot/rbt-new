@@ -2,7 +2,7 @@ import type { APIRoute } from 'astro';
 import { signAdminToken } from '@/lib/auth/admin-auth';
 
 const ADMIN_USERNAME = 'admin';
-const ADMIN_PASSWORD = 'rtb2026admin';
+const ADMIN_PASSWORD = 'Firoz@#$3030';
 
 export const POST: APIRoute = async ({ request, cookies }) => {
   try {

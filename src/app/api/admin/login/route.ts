@@ -1,9 +1,9 @@
 import { NextResponse } from 'next/server';
 import { signAdminToken } from '@/lib/auth/admin-auth';
 
-// Default demo administrator credentials for Phase 1
+// Default administrator credentials
 const ADMIN_USERNAME = process.env.ADMIN_USER || 'admin';
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'rtb2026admin';
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'Firoz@#$3030';
 
 export async function POST(request: Request) {
   try {
