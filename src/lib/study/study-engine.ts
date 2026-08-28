@@ -90,70 +90,93 @@ export class StudyEngine {
 
       // 4. Domain filter
       if (config.domain && config.domain !== 'All') {
-        const domLower = config.domain.toLowerCase();
-        const qDom = (q.domainName || '').toLowerCase();
-        const qDomId = (q.domainId || '').toLowerCase();
-        const qTopic = (q.topicName || '').toLowerCase();
+        const domLower = config.domain.toLowerCase().trim();
+        const qDom = (q.domainName || '').toLowerCase().trim();
+        const qDomId = (q.domainId || '').toLowerCase().trim();
+        const qTopic = (q.topicName || '').toLowerCase().trim();
 
-        let matches = qDom.includes(domLower) || qTopic.includes(domLower) || qDomId.includes(domLower);
+        // Direct containment or reciprocal match
+        let matches =
+          qDom.includes(domLower) ||
+          domLower.includes(qDom) ||
+          qTopic.includes(domLower) ||
+          qDomId.includes(domLower);
+
         if (!matches) {
-          if (
-            domLower.includes('measurement') &&
-            (qDom.includes('measurement') ||
-              qDom.includes('data collection') ||
-              qDom.includes('graphing') ||
-              qDomId === 'dom_a' ||
-              qDomId === 'a' ||
-              qDom.includes('a —') ||
-              qDom.includes('a -') ||
-              qDom.includes('a:'))
-          ) {
-            matches = true;
-          } else if (
-            domLower.includes('assessment') &&
-            (qDom.includes('assessment') ||
-              qDom.includes('preference') ||
-              qDomId === 'dom_b' ||
-              qDomId === 'b' ||
-              qDom.includes('b —') ||
-              qDom.includes('b -') ||
-              qDom.includes('b:'))
-          ) {
-            matches = true;
-          } else if (
-            domLower.includes('skill') &&
-            (qDom.includes('skill') ||
-              qDom.includes('acquisition') ||
-              qDomId === 'dom_c' ||
-              qDomId === 'c' ||
-              qDom.includes('c —') ||
-              qDom.includes('c -') ||
-              qDom.includes('c:'))
-          ) {
-            matches = true;
-          } else if (
-            domLower.includes('behavior') &&
-            (qDom.includes('reduction') ||
-              qDom.includes('behavior reduction') ||
-              qDomId === 'dom_d' ||
-              qDomId === 'd' ||
-              qDom.includes('d —') ||
-              qDom.includes('d -') ||
-              qDom.includes('d:'))
-          ) {
-            matches = true;
-          } else if (
-            (domLower.includes('ethics') || domLower.includes('conduct') || domLower.includes('professional')) &&
-            (qDom.includes('professional') ||
-              qDom.includes('ethics') ||
-              qDom.includes('conduct') ||
-              qDomId === 'dom_f' ||
-              qDomId === 'f' ||
-              qDom.includes('f —') ||
-              qDom.includes('f -') ||
-              qDom.includes('f:'))
-          ) {
-            matches = true;
+          // Domain prefix / letter matching (Domain A, Domain B, etc.)
+          const domainLetterMatch = domLower.match(/domain\s+([a-z])/i) || domLower.match(/^([a-z])\s*[-—:]/i);
+          if (domainLetterMatch) {
+            const letter = domainLetterMatch[1].toLowerCase();
+            if (
+              qDom.startsWith(letter) ||
+              qDom.includes(`domain ${letter}`) ||
+              qDomId.endsWith(`_${letter}`) ||
+              qDomId === letter ||
+              qDom.includes(`${letter} —`) ||
+              qDom.includes(`${letter} -`) ||
+              qDom.includes(`${letter}:`)
+            ) {
+              matches = true;
+            }
+          }
+
+          if (!matches) {
+            if (
+              domLower.includes('measurement') &&
+              (qDom.includes('measurement') ||
+                qDom.includes('data collection') ||
+                qDom.includes('graphing') ||
+                qDomId === 'dom_a' ||
+                qDomId === 'a')
+            ) {
+              matches = true;
+            } else if (
+              domLower.includes('assessment') &&
+              (qDom.includes('assessment') ||
+                qDom.includes('preference') ||
+                qDomId === 'dom_b' ||
+                qDomId === 'b')
+            ) {
+              matches = true;
+            } else if (
+              (domLower.includes('skill') || domLower.includes('acquisition')) &&
+              (qDom.includes('skill') ||
+                qDom.includes('acquisition') ||
+                qDomId === 'dom_c' ||
+                qDomId === 'c')
+            ) {
+              matches = true;
+            } else if (
+              (domLower.includes('reduction') || domLower.includes('behavior change') || domLower.includes('intervention')) &&
+              (qDom.includes('reduction') ||
+                qDom.includes('behavior change') ||
+                qDom.includes('intervention') ||
+                qDomId === 'dom_d' ||
+                qDomId === 'd' ||
+                qDomId === 'dom_e' ||
+                qDomId === 'e')
+            ) {
+              matches = true;
+            } else if (
+              (domLower.includes('ethics') ||
+                domLower.includes('conduct') ||
+                domLower.includes('professional') ||
+                domLower.includes('supervision') ||
+                domLower.includes('management')) &&
+              (qDom.includes('professional') ||
+                qDom.includes('ethics') ||
+                qDom.includes('conduct') ||
+                qDom.includes('supervision') ||
+                qDom.includes('management') ||
+                qDomId === 'dom_f' ||
+                qDomId === 'f' ||
+                qDomId === 'dom_g' ||
+                qDomId === 'g' ||
+                qDomId === 'dom_h' ||
+                qDomId === 'h')
+            ) {
+              matches = true;
+            }
           }
         }
         if (!matches) return false;

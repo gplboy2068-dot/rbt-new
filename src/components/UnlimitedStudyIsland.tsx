@@ -353,6 +353,41 @@ function UnlimitedStudyContent() {
     const currentPrioritizeWeak = Boolean(config?.prioritizeWeakTopics);
     const currentExcludeAnswered = Boolean(config?.excludePreviouslyAnswered);
 
+    // Dynamic Domains for Selected Track
+    const isBACBTrack = currentCert === 'BACB';
+    const isRBTTrack = currentCert === 'RBT';
+
+    const trackDomains = Array.from(
+      new Set([
+        ...(isBACBTrack
+          ? [
+              'Domain A: Philosophical Underpinnings / Measurement',
+              'Domain B: Assessment & Preference Testing',
+              'Domain C: Skill Acquisition',
+              'Domain D: Behavior Reduction',
+              'Domain E: Selecting & Implementing Interventions',
+              'Domain F: Supervision, Management & Ethics',
+            ]
+          : [
+              'Domain A: Measurement',
+              'Domain B: Assessment',
+              'Domain C: Skill Acquisition',
+              'Domain D: Behavior Reduction',
+              'Domain E: Documentation & Reporting',
+              'Domain F: Professional Conduct & Scope of Practice',
+            ]),
+        ...allQuestions
+          .filter((q) => {
+            const qCert = (q.certification || 'RBT').toUpperCase();
+            if (isBACBTrack) return qCert.includes('BACB') || qCert.includes('BCBA');
+            if (isRBTTrack) return !qCert.includes('BACB') && !qCert.includes('BCBA');
+            return true;
+          })
+          .map((q) => q.domainName?.trim())
+          .filter((d): d is string => Boolean(d && d.length > 0)),
+      ])
+    );
+
     return (
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-8 animate-fadeIn">
         {/* Header */}
@@ -386,7 +421,13 @@ function UnlimitedStudyContent() {
               </label>
               <select
                 value={currentCert}
-                onChange={(e) => setConfig({ ...(config || DEFAULT_CONFIG), certification: e.target.value as any })}
+                onChange={(e) =>
+                  setConfig({
+                    ...(config || DEFAULT_CONFIG),
+                    certification: e.target.value as any,
+                    domain: 'All', // Reset domain filter when track changes
+                  })
+                }
                 className="w-full p-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/80 text-xs font-bold text-slate-900 dark:text-white"
               >
                 <option value="RBT">RBT (Registered Behavior Technician)</option>
@@ -405,28 +446,31 @@ function UnlimitedStudyContent() {
                 onChange={(e) => setConfig({ ...(config || DEFAULT_CONFIG), certificationVersion: e.target.value as any })}
                 className="w-full p-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/80 text-xs font-bold text-slate-900 dark:text-white"
               >
+                <option value="All">All Versions (Comprehensive)</option>
                 <option value="6th Edition">6th Edition (Current Standard)</option>
                 <option value="Standard">Standard Scope</option>
-                <option value="All">All Versions</option>
               </select>
             </div>
 
             {/* Domain Focus */}
             <div className="space-y-1.5">
-              <label className="text-xs font-bold text-slate-700 dark:text-slate-300">
-                Domain Focus
+              <label className="text-xs font-bold text-slate-700 dark:text-slate-300 flex items-center justify-between">
+                <span>Domain Focus</span>
+                <span className="text-[10px] text-purple-600 dark:text-purple-400 font-extrabold uppercase">
+                  {currentCert} Track
+                </span>
               </label>
               <select
                 value={currentDomain}
                 onChange={(e) => setConfig({ ...(config || DEFAULT_CONFIG), domain: e.target.value })}
                 className="w-full p-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/80 text-xs font-bold text-slate-900 dark:text-white"
               >
-                <option value="All">All Domains (Comprehensive)</option>
-                <option value="Measurement">Domain A: Measurement</option>
-                <option value="Assessment">Domain B: Assessment</option>
-                <option value="Skill Acquisition">Domain C: Skill Acquisition</option>
-                <option value="Behavior Reduction">Domain D: Behavior Reduction</option>
-                <option value="Professional Conduct">Domain F: Professional Conduct / Ethics</option>
+                <option value="All">All Domains (Comprehensive Study)</option>
+                {trackDomains.map((dom, idx) => (
+                  <option key={idx} value={dom}>
+                    {dom}
+                  </option>
+                ))}
               </select>
             </div>
 

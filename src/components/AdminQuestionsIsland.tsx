@@ -765,12 +765,27 @@ export default function AdminQuestionsIsland() {
           aria-label="Filter by Domain"
           className="p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-xs font-bold"
         >
-          <option value="All">All Domains</option>
-          <option value="Measurement">A: Measurement</option>
-          <option value="Assessment">B: Assessment</option>
-          <option value="Skill Acquisition">C: Skill Acquisition</option>
-          <option value="Behavior Reduction">D: Behavior Reduction</option>
-          <option value="Ethics">F: Professional Conduct</option>
+          <option value="All">All Domains ({allQuestions.length})</option>
+          {Array.from(
+            new Set([
+              'Measurement',
+              'Assessment',
+              'Skill Acquisition',
+              'Behavior Reduction',
+              'Documentation & Reporting',
+              'Professional Conduct',
+              'Philosophical Underpinnings',
+              'Interventions',
+              'Supervision',
+              ...allQuestions
+                .map((q) => q.domainName?.trim())
+                .filter((d): d is string => Boolean(d && d.length > 0)),
+            ])
+          ).map((dom, idx) => (
+            <option key={idx} value={dom}>
+              {dom}
+            </option>
+          ))}
         </select>
 
         <select
