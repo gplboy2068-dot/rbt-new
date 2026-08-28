@@ -42,6 +42,11 @@ export default function AdminQuestionsIsland() {
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(100);
 
+  // Range and Batch migration states
+  const [rangeFrom, setRangeFrom] = useState('2251');
+  const [rangeTo, setRangeTo] = useState('3180');
+  const [lastNCount, setLastNCount] = useState('930');
+
   // Fetch Central Server Database Questions
   const fetchCentralQuestions = async () => {
     try {
@@ -340,6 +345,92 @@ export default function AdminQuestionsIsland() {
     setSelectedIds(nextSet);
   };
 
+  // SMART AUTO-DETECT BACB QUESTIONS
+  const handleAutoDetectBACB = async () => {
+    const bacbIds: string[] = [];
+    const keywords = ['bacb', 'bcba', 'bcaba', 'supervising bcba', 'ethics code', 'task list specification', 'mswo', 'preference assessment', 'continuous measurement', 'task list'];
+    
+    allQuestions.forEach((q) => {
+      const text = `${q.content} ${q.code} ${q.referenceSource || ''} ${(q.tags || []).join(' ')} ${q.domainName}`.toLowerCase();
+      if (keywords.some((kw) => text.includes(kw))) {
+        bacbIds.push(q.id);
+      }
+    });
+
+    if (bacbIds.length === 0) {
+      setNotification('No questions matched automatic BACB criteria.');
+      setTimeout(() => setNotification(null), 3000);
+      return;
+    }
+
+    if (window.confirm(`Auto-detect found ${bacbIds.length} questions matching BACB keywords. Move these to BACB Practice Track?`)) {
+      setSelectedIds(new Set(bacbIds));
+      await handleBulkSetTrackDirect(bacbIds, 'BACB');
+    }
+  };
+
+  // MOVE LAST N QUESTIONS (e.g. 930) TO BACB
+  const handleMoveLastNToBACB = async (count: number) => {
+    if (!count || count <= 0) return;
+    const targetSlice = allQuestions.slice(-count);
+    const ids = targetSlice.map((q) => q.id);
+
+    if (window.confirm(`Move the last ${ids.length} questions in the database to BACB Practice Track?`)) {
+      setSelectedIds(new Set(ids));
+      await handleBulkSetTrackDirect(ids, 'BACB');
+    }
+  };
+
+  // MOVE RANGE (e.g. 2251 to 3180) TO BACB
+  const handleMoveRangeToBACB = async (fromIndex: number, toIndex: number) => {
+    if (!fromIndex || !toIndex || fromIndex < 1 || toIndex < fromIndex) {
+      alert('Please enter a valid range (e.g. From 2251 To 3180).');
+      return;
+    }
+    const targetSlice = allQuestions.slice(fromIndex - 1, toIndex);
+    const ids = targetSlice.map((q) => q.id);
+
+    if (window.confirm(`Move ${ids.length} questions (from #${fromIndex} to #${toIndex}) to BACB Practice Track?`)) {
+      setSelectedIds(new Set(ids));
+      await handleBulkSetTrackDirect(ids, 'BACB');
+    }
+  };
+
+  const handleBulkSetTrackDirect = async (ids: string[], targetTrack: 'BACB' | 'RBT') => {
+    setLoading(true);
+    try {
+      const res = await fetch('/api/v1/admin/questions/bulk-track', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          questionIds: ids,
+          certification: targetTrack,
+        }),
+      });
+      const data = await res.json();
+      if (res.ok && data.success) {
+        setNotification(`✅ Successfully moved ${data.data?.updatedCount || ids.length} questions to ${targetTrack} track!`);
+        setAllQuestions((prev) =>
+          prev.map((q) => (ids.includes(q.id) || ids.includes(q.code) ? { ...q, certification: targetTrack } : q))
+        );
+        QuestionLifecycleRepository.bulkUpdateCertification(ids, targetTrack);
+        setSelectedIds(new Set());
+      } else {
+        setNotification(`❌ Error updating track: ${data.error?.message || 'Failed'}`);
+      }
+    } catch {
+      QuestionLifecycleRepository.bulkUpdateCertification(ids, targetTrack);
+      setAllQuestions((prev) =>
+        prev.map((q) => (ids.includes(q.id) || ids.includes(q.code) ? { ...q, certification: targetTrack } : q))
+      );
+      setNotification(`✅ Moved ${ids.length} questions to ${targetTrack} track locally.`);
+      setSelectedIds(new Set());
+    } finally {
+      setLoading(false);
+      setTimeout(() => setNotification(null), 4000);
+    }
+  };
+
   const handleConvertToFlashcard = async (q: Question) => {
     try {
       const res = await fetch('/api/v1/flashcards/convert-questions', {
@@ -415,6 +506,92 @@ export default function AdminQuestionsIsland() {
           {notification}
         </div>
       )}
+
+      {/* Track Distribution & Quick Migration Studio Card */}
+      <div className="p-5 rounded-3xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 shadow-sm space-y-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-200 dark:border-slate-700 pb-3">
+          <div className="space-y-0.5">
+            <div className="text-xs font-black uppercase tracking-wider text-slate-500 flex items-center gap-1.5">
+              <Sparkles className="w-3.5 h-3.5 text-purple-600" />
+              <span>Certification Track Distribution & Batch Migration Tool</span>
+            </div>
+            <div className="text-sm font-extrabold text-slate-900 dark:text-white">
+              Currently in Database: <span className="text-emerald-600 font-black">{allQuestions.filter((q) => (q.certification || 'RBT').toUpperCase() === 'RBT' && q.status !== 'deleted' && !QuestionLifecycleRepository.isDeleted(q.id)).length} RBT Questions</span> | <span className="text-purple-600 font-black">{allQuestions.filter((q) => (q.certification || '').toUpperCase() === 'BACB' && q.status !== 'deleted' && !QuestionLifecycleRepository.isDeleted(q.id)).length} BACB Questions</span>
+            </div>
+          </div>
+
+          <button
+            onClick={handleAutoDetectBACB}
+            disabled={loading}
+            className="px-4 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 text-white text-xs font-bold shadow-sm flex items-center gap-1.5 transition-all self-start sm:self-auto shrink-0"
+          >
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>⚡ Auto-Detect & Move BACB Questions</span>
+          </button>
+        </div>
+
+        {/* Quick Batch Migration Inputs */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
+          {/* Quick Option 1: Move Last N Questions */}
+          <div className="p-3.5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-2">
+            <div className="text-xs font-bold text-slate-700 dark:text-slate-300">
+              Move Last N Questions (e.g. 930 BACB questions):
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-xs text-slate-500 font-semibold">Last</span>
+              <input
+                type="number"
+                value={lastNCount}
+                onChange={(e) => setLastNCount(e.target.value)}
+                className="w-24 p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs font-bold text-slate-900 dark:text-white"
+                placeholder="930"
+              />
+              <span className="text-xs text-slate-500 font-semibold">questions</span>
+              <button
+                type="button"
+                onClick={() => handleMoveLastNToBACB(parseInt(lastNCount, 10))}
+                disabled={loading || !lastNCount}
+                className="ml-auto px-3.5 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 text-white text-xs font-bold shadow-sm transition-all"
+              >
+                🟣 Move to BACB
+              </button>
+            </div>
+          </div>
+
+          {/* Quick Option 2: Move Range */}
+          <div className="p-3.5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-2">
+            <div className="text-xs font-bold text-slate-700 dark:text-slate-300">
+              Move Specific Index Range to BACB:
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-xs text-slate-500 font-semibold">From #</span>
+              <input
+                type="number"
+                value={rangeFrom}
+                onChange={(e) => setRangeFrom(e.target.value)}
+                className="w-20 p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs font-bold text-slate-900 dark:text-white"
+                placeholder="2251"
+              />
+              <span className="text-xs text-slate-500 font-semibold">To #</span>
+              <input
+                type="number"
+                value={rangeTo}
+                onChange={(e) => setRangeTo(e.target.value)}
+                className="w-20 p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs font-bold text-slate-900 dark:text-white"
+                placeholder="3180"
+              />
+              <button
+                type="button"
+                onClick={() => handleMoveRangeToBACB(parseInt(rangeFrom, 10), parseInt(rangeTo, 10))}
+                disabled={loading || !rangeFrom || !rangeTo}
+                className="ml-auto px-3.5 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 text-white text-xs font-bold shadow-sm transition-all"
+              >
+                🟣 Move Range
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* Lifecycle Status Navigation Tabs */}
       <div className="flex flex-wrap items-center gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
