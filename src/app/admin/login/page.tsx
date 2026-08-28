@@ -2,12 +2,12 @@
 
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Lock, ShieldCheck, KeyRound, AlertCircle, ArrowRight } from 'lucide-react';
+import { Lock, AlertCircle, ArrowRight } from 'lucide-react';
 
 export default function AdminLoginPage() {
   const router = useRouter();
-  const [username, setUsername] = useState('admin');
-  const [password, setPassword] = useState('rtb2026admin');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -65,6 +65,7 @@ export default function AdminLoginPage() {
               type="text"
               required
               value={username}
+              placeholder="Enter admin username"
               onChange={(e) => setUsername(e.target.value)}
               className="w-full p-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-slate-900 dark:focus:ring-white text-sm font-medium"
             />
@@ -78,15 +79,10 @@ export default function AdminLoginPage() {
               type="password"
               required
               value={password}
+              placeholder="Enter admin password"
               onChange={(e) => setPassword(e.target.value)}
               className="w-full p-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-slate-900 dark:focus:ring-white text-sm font-medium"
             />
-          </div>
-
-          <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80 text-[11px] text-slate-500 space-y-1">
-            <div className="font-bold text-slate-700 dark:text-slate-300">Phase 1 Demo Credentials:</div>
-            <div>Username: <code className="bg-slate-200 dark:bg-slate-700 px-1 rounded">admin</code></div>
-            <div>Password: <code className="bg-slate-200 dark:bg-slate-700 px-1 rounded">rtb2026admin</code></div>
           </div>
 
           <button

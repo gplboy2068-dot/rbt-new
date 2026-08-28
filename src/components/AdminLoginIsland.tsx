@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Lock, AlertCircle, ArrowRight } from 'lucide-react';
 
 export default function AdminLoginIsland() {
-  const [username, setUsername] = useState('admin');
-  const [password, setPassword] = useState('rtb2026admin');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -60,8 +60,9 @@ export default function AdminLoginIsland() {
               type="text"
               required
               value={username}
+              placeholder="Enter admin username"
               onChange={(e) => setUsername(e.target.value)}
-              className="w-full p-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white"
+              className="w-full p-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-slate-900 dark:focus:ring-white text-sm font-medium"
             />
           </div>
 
@@ -73,15 +74,16 @@ export default function AdminLoginIsland() {
               type="password"
               required
               value={password}
+              placeholder="Enter admin password"
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full p-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white"
+              className="w-full p-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-slate-900 dark:focus:ring-white text-sm font-medium"
             />
           </div>
 
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-3.5 rounded-xl bg-slate-900 hover:bg-black text-white font-bold text-sm shadow-md flex items-center justify-center gap-2"
+            className="w-full py-3.5 rounded-xl bg-slate-900 hover:bg-black text-white font-bold text-sm shadow-md flex items-center justify-center gap-2 transition-all"
           >
             <span>{loading ? 'Authenticating...' : 'Sign In'}</span>
             <ArrowRight className="w-4 h-4" />
