@@ -255,7 +255,9 @@ export class CMSService {
       '/faq',
       '/about',
       '/contact',
+      '/privacy-policy',
       '/privacy',
+      '/terms-and-conditions',
       '/terms',
       '/disclaimer',
     ];
