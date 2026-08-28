@@ -12,6 +12,11 @@ export const POST: APIRoute = async ({ request, locals }) => {
       JSON.stringify({
         success: false,
         error: { code: 'RATE_LIMIT_EXCEEDED', message: limitCheck.reason || 'Rate limit exceeded.' },
+        message: limitCheck.reason || 'Rate limit exceeded.',
+        quota: {
+          remainingHourly: 0,
+          remainingDaily: limitCheck.remainingDaily,
+        },
       }),
       { status: 429, headers: { 'Content-Type': 'application/json' } }
     );
@@ -30,6 +35,9 @@ export const POST: APIRoute = async ({ request, locals }) => {
     return new Response(
       JSON.stringify({
         success: true,
+        reply: result.reply,
+        generatedQuestion: result.generatedQuestion,
+        modelUsed: result.modelUsed,
         data: {
           reply: result.reply,
           generatedQuestion: result.generatedQuestion,
@@ -39,13 +47,21 @@ export const POST: APIRoute = async ({ request, locals }) => {
             remainingDaily: updatedStatus.remainingDaily,
           },
         },
+        quota: {
+          remainingHourly: updatedStatus.remainingHourly,
+          remainingDaily: updatedStatus.remainingDaily,
+        },
         meta: { timestamp: Math.floor(Date.now() / 1000) },
       }),
       { status: 200, headers: { 'Content-Type': 'application/json' } }
     );
-  } catch {
+  } catch (err: any) {
     return new Response(
-      JSON.stringify({ success: false, error: { code: 'AI_ERROR', message: 'Failed to process tutor query' } }),
+      JSON.stringify({
+        success: false,
+        error: { code: 'AI_ERROR', message: err?.message || 'Failed to process tutor query' },
+        message: err?.message || 'Failed to process tutor query',
+      }),
       { status: 500, headers: { 'Content-Type': 'application/json' } }
     );
   }
