@@ -1,317 +1,136 @@
 ﻿---
 import Layout from '@/layouts/Layout.astro';
 
-const effectiveDate = "August 28, 2026";
-const lastUpdated = "August 28, 2026";
+const lastUpdated = "August 2026";
 ---
 
 <Layout
   title="Privacy Policy — RBT Practice Exam"
-  description="Official Privacy Policy for rbtpracticeexam.xyz. Transparent explanation of client-side data storage, zero-login access, AI features, and technical security."
+  description="Simple and transparent Privacy Policy for rbtpracticeexam.xyz. Learn how we protect your privacy with zero-login access and private on-device study storage."
 >
-  <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-12 animate-fadeIn text-slate-800 dark:text-slate-200">
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-8 animate-fadeIn text-slate-800 dark:text-slate-200">
     
     {/* Page Header */}
-    <header class="border-b border-slate-200 dark:border-slate-800 pb-8 space-y-3">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 text-emerald-700 dark:text-emerald-300 text-xs font-black uppercase tracking-wider">
-        <span>Legal & Data Transparency</span>
+    <header class="border-b border-slate-200 dark:border-slate-800 pb-6 space-y-2">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 text-emerald-700 dark:text-emerald-300 text-xs font-bold uppercase tracking-wider">
+        <span>Simple & Clear Privacy</span>
       </div>
-      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 dark:text-white tracking-tight">
+      <h1 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
         Privacy Policy
       </h1>
-      <div class="flex flex-wrap items-center gap-4 text-xs sm:text-sm text-slate-500 dark:text-slate-400">
-        <span><strong>Effective Date:</strong> {effectiveDate}</span>
-        <span>•</span>
-        <span><strong>Last Updated:</strong> {lastUpdated}</span>
-        <span>•</span>
-        <span><strong>Domain:</strong> <code>https://rbtpracticeexam.xyz</code></span>
-      </div>
+      <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
+        Last Updated: {lastUpdated} • <code>https://rbtpracticeexam.xyz</code>
+      </p>
     </header>
 
-    {/* Important Disclaimer Banner */}
-    <section aria-label="Educational Platform Notice" class="p-5 sm:p-6 rounded-3xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-900/60 text-amber-900 dark:text-amber-200 text-xs sm:text-sm leading-relaxed space-y-2">
-      <div class="font-black flex items-center gap-2 text-sm uppercase tracking-wider text-amber-800 dark:text-amber-300">
-        <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-        </svg>
-        <span>Independent Educational Service Notice & Trademark Disclaimer</span>
+    {/* Notice & Disclaimer */}
+    <section class="p-5 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-900/60 text-amber-900 dark:text-amber-200 text-xs sm:text-sm leading-relaxed space-y-1.5">
+      <div class="font-bold flex items-center gap-2 text-amber-800 dark:text-amber-300 uppercase tracking-wide text-xs">
+        <span>Independent Study Platform Notice</span>
       </div>
       <p>
-        <strong>RBT Practice Exam</strong> (<code>https://rbtpracticeexam.xyz</code>) is an independently operated educational preparatory resource. This platform is <strong>not</strong> affiliated with, sponsored by, authorized by, or endorsed by the <strong>Behavior Analyst Certification Board® (BACB®)</strong>. Registered Behavior Technician® (RBT®) and BACB® are registered trademarks of the Behavior Analyst Certification Board. All task list references and domain terminology are utilized strictly for educational identification purposes. Practice questions and examinations on this site are independent study simulations and are not official BACB examination materials.
+        <strong>RBT Practice Exam</strong> is an independent educational website. We are <strong>not</strong> affiliated with, sponsored by, or endorsed by the Behavior Analyst Certification Board (BACB). RBT and BACB are registered trademarks used solely to describe the exam topics covered on this website.
       </p>
     </section>
 
-    {/* Main Policy Content */}
-    <article class="space-y-8 text-sm sm:text-base leading-relaxed">
+    {/* Policy Sections in Plain Language */}
+    <article class="space-y-6 text-sm sm:text-base leading-relaxed">
       
-      {/* 1. Introduction */}
-      <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-4">
-        <h2 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">
-          1. Introduction & Open-Access Architecture
+      {/* 1. Zero Accounts */}
+      <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-3">
+        <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
+          1. No Account or Sign-Up Required
         </h2>
         <p>
-          At <strong>RBT Practice Exam</strong> ("we," "our," or "the platform"), we are committed to transparent and privacy-conscious data practices. We operate an open-access study model designed to eliminate unnecessary data collection.
-        </p>
-        <p>
-          <strong>No Learner Registration or Account Creation:</strong> Visitors and students can freely practice questions, complete full 85-question timed mock exams, study SuperMemo-2 (SM-2) flashcards, and use unlimited study drills <strong>without creating an account, registering a username, or providing an email address</strong>. We do not maintain a centralized database of learner identities, profiles, or passwords.
+          You do not need to create an account, register a username, or provide an email address or password to use our website. All practice questions, mock exams, flashcards, and study tools are 100% free and open to everyone without signing in.
         </p>
       </section>
 
-      {/* 2. Client-Side Data Storage */}
-      <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-4">
-        <h2 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">
-          2. Client-Side Storage: LocalStorage & IndexedDB
+      {/* 2. How Your Progress is Saved */}
+      <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-3">
+        <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
+          2. How Your Study Progress is Saved
         </h2>
         <p>
-          Because our platform does not require user accounts, all educational progress, quiz answers, and study statistics are saved <strong>locally on your device</strong> within your web browser’s sandboxed storage (using Web LocalStorage and IndexedDB).
+          When you practice questions, take mock exams, or review flashcards, your scores and progress are saved <strong>privately on your own device</strong> (inside your web browser).
         </p>
-        <div class="overflow-x-auto pt-2">
-          <table class="w-full text-left text-xs sm:text-sm border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden">
-            <thead class="bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white font-bold">
-              <tr>
-                <th class="p-3 border-b border-slate-200 dark:border-slate-700">Storage Key / Area</th>
-                <th class="p-3 border-b border-slate-200 dark:border-slate-700">Purpose</th>
-                <th class="p-3 border-b border-slate-200 dark:border-slate-700">Storage Location</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-slate-100 dark:divide-slate-800 text-slate-600 dark:text-slate-300">
-              <tr>
-                <td class="p-3 font-mono text-xs text-brand-600 dark:text-brand-400">rtb_theme</td>
-                <td class="p-3">Remembers your UI theme preference (Dark or Light mode).</td>
-                <td class="p-3">Browser LocalStorage</td>
-              </tr>
-              <tr>
-                <td class="p-3 font-mono text-xs text-brand-600 dark:text-brand-400">rtb_attempts</td>
-                <td class="p-3">Stores anonymous question attempt history (selected option index, timestamp, and correctness) for local analytics.</td>
-                <td class="p-3">Browser LocalStorage / IndexedDB</td>
-              </tr>
-              <tr>
-                <td class="p-3 font-mono text-xs text-brand-600 dark:text-brand-400">rtb_bookmarks</td>
-                <td class="p-3">Stores question identifiers you have flagged for revision.</td>
-                <td class="p-3">Browser LocalStorage</td>
-              </tr>
-              <tr>
-                <td class="p-3 font-mono text-xs text-brand-600 dark:text-brand-400">rtb_srs</td>
-                <td class="p-3">Maintains SuperMemo-2 spaced repetition state (interval days, ease factor, repetition count) for flashcards.</td>
-                <td class="p-3">Browser LocalStorage</td>
-              </tr>
-              <tr>
-                <td class="p-3 font-mono text-xs text-brand-600 dark:text-brand-400">rtb_mock_attempts</td>
-                <td class="p-3">Saves completed mock exam scores and domain breakdown diagnostics.</td>
-                <td class="p-3">Browser LocalStorage</td>
-              </tr>
-              <tr>
-                <td class="p-3 font-mono text-xs text-brand-600 dark:text-brand-400">rtb_study_session_v1</td>
-                <td class="p-3">Preserves your active unlimited study drill configuration and question stream.</td>
-                <td class="p-3">Browser LocalStorage</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="text-xs text-slate-500 dark:text-slate-400 pt-2">
-          <strong>User Control & Deletion:</strong> Because this information is stored entirely inside your browser sandbox on your device, it is not transmitted to our servers for profiling. You can completely erase all stored study data at any time by clearing your browser cache and cookies, or by using the reset button on our Analytics page.
+        <ul class="list-disc pl-5 space-y-1.5 text-slate-700 dark:text-slate-300 text-sm">
+          <li><strong>Scores & Answers:</strong> Saved only in your browser so you can see your personal scorecards and analytics.</li>
+          <li><strong>Bookmarks:</strong> Saved only in your browser so you can review flagged questions later.</li>
+          <li><strong>Dark / Light Theme:</strong> Remembers your display screen preference.</li>
+        </ul>
+        <p class="text-xs text-slate-500 dark:text-slate-400 pt-1">
+          <strong>You Are in Full Control:</strong> We never collect or see your personal study scores on our servers. You can clear or reset your progress anytime by clicking "Reset Progress" on the Analytics page or by clearing your browser history.
         </p>
       </section>
 
       {/* 3. Cookies */}
-      <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-4">
-        <h2 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">
-          3. Cookies & Tracking Technologies
+      <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-3">
+        <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
+          3. No Tracking Cookies or Ads
         </h2>
         <p>
-          We believe in strict data minimization. <strong>We do not use third-party advertising cookies, cross-site trackers, or commercial profiling cookies.</strong>
-        </p>
-        <ul class="list-disc pl-5 space-y-2 text-slate-700 dark:text-slate-300">
-          <li>
-            <strong>Public Learners / Visitors:</strong> No tracking cookies are placed on your device during standard educational usage. UI preferences (such as Dark/Light mode) are handled exclusively via client-side <code>localStorage</code>.
-          </li>
-          <li>
-            <strong>Administrator Authentication:</strong> An encrypted, secure session cookie (<code>rtb_admin_token</code>, marked <code>HttpOnly</code>, <code>SameSite=Strict</code>, and <code>Secure</code>) is issued exclusively to verified administrative personnel logging into the private administration console.
-          </li>
-        </ul>
-      </section>
-
-      {/* 4. Technical Server Information & Infrastructure */}
-      <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-4">
-        <h2 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">
-          4. Technical Server Data & Cloudflare Infrastructure
-        </h2>
-        <p>
-          When you access <code>https://rbtpracticeexam.xyz</code>, our web hosting and Content Delivery Network (CDN) infrastructure automatically processes standard internet transmission data necessary to securely deliver web pages.
-        </p>
-        <p>
-          <strong>Cloudflare Services:</strong> Our website is hosted on Cloudflare (Cloudflare Workers, Cloudflare Pages, Cloudflare D1 database, and Cloudflare KV). Cloudflare processes technical request information—including IP addresses, browser user-agent strings, request timestamps, and referrer URLs—to provide DDoS mitigation, TLS/HTTPS encryption, routing, and bot protection.
-        </p>
-        <p>
-          <strong>Rate Limiting & Abuse Prevention:</strong> To safeguard our free educational resources from automated scrapers and denial-of-service attempts, certain server-side endpoints (such as our AI explanation API) utilize sliding-window rate limiters that evaluate IP addresses solely for transient abuse prevention.
-        </p>
-        <p class="text-xs text-slate-500 dark:text-slate-400">
-          For more information on Cloudflare’s data practices, please review the <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer" class="text-brand-600 dark:text-brand-400 underline font-semibold">Cloudflare Privacy Policy</a>.
+          We do not use tracking cookies, advertising trackers, or marketing profiling. We do not show third-party ads, and we do not track you across other websites.
         </p>
       </section>
 
-      {/* 5. Artificial Intelligence Features */}
-      <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-4">
-        <h2 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">
-          5. Artificial Intelligence (AI) Features & Providers
+      {/* 4. AI Study Tutor */}
+      <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-3">
+        <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
+          4. AI Study Tutor
         </h2>
         <p>
-          Our platform includes an <strong>AI Clinical Tutor</strong> feature designed to provide instant rationale and explanations for RBT and BACB practice questions.
+          When you ask the AI Tutor to explain a practice question, only the text of the exam question and answer choices are sent to our AI service to generate a helpful explanation.
         </p>
-        <ul class="list-disc pl-5 space-y-2 text-slate-700 dark:text-slate-300">
-          <li>
-            <strong>Information Transmitted:</strong> When you request an AI explanation, the relevant question stem, options, correct rationale, and domain category are transmitted to our configured AI service provider (<strong>DeepSeek API</strong>).
-          </li>
-          <li>
-            <strong>Zero Personal Identifiers:</strong> We do not transmit personal learner identifiers (such as names or emails) to the AI provider.
-          </li>
-          <li>
-            <strong>User Responsibility:</strong> Because AI queries are processed by a third-party AI provider, users should not submit personal, medical, or confidential information into any freeform interaction.
-          </li>
-        </ul>
-        <p class="text-xs text-slate-500 dark:text-slate-400">
-          AI interactions are processed according to the provider’s terms. Please consult the <a href="https://www.deepseek.com/privacy" target="_blank" rel="noopener noreferrer" class="text-brand-600 dark:text-brand-400 underline font-semibold">DeepSeek Privacy Policy</a> for details on their data handling.
+        <p>
+          We do not send your name, email, or personal details to the AI provider. Please do not type any personal or private information into AI question boxes.
         </p>
       </section>
 
-      {/* 6. Third-Party Services Audit */}
-      <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-4">
-        <h2 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">
-          6. Third-Party Services Detected & Utilized
+      {/* 5. We Do Not Sell Your Data */}
+      <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-3">
+        <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
+          5. We Do Not Sell Your Information
         </h2>
-        <p>
-          We strictly limit third-party integrations to those required for core functionality, security, and font rendering:
-        </p>
-        <div class="space-y-3 pt-2">
-          <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 space-y-1">
-            <div class="font-bold text-slate-900 dark:text-white flex items-center justify-between">
-              <span>Cloudflare, Inc.</span>
-              <span class="text-xs px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300">Hosting & Security</span>
-            </div>
-            <p class="text-xs text-slate-600 dark:text-slate-300">Provides DNS, CDN edge delivery, serverless compute (Workers), and cybersecurity defense.</p>
-          </div>
-
-          <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 space-y-1">
-            <div class="font-bold text-slate-900 dark:text-white flex items-center justify-between">
-              <span>DeepSeek AI</span>
-              <span class="text-xs px-2 py-0.5 rounded bg-purple-100 dark:bg-purple-950 text-purple-700 dark:text-purple-300">AI Clinical Explanations</span>
-            </div>
-            <p class="text-xs text-slate-600 dark:text-slate-300">Processes educational question stems to generate contextual explanations for the AI Tutor.</p>
-          </div>
-
-          <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 space-y-1">
-            <div class="font-bold text-slate-900 dark:text-white flex items-center justify-between">
-              <span>Google Fonts (Google LLC)</span>
-              <span class="text-xs px-2 py-0.5 rounded bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300">Typography</span>
-            </div>
-            <p class="text-xs text-slate-600 dark:text-slate-300">Delivers standard typography (Plus Jakarta Sans). Google may process the user's IP address to serve font files.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* 7. Data Sharing & Sale */}
-      <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-4">
-        <h2 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">
-          7. Data Sharing, Sale, & Disclosure
-        </h2>
-        <p class="font-bold text-emerald-600 dark:text-emerald-400">
-          We do not sell, rent, monetize, or trade your personal information to any third party or advertising broker.
+        <p class="font-semibold text-emerald-600 dark:text-emerald-400">
+          We do not sell, rent, or trade your personal information to anyone.
         </p>
         <p>
-          Information is disclosed only under the following limited circumstances:
-        </p>
-        <ul class="list-disc pl-5 space-y-1.5 text-slate-700 dark:text-slate-300 text-sm">
-          <li><strong>Essential Infrastructure Providers:</strong> As necessary for Cloudflare and our hosting infrastructure to deliver the site.</li>
-          <li><strong>AI Service Processing:</strong> As necessary for DeepSeek to return educational explanations.</li>
-          <li><strong>Legal Compliance:</strong> If required by valid court order, subpoena, or applicable law.</li>
-          <li><strong>Security & Protection:</strong> To investigate, prevent, or address fraud, security breaches, or abuse against our infrastructure.</li>
-        </ul>
-      </section>
-
-      {/* 8. Data Retention */}
-      <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-4">
-        <h2 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">
-          8. Data Retention
-        </h2>
-        <p>
-          We retain information only for as long as reasonably necessary to fulfill the purposes described in this Privacy Policy, unless a longer retention period is required or permitted by applicable law:
-        </p>
-        <ul class="list-disc pl-5 space-y-1.5 text-slate-700 dark:text-slate-300 text-sm">
-          <li><strong>Client-Side Study Data:</strong> Persists in your local browser until you delete it or clear browser site data.</li>
-          <li><strong>Server Technical Logs:</strong> Transient server log entries and rate-limiting metrics are maintained temporarily for operational security and debugging.</li>
-        </ul>
-      </section>
-
-      {/* 9. Security Safeguards */}
-      <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-4">
-        <h2 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">
-          9. Security Safeguards
-        </h2>
-        <p>
-          We implement reasonable technical and organizational safeguards designed to protect our platform and visitors, including:
-        </p>
-        <ul class="list-disc pl-5 space-y-1.5 text-slate-700 dark:text-slate-300 text-sm">
-          <li>Mandatory HTTPS / TLS encryption on all public endpoints.</li>
-          <li>Cloudflare Web Application Firewall (WAF) and DDoS protection.</li>
-          <li>Zero-knowledge learner architecture where progress remains on the client device.</li>
-          <li>Strict cryptographic hashing and server-side secret isolation for administrative access.</li>
-        </ul>
-        <p class="text-xs text-slate-500 dark:text-slate-400">
-          *Please note that no method of transmission over the internet or electronic storage is 100% secure. While we strive to use commercially reasonable safeguards, we cannot guarantee absolute security.*
+          Your information is never sold to marketing companies, advertisers, or third-party brokers.
         </p>
       </section>
 
-      {/* 10. Privacy Rights (GDPR, CCPA, International) */}
-      <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-4">
-        <h2 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">
-          10. User Rights & Regional Privacy Provisions
+      {/* 6. Security */}
+      <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-3">
+        <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
+          6. Website Security
         </h2>
         <p>
-          Depending on your location and applicable privacy laws (such as the European Union GDPR, United Kingdom GDPR, or California CCPA/CPRA), you may have specific rights regarding your personal data:
-        </p>
-        <ul class="list-disc pl-5 space-y-1.5 text-slate-700 dark:text-slate-300 text-sm">
-          <li><strong>Right of Access & Portability:</strong> Because your study progress is stored directly on your device, you can export your analytics in JSON format directly from the Analytics page.</li>
-          <li><strong>Right to Deletion / Erasure:</strong> You can erase all stored attempts, bookmarks, and mock exam records immediately by clearing browser storage or using the platform's reset control.</li>
-          <li><strong>Right to Non-Discrimination:</strong> We do not discriminate against any user for exercising privacy rights.</li>
-          <li><strong>California "Do Not Sell or Share":</strong> We do not sell or share personal information for cross-context behavioral advertising.</li>
-        </ul>
-      </section>
-
-      {/* 11. Children's Privacy */}
-      <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-4">
-        <h2 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">
-          11. Children’s Privacy (COPPA Compliance)
-        </h2>
-        <p>
-          Our platform is intended for adult learners, behavior analysis students, and professionals preparing for certification exams. We do not knowingly solicit or collect personal information from children under the age of 13 (or under 16 in applicable European jurisdictions). If you believe a child has provided personal information to our site, please contact us immediately so we can take appropriate measures.
+          All pages on our website use secure encryption (HTTPS) to keep your browsing private and safe from tampering. We also use standard website security protections to prevent spam and automated attacks.
         </p>
       </section>
 
-      {/* 12. Policy Changes */}
-      <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-4">
-        <h2 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">
-          12. Changes to This Privacy Policy
+      {/* 7. Children's Privacy */}
+      <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-3">
+        <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
+          7. Children's Privacy
         </h2>
         <p>
-          We may update this Privacy Policy periodically to reflect enhancements to our study tools, technological infrastructure, or applicable legal obligations. Any updates will be posted on this page with a revised "Effective Date" at the top of the policy. We encourage visitors to review this page occasionally.
+          Our study materials are intended for adults and students preparing for professional healthcare and behavior analysis certification. We do not knowingly collect information from children under 13.
         </p>
       </section>
 
-      {/* 13. Contact Information */}
-      <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-4">
-        <h2 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">
-          13. Contact Information
+      {/* 8. Contact Us */}
+      <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-3">
+        <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
+          8. Contact Us
         </h2>
         <p>
-          If you have questions, feedback, or requests concerning this Privacy Policy or our data handling practices, you can reach out to us at:
+          If you have any questions about this Privacy Policy or how our website works, feel free to contact us:
         </p>
-        <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 space-y-1 text-sm">
-          <div><strong>RBT Practice Exam Team</strong></div>
-          <div><strong>Platform URL:</strong> <a href="https://rbtpracticeexam.xyz" class="text-brand-600 dark:text-brand-400 underline">https://rbtpracticeexam.xyz</a></div>
-          <div><strong>Privacy Contact Email:</strong> <a href="mailto:support@rbtpracticeexam.xyz" class="text-brand-600 dark:text-brand-400 font-bold underline">support@rbtpracticeexam.xyz</a></div>
-          <div class="text-xs text-slate-500 dark:text-slate-400 pt-1">
-            *(Site Administrator: If you prefer a distinct dedicated legal inbox, configure <code>[INSERT PRIVACY CONTACT EMAIL]</code> in your settings).*
-          </div>
+        <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-sm space-y-1">
+          <div><strong>Website:</strong> <code>https://rbtpracticeexam.xyz</code></div>
+          <div><strong>Email:</strong> <a href="mailto:support@rbtpracticeexam.xyz" class="text-brand-600 dark:text-brand-400 font-bold underline">support@rbtpracticeexam.xyz</a></div>
         </div>
       </section>
 
