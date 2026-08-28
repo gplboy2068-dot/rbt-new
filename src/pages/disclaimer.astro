@@ -1,50 +1,237 @@
----
+﻿---
 import Layout from '@/layouts/Layout.astro';
+
+const effectiveDate = "August 28, 2026";
+const lastUpdated = "August 28, 2026";
 ---
 
-<Layout 
-  title="Disclaimer & Trademark Notice — RBT Practice Exam"
-  description="Educational and trademark disclaimer for rbtpracticeexam.xyz regarding the Behavior Analyst Certification Board (BACB) and Registered Behavior Technician (RBT) credentials."
+<Layout
+  title="Disclaimer | RBTPracticeExam.xyz"
+  description="Read the RBTPracticeExam.xyz disclaimer covering educational content, practice questions, AI-assisted study tools, examination information, and independent status."
 >
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-8 animate-fadeIn">
-    <div class="border-b border-slate-200 dark:border-slate-800 pb-6 space-y-2">
-      <div class="text-xs font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">
-        Compliance & Legal
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-8 animate-fadeIn text-slate-800 dark:text-slate-200">
+    
+    {/* Page Header */}
+    <header class="border-b border-slate-200 dark:border-slate-800 pb-6 space-y-2">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 dark:bg-amber-950/60 border border-amber-200 dark:border-amber-800 text-amber-700 dark:text-amber-300 text-xs font-bold uppercase tracking-wider">
+        <span>Legal Disclaimer</span>
       </div>
       <h1 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
-        Disclaimer & Trademark Notice
+        Disclaimer
       </h1>
-      <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
-        rbtpracticeexam.xyz • Independent Educational Resource
+      <div class="flex flex-wrap items-center gap-4 text-xs sm:text-sm text-slate-500 dark:text-slate-400">
+        <span><strong>Effective Date:</strong> {effectiveDate}</span>
+        <span>•</span>
+        <span><strong>Last Updated:</strong> {lastUpdated}</span>
+        <span>•</span>
+        <span><strong>Website:</strong> <code>https://rbtpracticeexam.xyz</code></span>
+      </div>
+    </header>
+
+    {/* Prominent Independent Notice & Trademark Disclaimer */}
+    <section class="p-5 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-900/60 text-amber-900 dark:text-amber-200 text-xs sm:text-sm leading-relaxed space-y-1.5">
+      <div class="font-bold flex items-center gap-2 text-amber-800 dark:text-amber-300 uppercase tracking-wide text-xs">
+        <span>Important Trademark & Independence Notice</span>
+      </div>
+      <p>
+        <strong>RBTPracticeExam.xyz</strong> is an independently operated educational study platform. This website is <strong>not affiliated with, sponsored by, approved by, authorized by, or operated by the Behavior Analyst Certification Board (BACB)</strong>.
       </p>
-    </div>
+      <p>
+        Registered Behavior Technician (RBT) and BACB are registered trademarks of the Behavior Analyst Certification Board. All trademark references and task list domain names on this website are used strictly for educational identification and descriptive purposes.
+      </p>
+    </section>
 
-    <div class="space-y-6 text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
-      <div class="bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-900 rounded-3xl p-6 sm:p-8 space-y-3">
-        <h2 class="text-base sm:text-lg font-bold text-amber-900 dark:text-amber-200 flex items-center gap-2">
-          <span>⚠️ Official BACB® Trademark Notice</span>
+    {/* Disclaimer Sections */}
+    <article class="space-y-6 text-sm sm:text-base leading-relaxed">
+
+      {/* 1. Purpose of This Disclaimer */}
+      <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-3">
+        <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
+          1. Purpose of This Disclaimer
         </h2>
-        <p class="text-amber-950 dark:text-amber-300/90 text-xs sm:text-sm leading-relaxed">
-          <strong>BACB®</strong>, <strong>Behavior Analyst Certification Board®</strong>, <strong>RBT®</strong>, and <strong>Registered Behavior Technician®</strong> are registered trademarks of the Behavior Analyst Certification Board, Inc. (BACB). 
-        </p>
-        <p class="text-amber-900 dark:text-amber-300 text-xs leading-relaxed">
-          <strong>RBT Practice Exam</strong> (<code>rbtpracticeexam.xyz</code>) is an independent preparatory platform and is <strong>NOT</strong> affiliated with, endorsed by, sponsored by, or officially connected with the Behavior Analyst Certification Board, Inc. (BACB).
-        </p>
-      </div>
-
-      <div class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 space-y-4 shadow-sm">
-        <h2 class="text-lg font-bold text-slate-900 dark:text-white">Educational Scope & No Guarantee</h2>
         <p>
-          Our practice questions, mock examinations, flashcard decks, and AI tutor explanations are developed for independent study based on publicly available BACB task list outlines (2nd & 6th Editions). Completing practice tests on this website does not guarantee passing the official BACB certification examination.
+          The materials, practice questions, mock exam simulations, flashcards, articles, and study tools provided on <strong>RBTPracticeExam.xyz</strong> are created exclusively for independent educational study and test preparation.
         </p>
-      </div>
-
-      <div class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 space-y-4 shadow-sm">
-        <h2 class="text-lg font-bold text-slate-900 dark:text-white">Clinical Advice Disclaimer</h2>
         <p>
-          The materials on this platform are for test preparation and behavior technician knowledge drills only. They are not intended as clinical behavioral prescriptions, psychological counseling, or medical supervision advice. Direct therapy should always follow the supervising BCBA/BCaBA clinical treatment plan.
+          This disclaimer explains the nature and limitations of the educational content provided on this website.
         </p>
-      </div>
-    </div>
-  </div>
+      </section>
+
+      {/* 2. No Guarantee of Exam Success or Certification */}
+      <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-3">
+        <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
+          2. No Guarantee of Examination Success or Certification
+        </h2>
+        <p>
+          Using this website, practicing with our question sets, or achieving high scores on our mock exams <strong>does not guarantee</strong> that you will:
+        </p>
+        <ul class="list-disc pl-5 space-y-1.5 text-slate-700 dark:text-slate-300 text-sm">
+          <li>Pass the official RBT examination or any other certification test.</li>
+          <li>Achieve a specific numerical or passing score on your actual examination.</li>
+          <li>Receive professional certification from the BACB or any credentialing organization.</li>
+          <li>Meet official examination eligibility criteria or prerequisites.</li>
+          <li>Obtain employment, career advancement, or salary increases.</li>
+        </ul>
+        <p class="pt-1">
+          Examination success depends entirely on your own comprehensive study, completion of approved training courses, official clinical supervision, and personal preparation.
+        </p>
+      </section>
+
+      {/* 3. Practice Questions & Mock Exams */}
+      <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-3">
+        <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
+          3. Practice Questions Are Simulated Study Materials
+        </h2>
+        <p>
+          All multiple-choice questions, scenario questions, and mock tests on this website are original study simulations developed for learning and self-evaluation.
+        </p>
+        <ul class="list-disc pl-5 space-y-1.5 text-slate-700 dark:text-slate-300 text-sm">
+          <li>Our practice questions are <strong>not actual, live examination questions</strong> from any official testing authority.</li>
+          <li>We do not have access to confidential, restricted, or proprietary examination materials.</li>
+          <li>We make no representation that any specific question on this website will appear on an official examination.</li>
+          <li>Practice questions should never be described as "official BACB questions."</li>
+        </ul>
+      </section>
+
+      {/* 4. Educational Content Accuracy & Updates */}
+      <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-3">
+        <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
+          4. Content Accuracy & Ongoing Updates
+        </h2>
+        <p>
+          We make reasonable efforts to ensure that the educational materials and answer explanations on this website are useful, clear, and accurate. However, educational content may occasionally contain typographical errors, omissions, or outdated examples.
+        </p>
+        <p>
+          We cannot guarantee that every question, answer choice, rationale, or study note will always be completely error-free or perfectly up to date. We reserve the right to correct, update, or modify study materials at any time.
+        </p>
+      </section>
+
+      {/* 5. Changes to Official Examination Requirements */}
+      <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-3">
+        <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
+          5. Official Examination Requirements May Change
+        </h2>
+        <p>
+          Certification policies, examination formats, eligibility standards, and competency task lists are set by official credentialing bodies and may change over time.
+        </p>
+        <p>
+          Learners are solely responsible for checking the latest official candidate handbooks, eligibility guidelines, and examination rules directly with the official credentialing organization before scheduling or taking an examination.
+        </p>
+      </section>
+
+      {/* 6. RBT 6th Edition Framework */}
+      <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-3">
+        <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
+          6. Examination Curriculum Framework
+        </h2>
+        <p>
+          Study resources on this platform may be categorized and organized to support preparation based on current RBT examination curriculum domains (such as Measurement, Assessment, Skill Acquisition, Behavior Reduction, Documentation, and Ethics).
+        </p>
+        <p>
+          This organizational structure is designed to help learners study systematically and does not imply official endorsement or approval by the BACB.
+        </p>
+      </section>
+
+      {/* 7. Artificial Intelligence (AI) Features */}
+      <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-3">
+        <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
+          7. Artificial Intelligence (AI) Study Tools
+        </h2>
+        <p>
+          Our platform includes AI-assisted learning tools, such as the <strong>AI Study Tutor</strong>, to provide immediate educational explanations and study support.
+        </p>
+        <ul class="list-disc pl-5 space-y-1.5 text-slate-700 dark:text-slate-300 text-sm">
+          <li>AI-generated answers and tutoring explanations are supplementary educational aids and may occasionally contain inaccuracies or incomplete reasoning.</li>
+          <li>The AI Study Tutor is not a human instructor, certified supervisor, or official representative of any testing organization.</li>
+          <li>Users should always exercise critical judgment and cross-reference important concepts with authoritative textbooks and official guidelines.</li>
+        </ul>
+      </section>
+
+      {/* 8. No Professional, Medical, or Legal Advice */}
+      <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-3">
+        <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
+          8. No Professional, Clinical, or Legal Advice
+        </h2>
+        <p>
+          The content on this website is for general educational test preparation only. It does not constitute:
+        </p>
+        <ul class="list-disc pl-5 space-y-1.5 text-slate-700 dark:text-slate-300 text-sm">
+          <li>Clinical behavioral treatment plans or medical advice.</li>
+          <li>Official clinical supervision or competency assessment sign-offs.</li>
+          <li>Legal or regulatory advice regarding healthcare practice.</li>
+          <li>Employment counseling or career placement services.</li>
+        </ul>
+      </section>
+
+      {/* 9. Third-Party Links */}
+      <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-3">
+        <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
+          9. Third-Party Links & External Websites
+        </h2>
+        <p>
+          Our website may contain links to third-party websites for informational reference. We have no control over the content, privacy practices, or availability of those external websites and do not assume responsibility for them.
+        </p>
+      </section>
+
+      {/* 10. User Responsibility */}
+      <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-3">
+        <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
+          10. User Responsibility
+        </h2>
+        <p>
+          You are solely responsible for how you evaluate and use the information provided on this website. You should always verify official examination guidelines, registration deadlines, and eligibility requirements directly with the appropriate credentialing board.
+        </p>
+      </section>
+
+      {/* 11. Limitation of Liability */}
+      <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-3">
+        <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
+          11. Limitation of Liability
+        </h2>
+        <p>
+          To the extent permitted by applicable law, RBTPracticeExam.xyz and its operators shall not be held liable for any direct, indirect, incidental, or consequential damages resulting from your use of this website or your reliance on any study materials, practice questions, or AI explanations.
+        </p>
+      </section>
+
+      {/* 12. Intellectual Property */}
+      <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-3">
+        <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
+          12. Intellectual Property
+        </h2>
+        <p>
+          Original study questions, rationales, articles, flashcard collections, and website materials on RBTPracticeExam.xyz are protected by copyright laws. You are welcome to use these materials for personal study. Unauthorized bulk copying, scraping, reselling, or commercial redistribution is prohibited.
+        </p>
+      </section>
+
+      {/* 13. Related Policies */}
+      <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-3">
+        <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
+          13. Related Policies
+        </h2>
+        <p>
+          For more information about how this website operates and how your privacy is protected, please review our companion policies:
+        </p>
+        <ul class="list-disc pl-5 space-y-1.5 text-slate-700 dark:text-slate-300 text-sm">
+          <li><a href="/privacy-policy" class="text-brand-600 dark:text-brand-400 font-bold underline">Privacy Policy</a> — Learn how your study progress stays private on your own device.</li>
+          <li><a href="/terms-and-conditions" class="text-brand-600 dark:text-brand-400 font-bold underline">Terms & Conditions</a> — Rules and conditions for using our website and study materials.</li>
+          <li><a href="/about" class="text-brand-600 dark:text-brand-400 font-bold underline">About Us</a> — Learn about our mission and free study tools.</li>
+        </ul>
+      </section>
+
+      {/* 14. Contact Us */}
+      <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-3">
+        <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
+          14. Contact Us
+        </h2>
+        <p>
+          If you have questions regarding this Disclaimer or wish to report an error in any practice question, please reach out to us:
+        </p>
+        <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-sm space-y-1">
+          <div><strong>Website:</strong> <code>https://rbtpracticeexam.xyz</code></div>
+          <div><strong>Email:</strong> <a href="mailto:support@rbtpracticeexam.xyz" class="text-brand-600 dark:text-brand-400 font-bold underline">support@rbtpracticeexam.xyz</a></div>
+        </div>
+      </section>
+
+    </article>
+  </main>
 </Layout>
