@@ -1,4 +1,39 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none">
-  <rect width="32" height="32" rx="8" fill="#4F46E5"/>
-  <path d="M9 16L14 21L23 11" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" fill="none">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#059669"/>
+      <stop offset="50%" stop-color="#0d9488"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f0fdf4"/>
+    </linearGradient>
+    <filter id="dropShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+
+  <!-- Squircle Base -->
+  <rect width="512" height="512" rx="128" fill="url(#bgGrad)"/>
+  
+  <!-- Subtle Border Highlight -->
+  <rect x="8" y="8" width="496" height="496" rx="120" stroke="#ffffff" stroke-opacity="0.2" stroke-width="8"/>
+
+  <!-- Exam Shield & Check Icon with Shadow -->
+  <g filter="url(#dropShadow)">
+    <!-- Shield Outline -->
+    <path 
+      d="M256 96 C336 96 384 128 384 128 C384 272 320 376 256 416 C192 376 128 272 128 128 C128 128 176 96 256 96 Z" 
+      fill="url(#shieldGrad)"
+    />
+    <!-- Emerald Checkmark inside Shield -->
+    <path 
+      d="M200 248 L240 288 L316 196" 
+      stroke="#059669" 
+      stroke-width="36" 
+      stroke-linecap="round" 
+      stroke-linejoin="round"
+    />
+  </g>
 </svg>
