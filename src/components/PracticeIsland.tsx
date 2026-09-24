@@ -20,6 +20,7 @@ import { INITIAL_QUESTIONS, INITIAL_DOMAINS } from '@/data/mock-data';
 import { Question, DifficultyLevel } from '@/types';
 import { progressRepo } from '@/lib/storage/progress-repo';
 import { getActiveQuestionBank } from '@/lib/storage/question-bank-sync';
+import QuestionRationaleLinks from './QuestionRationaleLinks';
 
 export default function PracticeIsland() {
   const [activeBank, setActiveBank] = useState<Question[]>(() => getActiveQuestionBank());
@@ -342,6 +343,7 @@ export default function PracticeIsland() {
                 <p className="text-xs sm:text-sm text-slate-800 dark:text-slate-200 leading-relaxed">
                   <strong>Rationale:</strong> {currentQuestion.explanation}
                 </p>
+                <QuestionRationaleLinks question={currentQuestion} />
               </div>
 
               <div className="flex flex-wrap items-center justify-between gap-3 pt-2">

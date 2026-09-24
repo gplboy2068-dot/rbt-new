@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { BookOpen, CheckCircle, HelpCircle, ArrowRight, Brain, Layers, ArrowLeft } from 'lucide-react';
 import { INITIAL_QUESTIONS, INITIAL_FLASHCARDS } from '@/data/mock-data';
+import QuestionRationaleLinks from './QuestionRationaleLinks';
 
 interface TopicDetailProps {
   slug: string;
@@ -166,6 +167,7 @@ export default function TopicDetailIsland({
                     <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
                       {q.explanation}
                     </p>
+                    <QuestionRationaleLinks question={q} />
                   </div>
                 )}
               </div>

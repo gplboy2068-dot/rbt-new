@@ -32,6 +32,7 @@ import { progressRepo } from '@/lib/storage/progress-repo';
 import { AnalyticsService } from '@/lib/services/analytics';
 
 import { QuestionLifecycleRepository } from '@/lib/storage/question-lifecycle';
+import QuestionRationaleLinks from './QuestionRationaleLinks';
 
 // ==========================================
 // ERROR BOUNDARY
@@ -832,6 +833,7 @@ function UnlimitedStudyContent() {
                 <p className="leading-relaxed whitespace-pre-line text-slate-700 dark:text-slate-300">
                   {answerFeedback.explanation}
                 </p>
+                <QuestionRationaleLinks question={currentQuestion} />
               </div>
 
               {/* Action Buttons */}

@@ -15,6 +15,7 @@ import { INITIAL_MOCK_EXAMS } from '@/data/mock-data';
 import { MockExam, Question, MockExamAttempt } from '@/types';
 import { progressRepo } from '@/lib/storage/progress-repo';
 import { getActiveQuestionBank } from '@/lib/storage/question-bank-sync';
+import QuestionRationaleLinks from './QuestionRationaleLinks';
 
 interface Props {
   examId: string;
@@ -306,6 +307,7 @@ export default function MockExamRunnerIsland({ examId }: Props) {
                 <p className="text-slate-600 dark:text-slate-300 leading-relaxed whitespace-pre-line">
                   {currentQuestion.explanation}
                 </p>
+                <QuestionRationaleLinks question={currentQuestion} isExamMode={true} />
               </div>
             )}
 
