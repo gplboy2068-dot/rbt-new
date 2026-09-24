@@ -1,0 +1,185 @@
+﻿---
+import Layout from '@/layouts/Layout.astro';
+
+const lastUpdated = "September 2026";
+---
+
+<Layout
+  title="Editorial Policy | RBTPracticeExam.xyz"
+  description="Our editorial standards, question authoring methodology, source alignment with the BACB Test Content Outline, and content review process."
+>
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-10 animate-fadeIn text-slate-800 dark:text-slate-200">
+    
+    {/* Page Header */}
+    <header class="border-b border-slate-200 dark:border-slate-800 pb-8 space-y-3">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 dark:bg-brand-950/60 border border-brand-200 dark:border-brand-800 text-brand-700 dark:text-brand-300 text-xs font-bold uppercase tracking-wider">
+        <span>Content Standards & Integrity</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 dark:text-white tracking-tight">
+        Editorial Policy
+      </h1>
+      <p class="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed">
+        How we author, verify, update, and maintain practice questions, study guides, and educational explanations on RBTPracticeExam.xyz.
+      </p>
+      <div class="text-xs text-slate-500 dark:text-slate-400">
+        Last Updated: {lastUpdated} • Maintained under FK Digital Media
+      </div>
+    </header>
+
+    {/* Independent Notice */}
+    <section class="p-5 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-900/60 text-amber-900 dark:text-amber-200 text-xs sm:text-sm leading-relaxed space-y-1.5">
+      <div class="font-bold flex items-center gap-2 text-amber-800 dark:text-amber-300 uppercase tracking-wide text-xs">
+        <span>Independent Educational Service Notice</span>
+      </div>
+      <p>
+        <strong>RBTPracticeExam.xyz is an independent educational platform.</strong> We are not affiliated with, authorized by, sponsored by, or endorsed by the Behavior Analyst Certification Board® (BACB®). All practice questions on this platform are independently authored practice simulations and are <strong>not official or confidential BACB exam questions</strong>.
+      </p>
+    </section>
+
+    {/* Policy Sections */}
+    <div class="space-y-8 text-sm sm:text-base leading-relaxed">
+
+      {/* 1. Purpose & Standards */}
+      <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-3">
+        <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
+          1. Purpose & Editorial Objective
+        </h2>
+        <p>
+          The mission of RBTPracticeExam.xyz is to provide high-quality, open-access study tools for candidates preparing for the Registered Behavior Technician® (RBT®) certification exam.
+        </p>
+        <p>
+          To maintain educational value, all study content on our website is guided by three core standards:
+        </p>
+        <ul class="list-disc pl-5 space-y-1.5 text-slate-700 dark:text-slate-300 text-sm">
+          <li><strong>Alignment with Public Guidelines:</strong> Questions are organized around current publicly published task list competencies and test content outlines.</li>
+          <li><strong>Clinical Context:</strong> Explanations focus on real-world behavior technician scenarios, emphasizing the role of the RBT under the supervision of a BCBA.</li>
+          <li><strong>Transparency:</strong> We clearly disclose our methodologies, data practices, and the independent nature of our study platform.</li>
+        </ul>
+      </section>
+
+      {/* 2. Question Authoring & Workflow */}
+      <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-4">
+        <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
+          2. Question Authoring & Review Workflow
+        </h2>
+        <p>
+          Our practice questions are developed through a multi-step verification process to ensure pedagogical clarity and terminology accuracy:
+        </p>
+        
+        {/* Step by step workflow cards */}
+        <div class="space-y-3 pt-1">
+          <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 space-y-1">
+            <div class="font-bold text-slate-900 dark:text-white text-sm flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-brand-600 text-white text-xs flex items-center justify-center font-bold">1</span>
+              <span>Learning Objective Mapping</span>
+            </div>
+            <p class="text-xs text-slate-600 dark:text-slate-400 pl-8">
+              Every question stem is mapped directly to a specific domain competency from the current RBT Test Content Outline (e.g., continuous measurement, prompting hierarchies, or dual relationships).
+            </p>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 space-y-1">
+            <div class="font-bold text-slate-900 dark:text-white text-sm flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-brand-600 text-white text-xs flex items-center justify-center font-bold">2</span>
+              <span>Scenario Formulation & Best-Answer Review</span>
+            </div>
+            <p class="text-xs text-slate-600 dark:text-slate-400 pl-8">
+              A clinical vignette is drafted with clear antecedents, observable behaviors, and consequences. Three plausible distractors are constructed alongside a single unambiguously correct answer.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 space-y-1">
+            <div class="font-bold text-slate-900 dark:text-white text-sm flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-brand-600 text-white text-xs flex items-center justify-center font-bold">3</span>
+              <span>Clinical Context & Rationale Verification</span>
+            </div>
+            <p class="text-xs text-slate-600 dark:text-slate-400 pl-8">
+              Each item must include a detailed rationale explaining not just <em>which</em> option is correct, but the underlying behavioral principle and its clinical application.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 space-y-1">
+            <div class="font-bold text-slate-900 dark:text-white text-sm flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-brand-600 text-white text-xs flex items-center justify-center font-bold">4</span>
+              <span>Editorial Check & Publication</span>
+            </div>
+            <p class="text-xs text-slate-600 dark:text-slate-400 pl-8">
+              Terminology is checked for compliance with standard ABA literature (Cooper, Heron, & Heward) and the RBT Ethics Code (2.0) before being added to the active question bank.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. Source Material & References */}
+      <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-3">
+        <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
+          3. Source Materials & References
+        </h2>
+        <p>
+          Our questions and articles rely strictly on legitimate, publicly available educational and professional resources:
+        </p>
+        <ul class="list-disc pl-5 space-y-1.5 text-slate-700 dark:text-slate-300 text-sm">
+          <li><strong>Behavior Analyst Certification Board (BACB):</strong> Publicly available Test Content Outlines, task lists, and the <em>RBT Ethics Code (2.0)</em>.</li>
+          <li><strong>Standard ABA Textbooks:</strong> Foundational literature including <em>Applied Behavior Analysis</em> by Cooper, Heron, and Heward.</li>
+          <li><strong>Peer-Reviewed Research:</strong> Open literature on discrete trial training, natural environment teaching, functional communication, and reinforcement schedules.</li>
+        </ul>
+        <p class="text-xs text-slate-500 dark:text-slate-400">
+          <em>Important:</em> We cite the BACB's published guidelines to explain the structure of the exam. We do not claim that the BACB has reviewed, endorsed, or approved our practice questions.
+        </p>
+      </section>
+
+      {/* 4. Authorship & Subject-Matter Review Transparency */}
+      <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-3">
+        <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
+          4. Authorship & Subject-Matter Review Transparency
+        </h2>
+        <p>
+          We believe in complete transparency regarding who creates our platform:
+        </p>
+        <ul class="list-disc pl-5 space-y-1.5 text-slate-700 dark:text-slate-300 text-sm">
+          <li><strong>Technical Development:</strong> RBTPracticeExam.xyz is engineered and maintained by <strong>Firoz Khan</strong>, Full Stack Developer under <strong>FK Digital Media</strong>.</li>
+          <li><strong>Subject-Matter Expertise:</strong> Firoz Khan is a software engineer, not a certified behavior analyst (BCBA) or RBT. We do not manufacture fake reviewer credentials or invent fictitious clinical boards.</li>
+          <li><strong>Content Synthesis:</strong> Educational content is independently synthesized from public behavioral science textbooks, BACB published outlines, and standard clinical terminology.</li>
+        </ul>
+      </section>
+
+      {/* 5. Artificial Intelligence (AI) Use Disclosure */}
+      <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-3">
+        <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
+          5. Artificial Intelligence (AI) Editorial Standards
+        </h2>
+        <p>
+          We use artificial intelligence tools (such as our on-demand AI Clinical Tutor) to help generate conversational explanations and support candidate study sessions:
+        </p>
+        <ul class="list-disc pl-5 space-y-1.5 text-slate-700 dark:text-slate-300 text-sm">
+          <li><strong>Educational Assistance Only:</strong> AI-generated outputs are study aids and should not be considered formal supervisory advice or official exam guidance.</li>
+          <li><strong>Quality Control:</strong> Question items drafted with AI assistance are reviewed for formatting, domain alignment, and terminology before entering the active public repository.</li>
+          <li><strong>User Discretion:</strong> Because language models can occasionally produce errors or hallucinations, users are advised to verify critical concepts with standard textbooks.</li>
+        </ul>
+      </section>
+
+      {/* 6. Correction & Error-Reporting Policy */}
+      <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-3">
+        <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
+          6. Corrections & Error-Reporting Policy
+        </h2>
+        <p>
+          We actively correct mistakes. If a user notices a typographical error, ambiguous distractor, or incorrect answer key, we investigate the report against authoritative references.
+        </p>
+        <p>
+          Confirmed corrections are updated in our question database and reflected across our study modes without delay.
+        </p>
+        <div class="pt-1">
+          <a
+            href="/contact#report-error"
+            class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs sm:text-sm shadow transition-colors"
+          >
+            <span>Report a Question Discrepancy</span>
+            <span>→</span>
+          </a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</Layout>

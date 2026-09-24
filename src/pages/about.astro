@@ -1,73 +1,245 @@
 ﻿---
 import Layout from '@/layouts/Layout.astro';
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://rbtpracticeexam.xyz/#developer",
+      "name": "Firoz Khan",
+      "jobTitle": "Full Stack Developer",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "FK Digital Media",
+        "url": "https://rbtpracticeexam.xyz"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/firoz-khan-1153358a/",
+        "https://github.com/fkdigitalmedia"
+      ],
+      "description": "Full Stack Developer and founder of FK Digital Media, building educational technology applications and web tools."
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://rbtpracticeexam.xyz/#organization",
+      "name": "FK Digital Media",
+      "url": "https://rbtpracticeexam.xyz",
+      "logo": "https://rbtpracticeexam.xyz/favicon.svg",
+      "founder": {
+        "@id": "https://rbtpracticeexam.xyz/#developer"
+      }
+    }
+  ]
+};
 ---
 
 <Layout
-  title="About RBTPracticeExam.xyz | RBT Exam Preparation"
-  description="Learn about RBTPracticeExam.xyz, an independent educational platform created to help learners prepare for the RBT examination with practice questions, study tools, and exam preparation resources."
+  title="About RBTPracticeExam.xyz | Independent RBT Practice Resource"
+  description="Learn about RBTPracticeExam.xyz, our approach to independent RBT exam practice, question development, content review, and educational transparency."
 >
+  <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+
   <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-10 animate-fadeIn text-slate-800 dark:text-slate-200">
     
     {/* Page Hero Header */}
     <header class="border-b border-slate-200 dark:border-slate-800 pb-8 space-y-3">
       <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 dark:bg-brand-950/60 border border-brand-200 dark:border-brand-800 text-brand-700 dark:text-brand-300 text-xs font-bold uppercase tracking-wider">
-        <span>About Our Study Platform</span>
+        <span>Transparency & Mission</span>
       </div>
       <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 dark:text-white tracking-tight">
-        Prepare Smarter for Your RBT Exam
+        About RBTPracticeExam.xyz
       </h1>
       <p class="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed">
-        RBTPracticeExam.xyz is an independent online study platform designed to help learners practice exam-style questions, understand core concepts, and build confidence before taking their test.
+        An independent online practice resource designed to help learners prepare for the Registered Behavior Technician® (RBT®) examination through open-access practice questions, study tools, and transparent learning aids.
       </p>
     </header>
 
     {/* Independent Notice & Trademark Disclaimer */}
-    <section class="p-5 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-900/60 text-amber-900 dark:text-amber-200 text-xs sm:text-sm leading-relaxed space-y-1.5">
+    <section class="p-5 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-900/60 text-amber-900 dark:text-amber-200 text-xs sm:text-sm leading-relaxed space-y-2">
       <div class="font-bold flex items-center gap-2 text-amber-800 dark:text-amber-300 uppercase tracking-wide text-xs">
-        <span>Independent Educational Resource Notice</span>
+        <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+        </svg>
+        <span>Independent Educational Resource Disclaimer</span>
       </div>
       <p>
-        <strong>RBTPracticeExam.xyz</strong> is an independent educational resource. It is <strong>not</strong> the official website of the Behavior Analyst Certification Board (BACB), and it is not affiliated with, sponsored by, approved by, or endorsed by the BACB. RBT and BACB are registered trademarks used solely to describe the subject matter of our study resources.
+        <strong>RBTPracticeExam.xyz is an independent study and practice resource.</strong> It is not the official website of the Behavior Analyst Certification Board® (BACB®), and it is not affiliated with, sponsored by, approved by, or endorsed by the BACB. RBT® and BACB® are registered trademarks of the Behavior Analyst Certification Board. All practice items, simulated exams, and guides on this platform are independently authored educational tools and are <strong>not actual BACB examination questions</strong>.
       </p>
     </section>
 
     {/* Main Content Sections */}
     <div class="space-y-8 text-sm sm:text-base leading-relaxed">
 
-      {/* 1. Who We Are */}
-      <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-3">
+      {/* 1. Who We Are & Developer Identity */}
+      <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-4">
         <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
-          Who We Are
+          Who We Are & Developer Identity
         </h2>
         <p>
-          RBTPracticeExam.xyz is an educational website focused on providing structured, high-yield practice resources for individuals studying behavior analysis fundamentals and preparing for the Registered Behavior Technician examination.
+          RBTPracticeExam.xyz is developed and maintained as an independent educational technology project under <strong>FK Digital Media</strong> by <strong>Firoz Khan</strong>, a Full Stack Developer.
         </p>
-        <p>
-          We believe that thorough exam preparation should be accessible, organized, and focused on genuine understanding rather than rote memorization.
-        </p>
+
+        {/* Developer Profile Card */}
+        <div class="p-5 sm:p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 flex flex-col sm:flex-row gap-5 items-start sm:items-center">
+          {/* Avatar / Photo Placeholder */}
+          <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-tr from-brand-600 to-emerald-500 text-white font-black text-2xl flex items-center justify-center shrink-0 shadow-md">
+            FK
+          </div>
+          <div class="space-y-2 flex-grow">
+            <div>
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white">Firoz Khan</h3>
+              <p class="text-xs font-semibold text-brand-600 dark:text-brand-400">
+                Full Stack Developer • FK Digital Media
+              </p>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Firoz Khan is a Full Stack Developer and the creator behind FK Digital Media. He develops web applications, interactive study software, and accessible digital products. He is the software engineer responsible for the design, architecture, and technology behind RBTPracticeExam.xyz.
+            </p>
+            {/* Note on Role Transparency */}
+            <p class="text-xs text-slate-500 dark:text-slate-400 italic">
+              <strong>Transparency Note:</strong> Firoz Khan is a software engineer and web developer. He is not a Board Certified Behavior Analyst (BCBA), Registered Behavior Technician (RBT), or ABA clinician. Educational content on this site is compiled from publicly available, authoritative reference materials.
+            </p>
+            {/* Professional Social Links */}
+            <div class="flex items-center gap-3 pt-1 text-xs">
+              <a
+                href="https://www.linkedin.com/in/firoz-khan-1153358a/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800 font-semibold hover:bg-blue-100 transition-colors"
+              >
+                <span>LinkedIn Profile</span>
+                <span class="text-[10px]">↗</span>
+              </a>
+              <a
+                href="https://github.com/fkdigitalmedia"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-slate-700 font-semibold hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+              >
+                <span>GitHub Profile</span>
+                <span class="text-[10px]">↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
       </section>
 
-      {/* 2. Why We Created This Platform */}
+      {/* 2. Why We Built RBTPracticeExam.xyz */}
       <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-3">
         <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
-          Why We Created This Platform
+          Why We Built RBTPracticeExam.xyz
         </h2>
         <p>
-          Preparing for a professional credentialing examination can feel overwhelming. Many learners face common challenges during their preparation:
+          Aspiring behavior technicians work tirelessly in clinics, schools, and homes supporting individuals with autism and developmental differences. However, many candidates face hurdles during exam preparation:
         </p>
         <ul class="list-disc pl-5 space-y-1.5 text-slate-700 dark:text-slate-300 text-sm">
-          <li>Finding realistic, topic-categorized multiple-choice practice questions.</li>
-          <li>Understanding why a particular answer is correct and why other options are incorrect.</li>
-          <li>Practicing under simulated, timed exam conditions.</li>
-          <li>Reinforcing terminology and definitions quickly using flashcards.</li>
-          <li>Identifying weak subject areas that need more attention and review.</li>
+          <li>Paywalls and mandatory account creation that restrict access to basic practice questions.</li>
+          <li>Practice tests that give a raw score without explaining <em>why</em> an answer is correct or why other choices are wrong.</li>
+          <li>Difficulty tracking progress across specific domains (e.g., continuous measurement vs. behavior reduction).</li>
+          <li>A lack of responsive, mobile-friendly tools for quick spaced-repetition study on the go.</li>
         </ul>
         <p class="pt-1">
-          We created RBTPracticeExam.xyz to bring all these essential study tools into one convenient, easy-to-use place where anyone can study at their own pace.
+          RBTPracticeExam.xyz was built to solve these issues: an open-access platform where learners can practice scenario-based questions, inspect detailed rationales, and review their strengths without mandatory login friction.
         </p>
       </section>
 
-      {/* 3. What You Can Do Here */}
+      {/* 3. Current 2026 Examination Blueprint Alignment */}
+      <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-4">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
+            Current 2026 RBT Examination Blueprint
+          </h2>
+          <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
+            Based on RBT TCO (3rd ed.)
+          </span>
+        </div>
+        <p>
+          According to the BACB's published materials, the RBT examination content beginning <strong>January 1, 2026</strong> is organized around the <strong>RBT Test Content Outline (3rd ed.)</strong>. The exam consists of <strong>85 total multiple-choice questions</strong> (75 scored questions and 10 unscored pilot questions) completed within a 90-minute testing window:
+        </p>
+        
+        {/* Domain Distribution Table */}
+        <div class="overflow-x-auto pt-1">
+          <table class="w-full text-left text-xs sm:text-sm border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden">
+            <thead class="bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white font-bold">
+              <tr>
+                <th class="p-3 border-b border-slate-200 dark:border-slate-700">Domain Area</th>
+                <th class="p-3 border-b border-slate-200 dark:border-slate-700">Scored Items</th>
+                <th class="p-3 border-b border-slate-200 dark:border-slate-700">Exam Weight</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 dark:divide-slate-800 text-slate-600 dark:text-slate-300">
+              <tr>
+                <td class="p-3 font-semibold text-slate-900 dark:text-white">Domain A: Data Collection and Graphing</td>
+                <td class="p-3">13 questions</td>
+                <td class="p-3 font-mono">17%</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-semibold text-slate-900 dark:text-white">Domain B: Behavior Assessment</td>
+                <td class="p-3">8 questions</td>
+                <td class="p-3 font-mono">11%</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-semibold text-slate-900 dark:text-white">Domain C: Behavior Acquisition</td>
+                <td class="p-3">19 questions</td>
+                <td class="p-3 font-mono">25%</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-semibold text-slate-900 dark:text-white">Domain D: Behavior Reduction</td>
+                <td class="p-3">14 questions</td>
+                <td class="p-3 font-mono">19%</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-semibold text-slate-900 dark:text-white">Domain E: Documentation and Reporting</td>
+                <td class="p-3">10 questions</td>
+                <td class="p-3 font-mono">13%</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-semibold text-slate-900 dark:text-white">Domain F: Ethics</td>
+                <td class="p-3">11 questions</td>
+                <td class="p-3 font-mono">15%</td>
+              </tr>
+              <tr class="bg-slate-50 dark:bg-slate-800/80 font-bold text-slate-900 dark:text-white">
+                <td class="p-3">Total Scored Items (+ 10 unscored pilot questions)</td>
+                <td class="p-3">75 scored (85 total)</td>
+                <td class="p-3 font-mono">100%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-xs text-slate-500 dark:text-slate-400">
+          <em>Historical Note:</em> Prior to January 1, 2026, examinations were based on the RBT Task List (2nd ed.). For complete official certification requirements, application procedures, and candidate handbooks, visit the official BACB website at <a href="https://www.bacb.com" target="_blank" rel="noopener noreferrer" class="text-brand-600 dark:text-brand-400 underline font-semibold">bacb.com</a>.
+        </p>
+      </section>
+
+      {/* 4. Question Creation & Editorial Standards */}
+      <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-3">
+        <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
+          Question Development & Transparency
+        </h2>
+        <p>
+          All practice questions on this platform are original clinical vignettes and scenario questions authored using publicly available educational resources, including:
+        </p>
+        <ul class="list-disc pl-5 space-y-1 text-slate-700 dark:text-slate-300 text-sm">
+          <li>The BACB® RBT Test Content Outline (3rd ed.) and public task list competencies.</li>
+          <li>The BACB® RBT Ethics Code (2.0).</li>
+          <li>Standard applied behavior analysis reference textbooks (e.g., Cooper, Heron, & Heward).</li>
+        </ul>
+        <p class="text-sm pt-1">
+          For complete details on our question drafting, verification workflow, and error-correction processes, please review our companion policies:
+        </p>
+        <div class="flex flex-wrap gap-3 pt-1 text-xs sm:text-sm font-semibold">
+          <a href="/editorial-policy" class="text-brand-600 dark:text-brand-400 underline hover:text-brand-700">
+            Read Our Editorial Policy →
+          </a>
+          <span>•</span>
+          <a href="/methodology" class="text-brand-600 dark:text-brand-400 underline hover:text-brand-700">
+            Read Our Question Methodology →
+          </a>
+        </div>
+      </section>
+
+      {/* 5. What You Can Do Here */}
       <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-4">
         <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
           What You Can Study on This Website
@@ -79,7 +251,7 @@ import Layout from '@/layouts/Layout.astro';
               <span>Practice Questions</span>
             </div>
             <p class="text-xs text-slate-600 dark:text-slate-400">
-              Drill categorized questions with instant answer feedback and clear clinical explanations.
+              Targeted scenario questions with immediate feedback, clinical context, and explanations.
             </p>
           </div>
 
@@ -89,7 +261,7 @@ import Layout from '@/layouts/Layout.astro';
               <span>Timed Mock Exams</span>
             </div>
             <p class="text-xs text-slate-600 dark:text-slate-400">
-              Complete full 85-question simulated exams with persistent countdown timers and domain scorecards.
+              Simulated timed practice sessions designed to help build test stamina and pacing awareness.
             </p>
           </div>
 
@@ -99,7 +271,7 @@ import Layout from '@/layouts/Layout.astro';
               <span>Unlimited Study Mode</span>
             </div>
             <p class="text-xs text-slate-600 dark:text-slate-400">
-              Continuous question streams with custom filters for specific domains, difficulty levels, or weak areas.
+              Endless adaptive drill sessions filtered by domain area, difficulty, or flagged items.
             </p>
           </div>
 
@@ -109,147 +281,37 @@ import Layout from '@/layouts/Layout.astro';
               <span>Spaced Repetition Flashcards</span>
             </div>
             <p class="text-xs text-slate-600 dark:text-slate-400">
-              Master core terminology using spaced-repetition flashcards that prioritize cards you find difficult.
-            </p>
-          </div>
-
-          <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 space-y-1.5">
-            <div class="font-bold text-slate-900 dark:text-white flex items-center gap-2">
-              <span class="text-base">🤖</span>
-              <span>AI Study Tutor</span>
-            </div>
-            <p class="text-xs text-slate-600 dark:text-slate-400">
-              Get immediate, step-by-step reasoning and educational guidance on challenging question scenarios.
-            </p>
-          </div>
-
-          <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 space-y-1.5">
-            <div class="font-bold text-slate-900 dark:text-white flex items-center gap-2">
-              <span class="text-base">📊</span>
-              <span>Personal Performance Review</span>
-            </div>
-            <p class="text-xs text-slate-600 dark:text-slate-400">
-              Track your accuracy across measurement, assessment, skill acquisition, behavior reduction, and ethics.
+              SuperMemo-2 algorithmic flashcards prioritizing terminology that needs reinforcement.
             </p>
           </div>
         </div>
       </section>
 
-      {/* 4. RBT Examination Framework */}
+      {/* 6. Reporting Errors & Continuous Improvement */}
       <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-3">
         <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
-          Organized Around Current Examination Frameworks
+          Reporting an Error or Suggestion
         </h2>
         <p>
-          Our study resources and question collections are organized around the current RBT examination curriculum and task list competencies, covering:
+          Educational accuracy is our highest priority. If you encounter a typo, questionable answer key, or outdated phrasing, we welcome your feedback. Every report is reviewed against authoritative textbooks and official task list outlines.
         </p>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-300 pt-1">
-          <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700">
-            • Domain A: Measurement & Data Collection
-          </div>
-          <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700">
-            • Domain B: Assessment & Preference Testing
-          </div>
-          <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700">
-            • Domain C: Skill Acquisition & Procedures
-          </div>
-          <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700">
-            • Domain D: Behavior Reduction & Plans
-          </div>
-          <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700">
-            • Domain E: Documentation & Reporting
-          </div>
-          <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700">
-            • Domain F: Professional Conduct & Scope
-          </div>
+        <div class="pt-1">
+          <a
+            href="/contact#report-error"
+            class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs sm:text-sm shadow transition-colors"
+          >
+            <span>Submit a Question Correction</span>
+            <span>→</span>
+          </a>
         </div>
       </section>
 
-      {/* 5. Our Learning Approach */}
-      <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-3">
-        <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
-          Our Learning Approach
-        </h2>
-        <p>
-          Effective exam preparation requires more than answering questions once. Our platform is built around a practical five-step cycle:
-        </p>
-        <div class="flex flex-wrap items-center justify-between gap-2 p-4 rounded-2xl bg-brand-50/60 dark:bg-brand-950/40 border border-brand-200 dark:border-brand-800 text-xs sm:text-sm font-bold text-brand-900 dark:text-brand-200 text-center">
-          <span class="px-3 py-1.5 rounded-xl bg-white dark:bg-slate-900 shadow-sm">1. Practice</span>
-          <span>→</span>
-          <span class="px-3 py-1.5 rounded-xl bg-white dark:bg-slate-900 shadow-sm">2. Review</span>
-          <span>→</span>
-          <span class="px-3 py-1.5 rounded-xl bg-white dark:bg-slate-900 shadow-sm">3. Understand</span>
-          <span>→</span>
-          <span class="px-3 py-1.5 rounded-xl bg-white dark:bg-slate-900 shadow-sm">4. Repeat</span>
-          <span>→</span>
-          <span class="px-3 py-1.5 rounded-xl bg-white dark:bg-slate-900 shadow-sm">5. Improve</span>
-        </div>
-        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 pt-1">
-          By focusing on detailed explanations and diagnostic feedback, learners can quickly spot misconceptions and reinforce essential concepts before exam day.
-        </p>
-      </section>
-
-      {/* 6. AI Features Transparency */}
-      <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-3">
-        <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
-          AI Study Features Transparency
-        </h2>
-        <p>
-          Some study tools on our website use artificial intelligence to assist with practice question explanations and immediate study support.
-        </p>
-        <p>
-          While AI tools are helpful for on-demand tutoring, automated answers can occasionally contain errors. The AI Tutor is an educational aid, not an official certification authority. Learners should always confirm critical definitions and clinical rules with standard course materials.
-        </p>
-      </section>
-
-      {/* 7. Study At Your Own Pace — Zero Registration */}
-      <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-3">
-        <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
-          Study At Your Own Pace With Zero Friction
-        </h2>
-        <p>
-          You do not need to create an account, sign up with an email, or remember a password to start practicing. Simply open the website on your phone, tablet, or computer and begin studying immediately.
-        </p>
-        <p>
-          Your study streak, question attempts, and mock exam results are saved privately inside your browser on your device so you can pick up right where you left off.
-        </p>
-      </section>
-
-      {/* 8. Who This Platform Is For */}
-      <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-3">
-        <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
-          Who This Platform Is For
-        </h2>
-        <p>
-          This website is designed for:
-        </p>
-        <ul class="list-disc pl-5 space-y-1.5 text-slate-700 dark:text-slate-300 text-sm">
-          <li>Individuals actively preparing for the Registered Behavior Technician examination.</li>
-          <li>Students completing 40-hour RBT training courses who want extra question practice.</li>
-          <li>Practicing behavior technicians looking to refresh core clinical terminology and ethics guidelines.</li>
-          <li>Learners who want to build test-taking stamina and familiarity with multiple-choice question formats.</li>
-        </ul>
-      </section>
-
-      {/* 9. Our Goal */}
-      <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-3">
-        <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
-          Our Goal
-        </h2>
-        <p class="text-base sm:text-lg font-extrabold text-slate-900 dark:text-white">
-          Our goal is simple: make RBT exam preparation easier to organize, easier to practice, and easier to understand.
-        </p>
-        <p>
-          We are committed to maintaining a clean, open, and reliable study platform that gives every learner a dedicated space to practice consistently.
-        </p>
-      </section>
-
-      {/* 10. Call to Action Banner */}
+      {/* 7. Call to Action Banner */}
       <section class="p-6 sm:p-8 rounded-3xl bg-gradient-to-tr from-brand-600 to-emerald-600 text-white space-y-4 shadow-lg text-center sm:text-left">
         <div class="space-y-1">
-          <h2 class="text-2xl font-black">Ready to Start Preparing?</h2>
+          <h2 class="text-2xl font-black">Begin Your Practice Session</h2>
           <p class="text-emerald-100 text-xs sm:text-sm">
-            Choose a study mode and begin your practice session right away — no registration needed.
+            All practice materials are open access and free to study on any device.
           </p>
         </div>
         <div class="flex flex-wrap items-center justify-center sm:justify-start gap-3 pt-2">
@@ -270,12 +332,6 @@ import Layout from '@/layouts/Layout.astro';
             class="px-5 py-3 rounded-2xl bg-brand-700/80 hover:bg-brand-700 text-white font-bold text-xs sm:text-sm border border-white/20 transition-colors"
           >
             ⏱️ Take a Mock Exam
-          </a>
-          <a
-            href="/flashcards"
-            class="px-5 py-3 rounded-2xl bg-brand-700/80 hover:bg-brand-700 text-white font-bold text-xs sm:text-sm border border-white/20 transition-colors"
-          >
-            🗂️ Study Flashcards
           </a>
         </div>
       </section>

@@ -255,6 +255,8 @@ export class CMSService {
       '/faq',
       '/about',
       '/contact',
+      '/editorial-policy',
+      '/methodology',
       '/privacy-policy',
       '/privacy',
       '/terms-and-conditions',

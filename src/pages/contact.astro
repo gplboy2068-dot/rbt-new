@@ -1,4 +1,4 @@
-﻿---
+---
 import Layout from '@/layouts/Layout.astro';
 ---
 
@@ -88,30 +88,34 @@ import Layout from '@/layouts/Layout.astro';
     </div>
 
     {/* Question / Error Reporting Guidance */}
-    <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-4">
+    <section id="report-error" class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-4 scroll-mt-24">
       <div class="flex items-center gap-3">
         <div class="w-10 h-10 rounded-xl bg-purple-50 dark:bg-purple-950 flex items-center justify-center text-purple-600 dark:text-purple-400 text-lg font-bold">
           🔍
         </div>
         <h2 class="text-xl font-bold text-slate-900 dark:text-white">
-          Found an Error in a Practice Question?
+          Report an Error or Question Discrepancy
         </h2>
       </div>
       <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
         We strive for high educational accuracy across all our practice items. If you believe a practice question, answer option, or explanation contains an error, please email us with the following helpful details:
       </p>
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs sm:text-sm pt-1">
+      <div class="grid grid-cols-1 sm:grid-cols-4 gap-3 text-xs sm:text-sm pt-1">
         <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 space-y-1">
-          <div class="font-bold text-slate-900 dark:text-white">1. Question Details</div>
-          <div class="text-slate-500 dark:text-slate-400 text-xs">Question ID, topic name, or a brief snippet of the question text.</div>
+          <div class="font-bold text-slate-900 dark:text-white">1. Question ID</div>
+          <div class="text-slate-500 dark:text-slate-400 text-xs">Question code (e.g. mq-rbt-freq-001) or topic name.</div>
         </div>
         <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 space-y-1">
-          <div class="font-bold text-slate-900 dark:text-white">2. What Appears Incorrect</div>
-          <div class="text-slate-500 dark:text-slate-400 text-xs">Describe the typo, answer key issue, or incorrect explanation.</div>
+          <div class="font-bold text-slate-900 dark:text-white">2. What Is Wrong</div>
+          <div class="text-slate-500 dark:text-slate-400 text-xs">Describe the typo, answer key issue, or confusing phrasing.</div>
         </div>
         <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 space-y-1">
-          <div class="font-bold text-slate-900 dark:text-white">3. Explanation / Source</div>
-          <div class="text-slate-500 dark:text-slate-400 text-xs">Why you believe it needs review and any textbook or task list reference.</div>
+          <div class="font-bold text-slate-900 dark:text-white">3. Expected Answer</div>
+          <div class="text-slate-500 dark:text-slate-400 text-xs">What you believe the correct answer or wording should be.</div>
+        </div>
+        <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 space-y-1">
+          <div class="font-bold text-slate-900 dark:text-white">4. Reference / Reason</div>
+          <div class="text-slate-500 dark:text-slate-400 text-xs">Relevant textbook, task list, or ethics code citation.</div>
         </div>
       </div>
       <div class="pt-2">
@@ -119,7 +123,7 @@ import Layout from '@/layouts/Layout.astro';
           href="mailto:support@rbtpracticeexam.xyz?subject=Question%20Error%20Report"
           class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs sm:text-sm shadow transition-colors"
         >
-          <span>Report a Question via Email</span>
+          <span>Email Question Correction (support@rbtpracticeexam.xyz)</span>
           <span>→</span>
         </a>
       </div>
@@ -141,12 +145,24 @@ import Layout from '@/layouts/Layout.astro';
     {/* Related Legal & Information Pages */}
     <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-3">
       <h2 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
-        Related Information & Policies
+        Related Policies & Transparency Resources
       </h2>
       <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-        Before reaching out, you may also find answers in our legal and informational resources:
+        Before reaching out, you may also find answers in our legal, editorial, and methodology resources:
       </p>
       <div class="flex flex-wrap gap-4 pt-1 text-xs sm:text-sm font-semibold">
+        <a href="/editorial-policy" class="text-brand-600 dark:text-brand-400 underline hover:text-brand-700">
+          Editorial Policy
+        </a>
+        <span>•</span>
+        <a href="/methodology" class="text-brand-600 dark:text-brand-400 underline hover:text-brand-700">
+          Question Methodology
+        </a>
+        <span>•</span>
+        <a href="/about" class="text-brand-600 dark:text-brand-400 underline hover:text-brand-700">
+          About Us
+        </a>
+        <span>•</span>
         <a href="/privacy-policy" class="text-brand-600 dark:text-brand-400 underline hover:text-brand-700">
           Privacy Policy
         </a>
@@ -157,10 +173,6 @@ import Layout from '@/layouts/Layout.astro';
         <span>•</span>
         <a href="/disclaimer" class="text-brand-600 dark:text-brand-400 underline hover:text-brand-700">
           Disclaimer
-        </a>
-        <span>•</span>
-        <a href="/about" class="text-brand-600 dark:text-brand-400 underline hover:text-brand-700">
-          About Us
         </a>
       </div>
     </section>

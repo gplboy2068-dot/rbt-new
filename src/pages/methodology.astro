@@ -1,0 +1,210 @@
+﻿---
+import Layout from '@/layouts/Layout.astro';
+
+const lastUpdated = "September 2026";
+---
+
+<Layout
+  title="Question Methodology & Exam Structure | RBTPracticeExam.xyz"
+  description="Learn how RBTPracticeExam.xyz authors practice questions, assigns domain categories, determines difficulty levels, and structures mock examinations."
+>
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-10 animate-fadeIn text-slate-800 dark:text-slate-200">
+    
+    {/* Page Header */}
+    <header class="border-b border-slate-200 dark:border-slate-800 pb-8 space-y-3">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 dark:bg-brand-950/60 border border-brand-200 dark:border-brand-800 text-brand-700 dark:text-brand-300 text-xs font-bold uppercase tracking-wider">
+        <span>Pedagogy & Evaluation Framework</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 dark:text-white tracking-tight">
+        Question Methodology
+      </h1>
+      <p class="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed">
+        A transparent breakdown of how our practice questions are constructed, how difficulty is classified, and how our simulated mock exams compare to official certification tests.
+      </p>
+      <div class="text-xs text-slate-500 dark:text-slate-400">
+        Last Updated: {lastUpdated} • RBTPracticeExam.xyz
+      </div>
+    </header>
+
+    {/* Independent Notice */}
+    <section class="p-5 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-900/60 text-amber-900 dark:text-amber-200 text-xs sm:text-sm leading-relaxed space-y-1.5">
+      <div class="font-bold flex items-center gap-2 text-amber-800 dark:text-amber-300 uppercase tracking-wide text-xs">
+        <span>Independent Study Simulation Notice</span>
+      </div>
+      <p>
+        <strong>These practice questions are independently created and are NOT actual BACB examination questions.</strong> RBTPracticeExam.xyz is an independent preparatory study platform. We have no affiliation with the Behavior Analyst Certification Board® (BACB®). Completing practice tests or achieving high scores on this website does not guarantee passing the official RBT certification exam.
+      </p>
+    </section>
+
+    {/* Methodology Sections */}
+    <div class="space-y-8 text-sm sm:text-base leading-relaxed">
+
+      {/* 1. Question Construction Standards */}
+      <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-4">
+        <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
+          1. How Our Practice Questions Are Created
+        </h2>
+        <p>
+          RBT candidates frequently report that textbook definitions alone are insufficient for exam day; test items test how concepts apply to realistic clinical situations. We design our practice questions around three psychometric principles:
+        </p>
+        <ul class="list-disc pl-5 space-y-2 text-slate-700 dark:text-slate-300 text-sm">
+          <li>
+            <strong>Scenario-Based Stems:</strong> Rather than asking for basic definitions, questions place the candidate in realistic clinic, home, or classroom scenarios (e.g., managing an extinction burst, assisting a BCBA with preference assessments, or adhering to mandatory abuse reporting protocols).
+          </li>
+          <li>
+            <strong>Single Best Answer:</strong> Each item features exactly one correct answer based on established behavioral science principles. Ambiguous items where two options could both be considered clinically correct are revised or removed.
+          </li>
+          <li>
+            <strong>Plausible Clinical Distractors:</strong> Incorrect options represent common learner misconceptions (such as confusing negative reinforcement with punishment, or confusing latency with inter-response time) rather than obviously absurd choices.
+          </li>
+        </ul>
+      </section>
+
+      {/* 2. Domain Categorization */}
+      <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-4">
+        <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
+          2. Domain Categorization (RBT TCO 3rd ed.)
+        </h2>
+        <p>
+          Questions are categorized into the six official content domains identified in the BACB® <em>RBT Test Content Outline (3rd ed.)</em>:
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm pt-1">
+          <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 space-y-1">
+            <div class="font-bold text-slate-900 dark:text-white">Domain A: Data Collection & Graphing</div>
+            <div class="text-slate-500 dark:text-slate-400 text-xs">Continuous measurement, discontinuous time sampling, graphing, and baseline data.</div>
+          </div>
+          <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 space-y-1">
+            <div class="font-bold text-slate-900 dark:text-white">Domain B: Behavior Assessment</div>
+            <div class="text-slate-500 dark:text-slate-400 text-xs">Assisting with functional assessments, preference assessments (MSWO, MSW, Paired), and ABC data.</div>
+          </div>
+          <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 space-y-1">
+            <div class="font-bold text-slate-900 dark:text-white">Domain C: Behavior Acquisition</div>
+            <div class="text-slate-500 dark:text-slate-400 text-xs">DTT, naturalistic teaching, prompting hierarchies, shaping, chaining, and token economies.</div>
+          </div>
+          <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 space-y-1">
+            <div class="font-bold text-slate-900 dark:text-white">Domain D: Behavior Reduction</div>
+            <div class="text-slate-500 dark:text-slate-400 text-xs">Functions of behavior (SEAT), differential reinforcement (DRA, DRI, DRO), and extinction protocols.</div>
+          </div>
+          <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 space-y-1">
+            <div class="font-bold text-slate-900 dark:text-white">Domain E: Documentation & Reporting</div>
+            <div class="text-slate-500 dark:text-slate-400 text-xs">Objective clinical session notes, communication with supervisors, and mandatory legal reporting.</div>
+          </div>
+          <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 space-y-1">
+            <div class="font-bold text-slate-900 dark:text-white">Domain F: Ethics</div>
+            <div class="text-slate-500 dark:text-slate-400 text-xs">RBT Ethics Code (2.0), avoiding dual relationships, gift policies, client dignity, and supervision ratios.</div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. Difficulty Level Classification */}
+      <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-4">
+        <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
+          3. How Difficulty Levels Are Assigned
+        </h2>
+        <p>
+          Each practice item is tagged with a difficulty tier (<strong>Easy</strong>, <strong>Medium</strong>, or <strong>Hard</strong>):
+        </p>
+        <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 space-y-2 text-xs sm:text-sm">
+          <div class="font-bold text-slate-900 dark:text-white">Internal Practice Classification Disclosure:</div>
+          <p class="text-slate-600 dark:text-slate-300">
+            Difficulty labels on RBTPracticeExam.xyz are <strong>internally assigned practice classifications</strong> designed to assist learners with structured study progression. They are <strong>not official BACB difficulty ratings</strong>.
+          </p>
+          <ul class="list-disc pl-5 space-y-1 text-slate-600 dark:text-slate-300 text-xs pt-1">
+            <li><strong>Easy:</strong> Direct recall of core definitions, standard formula calculations, or explicit behavioral terms.</li>
+            <li><strong>Medium:</strong> Application questions involving a single client scenario and a clear operational definition.</li>
+            <li><strong>Hard:</strong> Multi-step clinical vignettes requiring differential diagnosis of competing behavioral functions, complex prompt hierarchies, or nuanced ethical boundary decisions.</li>
+          </ul>
+        </div>
+      </section>
+
+      {/* 4. Scoring Methodology & Passing Target */}
+      <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-4">
+        <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
+          4. Scoring Methodology & Passing Target
+        </h2>
+        <p>
+          Our mock exams display a percentage score upon completion, with an internal benchmark of <strong>80%</strong> highlighted as a target study goal.
+        </p>
+        <div class="p-4 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-900/60 text-xs sm:text-sm text-amber-900 dark:text-amber-200 space-y-2">
+          <div class="font-bold">Important Distinction on Exam Passing Scores:</div>
+          <p>
+            The 80% passing score on this website is an <strong>internal study benchmark</strong> intended to encourage thorough preparation. The BACB does <strong>not</strong> use a simple 80% raw percentage cutoff. Instead, the official RBT examination utilizes <strong>scaled criterion-referenced scoring established via the Modified Angoff method</strong>. The exact number of correct items required to pass varies across different test forms based on statistical item difficulty.
+          </p>
+        </div>
+      </section>
+
+      {/* 5. How Mock Exams Differ From Official Examinations */}
+      <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-4">
+        <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
+          5. How Our Mock Exams Differ From the Official BACB Exam
+        </h2>
+        <div class="overflow-x-auto pt-1">
+          <table class="w-full text-left text-xs sm:text-sm border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden">
+            <thead class="bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white font-bold">
+              <tr>
+                <th class="p-3 border-b border-slate-200 dark:border-slate-700">Feature</th>
+                <th class="p-3 border-b border-slate-200 dark:border-slate-700">RBTPracticeExam.xyz (Mock)</th>
+                <th class="p-3 border-b border-slate-200 dark:border-slate-700">Official BACB® Examination</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 dark:divide-slate-800 text-slate-600 dark:text-slate-300">
+              <tr>
+                <td class="p-3 font-semibold text-slate-900 dark:text-white">Purpose</td>
+                <td class="p-3">Self-paced practice and conceptual review</td>
+                <td class="p-3 font-semibold text-brand-600 dark:text-brand-400">Formal professional certification credentialing</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-semibold text-slate-900 dark:text-white">Testing Environment</td>
+                <td class="p-3">Any browser, phone, or computer</td>
+                <td class="p-3">Authorized Pearson VUE testing center or secure online proctoring</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-semibold text-slate-900 dark:text-white">Registration</td>
+                <td class="p-3">Zero registration or login needed</td>
+                <td class="p-3">BACB application approval, 40-hr training certificate, and passed RBT Initial Competency Assessment</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-semibold text-slate-900 dark:text-white">Question Items</td>
+                <td class="p-3">Original simulated practice vignettes</td>
+                <td class="p-3">Official, proprietary, secure BACB examination items (75 scored + 10 pilot)</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-semibold text-slate-900 dark:text-white">Immediate Rationales</td>
+                <td class="p-3">Yes — complete step-by-step explanations</td>
+                <td class="p-3">No — candidates receive a pass/fail notification without answer keys</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      {/* 6. Summary & Navigation */}
+      <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-4">
+        <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
+          Explore Our Study Resources
+        </h2>
+        <p class="text-sm text-slate-600 dark:text-slate-400">
+          Now that you understand how our questions are structured, dive into our free practice modules:
+        </p>
+        <div class="flex flex-wrap gap-3 pt-1 text-xs sm:text-sm font-semibold">
+          <a href="/practice-questions" class="text-brand-600 dark:text-brand-400 underline hover:text-brand-700">
+            Practice Questions →
+          </a>
+          <span>•</span>
+          <a href="/mock-exams" class="text-brand-600 dark:text-brand-400 underline hover:text-brand-700">
+            85Q Timed Mock Exams →
+          </a>
+          <span>•</span>
+          <a href="/flashcards" class="text-brand-600 dark:text-brand-400 underline hover:text-brand-700">
+            SuperMemo-2 Flashcards →
+          </a>
+          <span>•</span>
+          <a href="/editorial-policy" class="text-brand-600 dark:text-brand-400 underline hover:text-brand-700">
+            Editorial Policy →
+          </a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</Layout>
