@@ -16,6 +16,7 @@ export interface ArticleData {
   status: 'published' | 'draft' | 'archived';
   publishedAt: string;
   updatedAt: string;
+  lastReviewed?: string;
 }
 
 export const ARTICLES_DATA: ArticleData[] = [
@@ -30,7 +31,8 @@ export const ARTICLES_DATA: ArticleData[] = [
     readTimeMinutes: 14,
     status: 'published',
     publishedAt: '2026-01-20T00:00:00Z',
-    updatedAt: new Date().toISOString(),
+    updatedAt: '2026-09-24T00:00:00Z',
+    lastReviewed: '2026-09-24T00:00:00Z',
     excerpt: 'An authoritative clinical guide contrasting continuous measurement (Frequency, Rate, Duration, Latency, IRT) with discontinuous time-sampling methods (Partial Interval, Whole Interval, Momentary Time Sampling) for RBT candidates.',
     content: `## Introduction: The Foundation of Applied Behavior Analysis
 
@@ -324,7 +326,8 @@ The terminology, formulas, and operational definitions in this educational guide
     readTimeMinutes: 15,
     status: 'published',
     publishedAt: '2026-01-22T00:00:00Z',
-    updatedAt: new Date().toISOString(),
+    updatedAt: '2026-09-24T00:00:00Z',
+    lastReviewed: '2026-09-24T00:00:00Z',
     excerpt: 'An in-depth conceptual guide breaking down the four functions of operant behavior (Sensory/Automatic, Escape, Attention, Tangible), distinguishing topography from function, and analyzing FBA clinical implications.',
     content: `## Introduction: Why Does Behavior Occur?
 
@@ -566,8 +569,9 @@ The behavioral principles, operant mechanisms, and assessment classifications in
     domain: 'Independent Exam Preparation Framework',
     readTimeMinutes: 18,
     status: 'published',
-    publishedAt: '2025-01-20',
-    updatedAt: '2025-02-20',
+    publishedAt: '2026-09-24T00:00:00Z',
+    updatedAt: '2026-09-24T00:00:00Z',
+    lastReviewed: '2026-09-24T00:00:00Z',
     content: `# How to Prepare for the RBT Exam in 30 Days: A Practical Study Plan
 
 > **Independent Educational Framework Notice:** This 30-day preparation calendar is an independent educational study aid created by the RBTPracticeExam team. It is not an official BACB study plan, nor is it endorsed, sponsored, or affiliated with the Behavior Analyst Certification Board® (BACB®). Completing this schedule does not guarantee passing the Registered Behavior Technician® (RBT®) certification exam. Practice exam scores (including our recommended 80%+ benchmark) serve solely as an internal readiness metric, not a representation of the BACB's proprietary Angoff passing standard.

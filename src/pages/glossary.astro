@@ -1,5 +1,6 @@
 ---
 import Layout from '@/layouts/Layout.astro';
+import ReviewDate from '@/components/ReviewDate.astro';
 import GlossaryIsland from '@/components/GlossaryIsland';
 import { GLOSSARY_TERMS } from '@/data/glossary-data';
 import { BookOpen, ShieldCheck, ChevronRight, HelpCircle, Layers, Compass, ExternalLink } from 'lucide-react';
@@ -80,6 +81,11 @@ const breadcrumbJsonLd = {
       <p class="text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-3xl leading-relaxed">
         A curated, educational dictionary designed to help Registered Behavior Technician (RBT) candidates, behavior technicians, and students quickly master foundational behavioral principles. Explore concise operational definitions, beginner-friendly translations, fictional clinical scenarios, and common exam pitfalls across all six RBT examination domains.
       </p>
+
+      <ReviewDate 
+        publishedAt="2026-09-24T00:00:00Z" 
+        lastReviewed="2026-09-24T00:00:00Z" 
+      />
 
       {/* Independent Notice & Official Source Callout */}
       <div class="p-4 sm:p-5 rounded-2xl bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800/60 text-xs text-amber-900 dark:text-amber-300 flex items-start gap-3.5">

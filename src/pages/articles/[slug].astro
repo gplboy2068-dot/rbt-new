@@ -1,5 +1,6 @@
 ---
 import Layout from '@/layouts/Layout.astro';
+import ReviewDate from '@/components/ReviewDate.astro';
 import { CMSService } from '@/lib/services/cms';
 import { 
   ArrowLeft, 
@@ -198,12 +199,13 @@ const breadcrumbJsonLd = {
           </div>
         </div>
 
-        <div class="flex items-center gap-4 text-slate-400">
-          <span class="flex items-center gap-1">
-            <Calendar className="w-3.5 h-3.5" />
-            <span>Published January 2026</span>
-          </span>
-          <span>•</span>
+        <div class="flex flex-wrap items-center gap-3 text-slate-400">
+          <ReviewDate 
+            publishedAt={article.publishedAt} 
+            updatedAt={article.updatedAt} 
+            lastReviewed={article.lastReviewed} 
+          />
+          <span class="text-slate-300 dark:text-slate-700 hidden sm:inline" aria-hidden="true">•</span>
           <span class="text-emerald-600 dark:text-emerald-400 font-semibold flex items-center gap-1">
             <CheckCircle className="w-3.5 h-3.5" />
             <span>Verified 3rd ed. TCO</span>

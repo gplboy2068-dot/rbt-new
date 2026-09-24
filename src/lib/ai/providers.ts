@@ -83,7 +83,7 @@ export class OpenAIProvider implements IAIProvider {
   async generateCompletion(messages: LLMMessage[], apiKey?: string, model?: string): Promise<ProviderResponse> {
     if (!apiKey) {
       return {
-        content: `### 🧠 OpenAI Fallback Response\n\nStandard RBT Task List 2nd Edition clinical guidance.`,
+        content: `### 🧠 OpenAI Fallback Response\n\nStandard RBT Test Content Outline (3rd ed.) clinical guidance.`,
         model: model || this.defaultModel,
       };
     }

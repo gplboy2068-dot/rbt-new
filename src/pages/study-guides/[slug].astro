@@ -1,5 +1,6 @@
 ---
 import Layout from '@/layouts/Layout.astro';
+import ReviewDate from '@/components/ReviewDate.astro';
 import { CMSService } from '@/lib/services/cms';
 import { ArrowLeft, Clock, BookOpen, CheckCircle, HelpCircle, Layers, ExternalLink, ShieldCheck, ChevronRight } from 'lucide-react';
 
@@ -93,8 +94,8 @@ const articleJsonLd = guide ? {
     "credentialCategory": "Certification"
   },
   "educationalLevel": "RBT Certification Candidate",
-  "datePublished": "2026-01-15T00:00:00Z",
-  "dateModified": new Date().toISOString()
+  "datePublished": guide.publishedAt || "2026-01-15T00:00:00Z",
+  "dateModified": guide.updatedAt || guide.publishedAt || "2026-09-24T00:00:00Z"
 } : null;
 
 const breadcrumbJsonLd = guide ? {
@@ -175,6 +176,12 @@ const breadcrumbJsonLd = guide ? {
         <p class="text-sm sm:text-base text-slate-600 dark:text-slate-400 font-medium leading-relaxed">
           {guide.summary}
         </p>
+
+        <ReviewDate 
+          publishedAt={guide.publishedAt} 
+          updatedAt={guide.updatedAt} 
+          lastReviewed={guide.lastReviewed} 
+        />
 
         {/* Independent Resource & BACB Notice */}
         <div class="p-4 rounded-2xl bg-amber-50/60 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-800/60 text-xs text-amber-900 dark:text-amber-300 flex items-start gap-3">

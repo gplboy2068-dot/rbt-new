@@ -10,6 +10,7 @@ interface TopicDetailProps {
   domainName: string;
   summary: string;
   keyPoints: string[];
+  lastReviewed?: string;
 }
 
 export default function TopicDetailIsland({
@@ -19,6 +20,7 @@ export default function TopicDetailIsland({
   domainName,
   summary,
   keyPoints,
+  lastReviewed,
 }: TopicDetailProps) {
   const relatedQuestions = INITIAL_QUESTIONS.filter(
     (q) => q.topicName.toLowerCase().includes(name.toLowerCase()) || q.domainName.includes(domainName)
@@ -41,7 +43,7 @@ export default function TopicDetailIsland({
       {/* Top Breadcrumb */}
       <div className="flex items-center gap-2 text-xs font-semibold text-slate-500">
         <a href="/topics" className="hover:text-brand-600 flex items-center gap-1">
-          <ArrowLeft className="w-3.5 h-3.5" /> All Task List Topics
+          <ArrowLeft className="w-3.5 h-3.5" /> All Curriculum Topics
         </a>
         <span>/</span>
         <span className="text-slate-900 dark:text-white font-bold">{domainName}</span>
@@ -49,11 +51,20 @@ export default function TopicDetailIsland({
 
       {/* Hero */}
       <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-4">
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2">
           <span className="px-3 py-1 rounded-full text-xs font-bold bg-brand-50 text-brand-800 dark:bg-brand-950/60 dark:text-brand-300 border border-brand-200">
-            Task List Item {code}
+            TCO Item {code}
           </span>
           <span className="text-xs font-bold text-slate-500">{domainName}</span>
+          {lastReviewed && (
+            <span className="sm:ml-auto inline-flex items-center gap-1.5 text-xs text-amber-800 dark:text-amber-300 font-medium bg-amber-50/70 dark:bg-amber-950/40 px-2 py-0.5 rounded-md border border-amber-200/60 dark:border-amber-900/50">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-3 h-3 text-amber-600 dark:text-amber-400 shrink-0" aria-hidden="true">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                <path d="m9 12 2 2 4-4" />
+              </svg>
+              <span>Last Reviewed: September 2026</span>
+            </span>
+          )}
         </div>
 
         <h1 className="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white">

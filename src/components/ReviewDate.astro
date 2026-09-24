@@ -1,0 +1,124 @@
+---
+/**
+ * ReviewDate.astro — Reusable editorial freshness & review date component (Step 10)
+ * Renders transparent, accessible, and non-intrusive editorial dates:
+ * - "Published: [Month Year]"
+ * - "Last Updated: [Month Year]" (only if different from published)
+ * - "Last Reviewed: [Month Year]" (indicates factual/curriculum accuracy check)
+ *
+ * Strict Rule: Never renders fake freshness dates. Only renders if valid dates are provided.
+ */
+
+interface Props {
+  lastReviewed?: string;
+  updatedAt?: string;
+  publishedAt?: string;
+  variant?: 'inline' | 'stacked' | 'badge';
+  class?: string;
+}
+
+const {
+  lastReviewed,
+  updatedAt,
+  publishedAt,
+  variant = 'inline',
+  class: className = ''
+} = Astro.props;
+
+function formatMonthYear(dateStr?: string): { formatted: string; iso: string } | null {
+  if (!dateStr) return null;
+  try {
+    // Parse ISO date or YYYY-MM-DD string safely without local timezone day-slipping
+    const parts = dateStr.split(/[-T]/);
+    if (parts.length >= 2) {
+      const year = parseInt(parts[0], 10);
+      const monthIndex = parseInt(parts[1], 10) - 1;
+      const monthNames = [
+        'January', 'February', 'March', 'April', 'May', 'June',
+        'July', 'August', 'September', 'October', 'November', 'December'
+      ];
+      if (!isNaN(year) && monthIndex >= 0 && monthIndex < 12) {
+        return {
+          formatted: `${monthNames[monthIndex]} ${year}`,
+          iso: dateStr.split('T')[0]
+        };
+      }
+    }
+    const d = new Date(dateStr);
+    if (isNaN(d.getTime())) return null;
+    return {
+      formatted: d.toLocaleDateString('en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' }),
+      iso: d.toISOString().split('T')[0]
+    };
+  } catch {
+    return null;
+  }
+}
+
+const published = formatMonthYear(publishedAt);
+const updated = formatMonthYear(updatedAt);
+const reviewed = formatMonthYear(lastReviewed);
+
+// Only show updated if it differs from published
+const showUpdated = updated && (!published || updated.formatted !== published.formatted);
+---
+
+{(reviewed || updated || published) && (
+  <div 
+    class:list={[
+      "text-xs text-slate-500 dark:text-slate-400 font-normal",
+      variant === 'stacked' ? "flex flex-col gap-1" : "flex flex-wrap items-center gap-x-3 gap-y-1.5",
+      className
+    ]}
+    aria-label="Editorial freshness and review information"
+  >
+    {published && (
+      <span class="inline-flex items-center gap-1.5">
+        <span class="text-slate-400 dark:text-slate-500">Published:</span>
+        <time datetime={published.iso} class="font-medium text-slate-600 dark:text-slate-300">
+          {published.formatted}
+        </time>
+      </span>
+    )}
+
+    {published && showUpdated && variant === 'inline' && (
+      <span class="text-slate-300 dark:text-slate-700 hidden sm:inline" aria-hidden="true">•</span>
+    )}
+
+    {showUpdated && (
+      <span class="inline-flex items-center gap-1.5">
+        <span class="text-slate-400 dark:text-slate-500">Updated:</span>
+        <time datetime={updated.iso} class="font-medium text-slate-600 dark:text-slate-300">
+          {updated.formatted}
+        </time>
+      </span>
+    )}
+
+    {(published || showUpdated) && reviewed && variant === 'inline' && (
+      <span class="text-slate-300 dark:text-slate-700 hidden sm:inline" aria-hidden="true">•</span>
+    )}
+
+    {reviewed && (
+      <span class="inline-flex items-center gap-1.5 text-amber-800 dark:text-amber-300 font-medium bg-amber-50/70 dark:bg-amber-950/40 px-2 py-0.5 rounded-md border border-amber-200/60 dark:border-amber-900/50">
+        <svg 
+          xmlns="http://www.w3.org/2000/svg" 
+          viewBox="0 0 24 24" 
+          fill="none" 
+          stroke="currentColor" 
+          stroke-width="2" 
+          stroke-linecap="round" 
+          stroke-linejoin="round" 
+          class="w-3 h-3 text-amber-600 dark:text-amber-400 shrink-0"
+          aria-hidden="true"
+        >
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          <path d="m9 12 2 2 4-4" />
+        </svg>
+        <span>Last Reviewed:</span>
+        <time datetime={reviewed.iso} class="font-semibold text-amber-900 dark:text-amber-200">
+          {reviewed.formatted}
+        </time>
+      </span>
+    )}
+  </div>
+)}

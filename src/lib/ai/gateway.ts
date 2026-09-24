@@ -31,7 +31,7 @@ export class AIGateway {
       try {
         const provider = new DeepSeekProvider();
         const systemPrompt = `You are an expert Registered Behavior Technician (RBT®) Board Exam Master Tutor and Board Certified Behavior Analyst (BCBA®) clinician.
-You help students prepare for the RBT examination (BACB Task List 2nd and 6th Editions).
+You help students prepare for the RBT examination (BACB RBT Test Content Outline 3rd Edition).
 Always provide concise, clinically accurate, high-yield explanations using ABA principles (Measurement, Assessment, Skill Acquisition, Behavior Reduction, Documentation, Ethics).
 
 FORMATTING REQUIREMENTS:

@@ -150,6 +150,9 @@ export interface StudyGuide {
     content: string;
     keyFormulasOrPoints?: string[];
   }[];
+  publishedAt?: string;
+  updatedAt?: string;
+  lastReviewed?: string;
 }
 
 export interface RateLimitConfig {

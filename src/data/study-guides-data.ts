@@ -14,6 +14,9 @@ export const STUDY_GUIDES_DATA: StudyGuide[] = [
     "summary": "Master continuous and discontinuous measurement methods, data graphing, inter-response time, permanent product recording, and data collection fidelity under Domain A of the RBT Test Content Outline (3rd ed.).",
     "domain": "A: Measurement",
     "readTimeMinutes": 16,
+    "publishedAt": "2026-01-15T00:00:00Z",
+    "updatedAt": "2026-09-24T00:00:00Z",
+    "lastReviewed": "2026-09-24T00:00:00Z",
     "sections": [
       {
         "title": "Continuous Measurement Procedures (A-01)",
@@ -94,6 +97,9 @@ export const STUDY_GUIDES_DATA: StudyGuide[] = [
     "summary": "A complete, authoritative review of Domain B of the RBT Test Content Outline (3rd ed.), covering preference assessments (Free Operant, Single, Paired, MSW, MSWOR), assisting with functional behavior assessments (descriptive ABC, scatterplots, analog FA), objective behavior definition, and RBT clinical boundaries.",
     "domain": "B: Behavior Assessment",
     "readTimeMinutes": 18,
+    "publishedAt": "2026-09-24T00:00:00Z",
+    "updatedAt": "2026-09-24T00:00:00Z",
+    "lastReviewed": "2026-09-24T00:00:00Z",
     "sections": [
       {
         "title": "Role of the RBT in Assessment & Clinical Scope of Practice (B-1, B-2)",
@@ -188,6 +194,9 @@ export const STUDY_GUIDES_DATA: StudyGuide[] = [
     "summary": "Comprehensive review of Domain C of the RBT Test Content Outline (3rd ed.), covering written skill acquisition plans (C-1), session prep (C-2), conditioned/unconditioned reinforcement (C-3), DTT vs NET (C-4, C-5), chaining (C-6), discrimination training (C-7), stimulus control transfer (C-8), prompt hierarchies (C-9), generalization & maintenance (C-10), shaping (C-11), and token economies (C-12).",
     "domain": "C: Behavior Acquisition",
     "readTimeMinutes": 22,
+    "publishedAt": "2026-09-24T00:00:00Z",
+    "updatedAt": "2026-09-24T00:00:00Z",
+    "lastReviewed": "2026-09-24T00:00:00Z",
     "sections": [
       {
         "title": "Components of a Written Skill Acquisition Plan (C-1, C-2)",
@@ -287,6 +296,9 @@ export const STUDY_GUIDES_DATA: StudyGuide[] = [
     "summary": "Essential strategies for identifying behavioral functions, implementing Behavior Intervention Plans (BIPs), differential reinforcement (DRA, DRI, DRO), extinction, and crisis protocols under Domain D of the RBT Test Content Outline (3rd ed.).",
     "domain": "D: Behavior Reduction",
     "readTimeMinutes": 16,
+    "publishedAt": "2026-01-15T00:00:00Z",
+    "updatedAt": "2026-09-24T00:00:00Z",
+    "lastReviewed": "2026-09-24T00:00:00Z",
     "sections": [
       {
         "title": "Components of a Written Behavior Intervention Plan (BIP) (D-01)",
@@ -379,6 +391,9 @@ export const STUDY_GUIDES_DATA: StudyGuide[] = [
     "summary": "Master clinical documentation, variable reporting, objective session notes (SOAP format), supervisor communication channels, legal data compliance, and BACB record retention under Domain E of the RBT Test Content Outline (3rd ed.).",
     "domain": "E: Documentation and Reporting",
     "readTimeMinutes": 16,
+    "publishedAt": "2026-09-24T00:00:00Z",
+    "updatedAt": "2026-09-24T00:00:00Z",
+    "lastReviewed": "2026-09-24T00:00:00Z",
     "sections": [
       {
         "title": "Reporting Other Variables Affecting Behavior (E-1)",
@@ -471,6 +486,9 @@ export const STUDY_GUIDES_DATA: StudyGuide[] = [
     "summary": "Master the BACB RBT Ethics Code (2.0) under Domain F of the RBT Test Content Outline (3rd ed.), covering general responsibilities, client dignity, assent, dual relationships, gift prohibitions, supervision compliance (5% rule), and mandatory reporting.",
     "domain": "F: Ethics",
     "readTimeMinutes": 20,
+    "publishedAt": "2026-09-24T00:00:00Z",
+    "updatedAt": "2026-09-24T00:00:00Z",
+    "lastReviewed": "2026-09-24T00:00:00Z",
     "sections": [
       {
         "title": "Overview of the RBT Ethics Code (2.0) & Foundation of Practice",
