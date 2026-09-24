@@ -1,4 +1,5 @@
 import { Question, Flashcard, MockExam, StudyGuide, Domain, Topic } from '@/types';
+import { STUDY_GUIDES_DATA } from './study-guides-data';
 
 export const INITIAL_DOMAINS: Domain[] = [
   { id: 'dom_a', code: 'A', name: 'Measurement', description: 'Data collection, continuous & discontinuous measurement, graphing', orderIndex: 1 },
@@ -2112,66 +2113,5 @@ export const INITIAL_MOCK_EXAMS: MockExam[] = [
   },
 ];
 
-export const INITIAL_STUDY_GUIDES: StudyGuide[] = [
-  {
-    id: 'guide_measurement',
-    slug: 'measurement-guide',
-    certification: 'RBT',
-    certificationVersion: '6th Edition',
-    title: 'Domain A: Measurement — RBT 6th Edition Comprehensive Review',
-    summary: 'Master continuous and discontinuous measurement methods, data graphing, and inter-response time.',
-    domain: 'A: Measurement',
-    readTimeMinutes: 12,
-    sections: [
-      {
-        title: 'Continuous vs. Discontinuous Measurement',
-        content: 'Continuous measurement records every instance of behavior (Frequency, Rate, Duration, Latency, IRT). Discontinuous measurement captures samples during intervals (Whole Interval, Partial Interval, Momentary Time Sampling).',
-        keyFormulasOrPoints: [
-          'Rate = Count / Total Observation Time',
-          'Latency = Time from SD onset to behavior initiation',
-          'Whole Interval = Behavior must occur during 100% of the interval (underestimates duration)',
-          'Partial Interval = Behavior occurs at ANY point in the interval (overestimates frequency)',
-        ],
-      },
-      {
-        title: 'Permanent Product Recording',
-        content: 'Measuring behavior after it has occurred by observing the physical effects or outcomes the behavior produced in the environment.',
-        keyFormulasOrPoints: [
-          'Does not require direct real-time observation of the client',
-          'Examples: Number of math problems completed, widgets assembled',
-        ],
-      },
-    ],
-  },
-  {
-    id: 'guide_behavior_reduction',
-    slug: 'behavior-reduction-guide',
-    certification: 'RBT',
-    certificationVersion: '6th Edition',
-    title: 'Domain D: Behavior Reduction & Intervention Plans — 6th Edition',
-    summary: 'Essential strategies for identifying behavioral functions, implementing extinction, and applying differential reinforcement.',
-    domain: 'D: Behavior Reduction',
-    readTimeMinutes: 15,
-    sections: [
-      {
-        title: 'The Four Functions of Behavior (SEAT)',
-        content: 'Every operant behavior is maintained by one or more environmental functions: Sensory (automatic), Escape/Avoidance, Attention, and Tangible/Access.',
-        keyFormulasOrPoints: [
-          'Sensory: Behavior itself feels good / relieves physical discomfort',
-          'Escape: Behavior results in avoiding or removing a demand/task',
-          'Attention: Behavior results in social feedback (positive or reprimands)',
-          'Tangible: Behavior results in obtaining a preferred item or activity',
-        ],
-      },
-      {
-        title: 'Differential Reinforcement Procedures',
-        content: 'DRA (Alternative), DRI (Incompatible), and DRO (Other). Reinforcing desired behaviors while withholding reinforcement for maladaptive behaviors.',
-        keyFormulasOrPoints: [
-          'DRA: Reinforce a functionally equivalent alternative (e.g. asking politely instead of screaming)',
-          'DRI: Reinforce a behavior that physically cannot occur at the same time (e.g. hands in pockets instead of hand flapping)',
-          'DRO: Reinforce the client whenever the problem behavior has NOT occurred for a specified duration',
-        ],
-      },
-    ],
-  },
-];
+export const INITIAL_STUDY_GUIDES: StudyGuide[] = STUDY_GUIDES_DATA;
+

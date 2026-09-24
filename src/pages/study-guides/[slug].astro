@@ -1,93 +1,385 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import { CMSService } from '@/lib/services/cms';
-import { ArrowLeft, Clock, BookOpen, CheckCircle, HelpCircle, Layers } from 'lucide-react';
+import { ArrowLeft, Clock, BookOpen, CheckCircle, HelpCircle, Layers, ExternalLink, ShieldCheck, ChevronRight } from 'lucide-react';
 
 const { slug } = Astro.params;
 const guide = slug ? CMSService.getStudyGuideBySlug(slug) : null;
 
 if (!guide) {
-  return Astro.redirect('/404');
+  Astro.response.status = 404;
 }
+
+// Helper to parse markdown content blocks into paragraphs, lists, and formatted tables
+function parseContentBlocks(rawText: string) {
+  if (!rawText) return [];
+  const blocks = rawText.trim().split(/\n\s*\n/);
+  
+  return blocks.map((block) => {
+    const lines = block.trim().split('\n');
+    
+    // Check if block is a markdown table
+    if (lines[0].startsWith('|') && lines.length >= 2 && lines[1].includes('---')) {
+      const headerCols = lines[0].split('|').map(c => c.trim()).filter(Boolean);
+      const rowLines = lines.slice(2);
+      const rows = rowLines
+        .filter(r => r.trim().startsWith('|'))
+        .map(r => r.split('|').map(c => c.trim()).filter(Boolean));
+      
+      return {
+        type: 'table' as const,
+        headers: headerCols,
+        rows,
+      };
+    }
+    
+    // Check if block is an unordered list
+    if (lines.length > 0 && lines.every(l => l.trim().startsWith('- ') || l.trim().startsWith('* '))) {
+      return {
+        type: 'list' as const,
+        ordered: false,
+        items: lines.map(l => l.replace(/^[-*]\s+/, '').trim()),
+      };
+    }
+
+    // Check if block is an ordered list
+    if (lines.length > 0 && lines.every(l => /^\d+\.\s+/.test(l.trim()))) {
+      return {
+        type: 'list' as const,
+        ordered: true,
+        items: lines.map(l => l.replace(/^\d+\.\s+/, '').trim()),
+      };
+    }
+
+    return {
+      type: 'paragraph' as const,
+      text: block.trim(),
+    };
+  });
+}
+
+// Helper to format inline bold, quotes, and italics safely
+function formatInline(text: string) {
+  return text
+    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*(.*?)\*/g, '<em>$1</em>')
+    .replace(/`([^`]+)`/g, '<code class="px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-xs font-mono text-amber-700 dark:text-amber-400">$1</code>');
+}
+
+const currentUrl = `https://rbtpracticeexam.xyz/study-guides/${guide?.slug || ''}`;
+
+// Schema.org Article & Breadcrumbs
+const articleJsonLd = guide ? {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": guide.title,
+  "description": guide.summary,
+  "url": currentUrl,
+  "inLanguage": "en-US",
+  "author": {
+    "@type": "Person",
+    "name": "Firoz Khan",
+    "jobTitle": "Lead Developer & RBT Curriculum Auditor",
+    "url": "https://rbtpracticeexam.xyz/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "RBTPracticeExam.xyz",
+    "url": "https://rbtpracticeexam.xyz"
+  },
+  "about": {
+    "@type": "EducationalOccupationalCredential",
+    "name": "Registered Behavior Technician (RBT)",
+    "credentialCategory": "Certification"
+  },
+  "educationalLevel": "RBT Certification Candidate",
+  "datePublished": "2026-01-15T00:00:00Z",
+  "dateModified": new Date().toISOString()
+} : null;
+
+const breadcrumbJsonLd = guide ? {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://rbtpracticeexam.xyz"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Study Guides",
+      "item": "https://rbtpracticeexam.xyz/study-guides"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": guide.title,
+      "item": currentUrl
+    }
+  ]
+} : null;
 ---
 
-<Layout title={`${guide.title} | RBT Study Guide`}>
-  <div class="max-w-4xl mx-auto px-4 py-8 sm:py-12 space-y-8">
-    <a href="/study-guides" class="inline-flex items-center gap-1.5 text-xs font-bold text-slate-500 hover:text-brand-600 transition-colors">
-      <ArrowLeft className="w-4 h-4" />
-      <span>Back to All Study Guides</span>
-    </a>
+{guide ? (
+  <Layout 
+    title={`${guide.title} | RBTPracticeExam.xyz`}
+    description={guide.summary}
+    canonicalUrl={currentUrl}
+  >
+    {/* JSON-LD Schemas */}
+    <script type="application/ld+json" set:html={JSON.stringify(articleJsonLd)} />
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
 
-    <header class="space-y-4 border-b border-slate-200 dark:border-slate-800 pb-8">
-      <div class="flex items-center gap-2 text-xs">
-        <span class="px-3 py-1 rounded-full font-bold bg-amber-50 text-amber-800 dark:bg-amber-950/60 dark:text-amber-300 border border-amber-200">
-          {guide.domain}
-        </span>
-        <span class="text-slate-400 flex items-center gap-1">
-          <Clock className="w-3.5 h-3.5" /> {guide.readTimeMinutes} min read
-        </span>
-      </div>
+    <div class="max-w-4xl mx-auto px-4 py-8 sm:py-12 space-y-8 animate-fadeIn">
+      {/* Breadcrumb Navigation */}
+      <nav aria-label="Breadcrumb" class="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400">
+        <a href="/" class="hover:text-brand-600 transition-colors">Home</a>
+        <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+        <a href="/study-guides" class="hover:text-brand-600 transition-colors">Study Guides</a>
+        <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+        <span class="text-slate-700 dark:text-slate-200 font-semibold truncate max-w-xs sm:max-w-md">{guide.domain}</span>
+      </nav>
 
-      <h1 class="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight leading-tight">
-        {guide.title}
-      </h1>
-
-      <p class="text-xs sm:text-base text-slate-600 dark:text-slate-400 font-medium leading-relaxed">
-        {guide.summary}
-      </p>
-    </header>
-
-    {/* Section Breakdowns */}
-    <div class="space-y-6">
-      {guide.sections.map((section, idx) => (
-        <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-4">
-          <h2 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
-            <span class="w-6 h-6 rounded-lg bg-brand-50 text-brand-700 flex items-center justify-center text-xs font-bold">
-              {idx + 1}
-            </span>
-            <span>{section.title}</span>
-          </h2>
-
-          <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
-            {section.content}
-          </p>
-
-          {section.keyFormulasOrPoints && section.keyFormulasOrPoints.length > 0 && (
-            <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 space-y-2">
-              <div class="text-xs font-bold text-slate-500 uppercase tracking-wider">High-Yield Exam Focus:</div>
-              <ul class="space-y-1.5 text-xs text-slate-800 dark:text-slate-200">
-                {section.keyFormulasOrPoints.map((point) => (
-                  <li class="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
-                    <span>{point}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-        </section>
-      ))}
-    </div>
-
-    {/* Related CTAs */}
-    <div class="bg-slate-50 dark:bg-slate-800/60 rounded-3xl border border-slate-200 dark:border-slate-700 p-6 sm:p-8 space-y-4">
-      <h2 class="text-sm font-bold text-slate-900 dark:text-white">Practice this domain now:</h2>
-      <div class="flex flex-wrap gap-3">
-        <a
-          href="/practice-questions"
-          class="px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white text-xs font-bold shadow-md flex items-center gap-1.5"
+      {/* Back Link */}
+      <div>
+        <a 
+          href="/study-guides" 
+          class="inline-flex items-center gap-1.5 text-xs font-bold text-slate-600 dark:text-slate-400 hover:text-brand-600 transition-colors"
         >
-          <HelpCircle className="w-4 h-4" />
-          <span>Practice Domain Questions</span>
-        </a>
-        <a
-          href="/flashcards"
-          class="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-black text-white text-xs font-bold shadow-md flex items-center gap-1.5"
-        >
-          <Layers className="w-4 h-4" />
-          <span>Review Flashcards</span>
+          <ArrowLeft className="w-4 h-4" />
+          <span>Back to All Study Guides</span>
         </a>
       </div>
+
+      {/* Header */}
+      <header class="space-y-4 border-b border-slate-200 dark:border-slate-800 pb-8">
+        <div class="flex flex-wrap items-center gap-2 text-xs">
+          <span class="px-3 py-1 rounded-full font-bold bg-amber-50 text-amber-800 dark:bg-amber-950/60 dark:text-amber-300 border border-amber-200 dark:border-amber-800">
+            {guide.domain}
+          </span>
+          <span class="px-2.5 py-1 rounded-full font-bold bg-blue-50 text-blue-800 dark:bg-blue-950/60 dark:text-blue-300 border border-blue-200 dark:border-blue-800">
+            RBT Test Content Outline (3rd ed.)
+          </span>
+          <span class="text-slate-500 dark:text-slate-400 flex items-center gap-1">
+            <Clock className="w-3.5 h-3.5" /> {guide.readTimeMinutes} min read
+          </span>
+        </div>
+
+        <h1 class="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight leading-tight">
+          {guide.title}
+        </h1>
+
+        <p class="text-sm sm:text-base text-slate-600 dark:text-slate-400 font-medium leading-relaxed">
+          {guide.summary}
+        </p>
+
+        {/* Independent Resource & BACB Notice */}
+        <div class="p-4 rounded-2xl bg-amber-50/60 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-800/60 text-xs text-amber-900 dark:text-amber-300 flex items-start gap-3">
+          <ShieldCheck className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
+          <div class="space-y-1">
+            <span class="font-bold">Independent Educational Study Guide Notice:</span>
+            <p class="leading-relaxed text-amber-800 dark:text-amber-400">
+              RBTPracticeExam.xyz is an independent educational test-preparation resource and is not affiliated with, sponsored by, or endorsed by the Behavior Analyst Certification Board® (BACB®). RBT®, Registered Behavior Technician®, and BCBA® are registered trademarks of the BACB®. For official certification standards and the authoritative curriculum outline, consult the <a href="https://www.bacb.com/rbt/" target="_blank" rel="noopener noreferrer" class="font-bold underline hover:text-amber-950 dark:hover:text-white">official BACB RBT Handbook</a>.
+            </p>
+          </div>
+        </div>
+      </header>
+
+      {/* Section Breakdowns */}
+      <div class="space-y-8">
+        {guide.sections.map((section, idx) => {
+          const parsedBlocks = parseContentBlocks(section.content);
+          return (
+            <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-5">
+              <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2.5">
+                <span class="w-7 h-7 rounded-lg bg-brand-50 dark:bg-brand-950/50 text-brand-700 dark:text-brand-300 flex items-center justify-center text-xs font-bold shrink-0">
+                  {idx + 1}
+                </span>
+                <span>{section.title}</span>
+              </h2>
+
+              <div class="space-y-4 text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+                {parsedBlocks.map((block) => {
+                  if (block.type === 'table') {
+                    return (
+                      <div class="overflow-x-auto my-4 rounded-2xl border border-slate-200 dark:border-slate-800">
+                        <table class="w-full text-left border-collapse text-xs sm:text-sm">
+                          <thead>
+                            <tr class="bg-slate-100 dark:bg-slate-800/80 border-b border-slate-200 dark:border-slate-700">
+                              {block.headers.map((h) => (
+                                <th class="p-3 font-bold text-slate-900 dark:text-slate-100 whitespace-nowrap" set:html={formatInline(h)} />
+                              ))}
+                            </tr>
+                          </thead>
+                          <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+                            {block.rows.map((row) => (
+                              <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+                                {row.map((cell) => (
+                                  <td class="p-3 text-slate-700 dark:text-slate-300 align-top leading-relaxed" set:html={formatInline(cell)} />
+                                ))}
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    );
+                  }
+
+                  if (block.type === 'list') {
+                    if (block.ordered) {
+                      return (
+                        <ol class="list-decimal list-inside space-y-1.5 pl-2 my-2 text-slate-700 dark:text-slate-300">
+                          {block.items.map((it) => (
+                            <li set:html={formatInline(it)} />
+                          ))}
+                        </ol>
+                      );
+                    }
+                    return (
+                      <ul class="list-disc list-inside space-y-1.5 pl-2 my-2 text-slate-700 dark:text-slate-300">
+                        {block.items.map((it) => (
+                          <li set:html={formatInline(it)} />
+                        ))}
+                      </ul>
+                    );
+                  }
+
+                  return (
+                    <p class="leading-relaxed whitespace-pre-line" set:html={formatInline(block.text)} />
+                  );
+                })}
+              </div>
+
+              {section.keyFormulasOrPoints && section.keyFormulasOrPoints.length > 0 && (
+                <div class="p-4 sm:p-5 rounded-2xl bg-amber-50/60 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800/60 space-y-2.5">
+                  <div class="text-xs font-bold text-amber-800 dark:text-amber-300 uppercase tracking-wider flex items-center gap-1.5">
+                    <CheckCircle className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                    <span>High-Yield Exam Focus & Takeaways:</span>
+                  </div>
+                  <ul class="space-y-1.5 text-xs text-slate-800 dark:text-slate-200">
+                    {section.keyFormulasOrPoints.map((point) => (
+                      <li class="flex items-start gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0 mt-1.5" />
+                        <span class="leading-relaxed" set:html={formatInline(point)} />
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </section>
+          );
+        })}
+      </div>
+
+      {/* Official BACB Resource Reference Box */}
+      <div class="p-6 rounded-3xl bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 space-y-3">
+        <h3 class="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2">
+          <BookOpen className="w-4 h-4 text-brand-600" />
+          <span>Official BACB® Reference Documents</span>
+        </h3>
+        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+          Candidates preparing for the RBT examination are strongly encouraged to review the official source documents directly from the Behavior Analyst Certification Board:
+        </p>
+        <div class="flex flex-wrap gap-3 pt-1">
+          <a
+            href="https://www.bacb.com/rbt/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1.5 text-xs font-bold text-brand-600 dark:text-brand-400 hover:underline"
+          >
+            <span>BACB RBT Credential Portal</span>
+            <ExternalLink className="w-3.5 h-3.5" />
+          </a>
+          <span class="text-slate-300 dark:text-slate-600">•</span>
+          <a
+            href="https://www.bacb.com/wp-content/uploads/2022/01/RBT-3rd-Edition-Test-Content-Outline_240202-a.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1.5 text-xs font-bold text-brand-600 dark:text-brand-400 hover:underline"
+          >
+            <span>RBT Test Content Outline (3rd ed.) PDF</span>
+            <ExternalLink className="w-3.5 h-3.5" />
+          </a>
+          <span class="text-slate-300 dark:text-slate-600">•</span>
+          <a
+            href="https://www.bacb.com/wp-content/uploads/2022/01/RBT-Ethics-Code-2.0_240202-a.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1.5 text-xs font-bold text-brand-600 dark:text-brand-400 hover:underline"
+          >
+            <span>RBT Ethics Code (2.0) PDF</span>
+            <ExternalLink className="w-3.5 h-3.5" />
+          </a>
+        </div>
+      </div>
+
+      {/* Related Interactive Practice CTAs */}
+      <div class="bg-gradient-to-br from-slate-900 to-slate-950 text-white rounded-3xl p-6 sm:p-8 space-y-4 shadow-xl border border-slate-800">
+        <div class="space-y-1">
+          <h2 class="text-base sm:text-lg font-bold text-white">Ready to test your knowledge on this domain?</h2>
+          <p class="text-xs text-slate-400">Put theory into practice with our 100% free interactive question banks and spaced-repetition flashcards.</p>
+        </div>
+        <div class="flex flex-wrap gap-3 pt-2">
+          <a
+            href={`/practice-questions?domain=${encodeURIComponent(guide.domain)}`}
+            class="px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold shadow-md flex items-center gap-1.5 transition-all"
+          >
+            <HelpCircle className="w-4 h-4" />
+            <span>Practice {guide.domain} Questions</span>
+          </a>
+          <a
+            href="/flashcards"
+            class="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold shadow-md flex items-center gap-1.5 border border-slate-700 transition-all"
+          >
+            <Layers className="w-4 h-4" />
+            <span>Review Flashcards</span>
+          </a>
+          <a
+            href="/mock-exam"
+            class="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold shadow-md flex items-center gap-1.5 border border-slate-700 transition-all"
+          >
+            <BookOpen className="w-4 h-4" />
+            <span>Take Timed Mock Exam</span>
+          </a>
+          <a
+            href="/topics"
+            class="px-5 py-2.5 rounded-xl bg-transparent hover:bg-slate-800 text-slate-300 hover:text-white text-xs font-bold flex items-center gap-1.5 border border-slate-700 transition-all"
+          >
+            <span>All Curriculum Topics →</span>
+          </a>
+        </div>
+      </div>
     </div>
-  </div>
-</Layout>
+  </Layout>
+) : (
+  <Layout 
+    title="404 — Study Guide Not Found | RBTPracticeExam.xyz"
+    description="The requested RBT study guide could not be located. Browse all published study guides across Domains A through F."
+  >
+    <main class="max-w-3xl mx-auto px-4 py-16 text-center space-y-6 animate-fadeIn">
+      <div class="w-16 h-16 rounded-2xl bg-amber-50 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 flex items-center justify-center mx-auto text-2xl font-black border border-amber-200 dark:border-amber-800 shadow-sm">
+        404
+      </div>
+      <div class="space-y-2">
+        <h1 class="text-3xl font-black text-slate-900 dark:text-white">
+          Study Guide Not Found
+        </h1>
+        <p class="text-sm text-slate-600 dark:text-slate-400 max-w-md mx-auto leading-relaxed">
+          The study guide you requested (<code>/study-guides/{slug}</code>) does not exist or may have been renamed to align with the current RBT Test Content Outline.
+        </p>
+      </div>
+      <div class="pt-2">
+        <a
+          href="/study-guides"
+          class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs sm:text-sm shadow-md transition-colors"
+        >
+          <span>Return to All Study Guides Directory</span>
+          <span>→</span>
+        </a>
+      </div>
+    </main>
+  </Layout>
+)}
