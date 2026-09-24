@@ -102,7 +102,7 @@ export default function HomePage() {
             {/* Primary Action Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
               <Link
-                href="/practice"
+                href="/practice-questions"
                 className="w-full sm:w-auto px-8 py-4 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-base shadow-lg shadow-brand-500/25 hover:shadow-brand-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2.5 group"
               >
                 <span>Start Practicing Now</span>
@@ -110,7 +110,7 @@ export default function HomePage() {
               </Link>
 
               <Link
-                href="/mock-exam"
+                href="/mock-exams"
                 className="w-full sm:w-auto px-6 py-4 rounded-xl bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 font-semibold text-base shadow-sm transition-all flex items-center justify-center gap-2"
               >
                 <FileCheck2 className="w-5 h-5 text-brand-600 dark:text-brand-400" />
@@ -252,7 +252,7 @@ export default function HomePage() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* Card 1: Practice */}
           <Link
-            href="/practice"
+            href="/practice-questions"
             className="group p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 shadow-sm hover:shadow-md transition-all space-y-4"
           >
             <div className="w-12 h-12 rounded-xl bg-brand-50 dark:bg-brand-950/60 text-brand-600 dark:text-brand-400 flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -274,7 +274,7 @@ export default function HomePage() {
 
           {/* Card 2: Mock Exams */}
           <Link
-            href="/mock-exam"
+            href="/mock-exams"
             className="group p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 shadow-sm hover:shadow-md transition-all space-y-4"
           >
             <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -418,7 +418,7 @@ export default function HomePage() {
             </div>
             <div className="lg:col-span-4 flex flex-col items-center justify-center gap-3">
               <Link
-                href="/practice"
+                href="/practice-questions"
                 className="w-full text-center px-6 py-4 rounded-xl bg-brand-500 hover:bg-brand-400 text-slate-950 font-black text-base shadow-lg shadow-brand-500/30 transition-all"
               >
                 Start Studying Now →

@@ -1,8 +1,5 @@
 ---
-import Layout from '@/layouts/Layout.astro';
-import PracticeIsland from '@/components/PracticeIsland';
+// Permanent HTTP 301 Redirect to canonical route
+const search = Astro.url.search || '';
+return Astro.redirect(`/practice-questions${search}`, 301);
 ---
-
-<Layout title="RBT Practice Questions — RTB Free Prep">
-  <PracticeIsland client:load />
-</Layout>

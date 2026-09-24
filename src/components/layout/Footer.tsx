@@ -62,12 +62,12 @@ export default function Footer() {
             </h5>
             <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-400">
               <li>
-                <Link href="/practice" className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
+                <Link href="/practice-questions" className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
                   Practice Questions
                 </Link>
               </li>
               <li>
-                <Link href="/mock-exam" className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
+                <Link href="/mock-exams" className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
                   Timed Mock Exams
                 </Link>
               </li>

@@ -1,8 +1,5 @@
 ---
-import Layout from '@/layouts/Layout.astro';
-import MockExamListIsland from '@/components/MockExamListIsland';
+// Permanent HTTP 301 Redirect to canonical route
+const search = Astro.url.search || '';
+return Astro.redirect(`/mock-exams${search}`, 301);
 ---
-
-<Layout title="RBT Mock Exams — Timed Diagnostic Practice">
-  <MockExamListIsland client:load />
-</Layout>

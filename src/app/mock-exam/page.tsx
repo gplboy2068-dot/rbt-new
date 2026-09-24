@@ -109,7 +109,7 @@ export default function MockExamListPage() {
                   </span>
 
                   <Link
-                    href={`/mock-exam/${exam.id}`}
+                    href={`/mock-exams/${exam.id}`}
                     className="px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white text-sm font-bold shadow-md flex items-center gap-1.5 transition-transform active:scale-95"
                   >
                     <span>{examAttempts.length > 0 ? 'Retake Exam' : 'Start Exam'}</span>

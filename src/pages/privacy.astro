@@ -1,5 +1,5 @@
-﻿---
-import PrivacyPolicyPage from './privacy-policy.astro';
 ---
-
-<PrivacyPolicyPage />
+// Permanent HTTP 301 Redirect to canonical route
+const search = Astro.url.search || '';
+return Astro.redirect(`/privacy-policy${search}`, 301);
+---

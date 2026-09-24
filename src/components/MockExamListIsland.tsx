@@ -66,7 +66,7 @@ export default function MockExamListIsland() {
                   {attempts.length > 0 ? `${attempts.length} attempts logged` : 'Not attempted'}
                 </span>
                 <a
-                  href={`/mock-exam/${exam.id}`}
+                  href={`/mock-exams/${exam.id}`}
                   className="px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white text-sm font-bold shadow-md flex items-center gap-1.5"
                 >
                   <span>{attempts.length > 0 ? 'Retake Exam' : 'Start Exam'}</span>

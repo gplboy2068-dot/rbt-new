@@ -66,7 +66,7 @@ export default function MockExamSessionPage() {
         <h2 className="text-2xl font-bold text-slate-900 dark:text-white">Exam Not Found</h2>
         <p className="text-slate-600 dark:text-slate-400">The requested mock exam is unavailable.</p>
         <Link
-          href="/mock-exam"
+          href="/mock-exams"
           className="inline-flex items-center px-4 py-2 rounded-lg bg-brand-600 text-white font-semibold"
         >
           Return to Mock Exams
@@ -201,7 +201,7 @@ export default function MockExamSessionPage() {
           </button>
 
           <Link
-            href="/mock-exam"
+            href="/mock-exams"
             className="px-6 py-3 rounded-xl bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 font-semibold text-sm"
           >
             Return to Exam Catalog

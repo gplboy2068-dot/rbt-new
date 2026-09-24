@@ -221,9 +221,7 @@ export class CMSService {
       '/editorial-policy',
       '/methodology',
       '/privacy-policy',
-      '/privacy',
       '/terms-and-conditions',
-      '/terms',
       '/disclaimer',
     ];
 

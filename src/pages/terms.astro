@@ -1,5 +1,5 @@
-﻿---
-import TermsAndConditionsPage from './terms-and-conditions.astro';
 ---
-
-<TermsAndConditionsPage />
+// Permanent HTTP 301 Redirect to canonical route
+const search = Astro.url.search || '';
+return Astro.redirect(`/terms-and-conditions${search}`, 301);
+---

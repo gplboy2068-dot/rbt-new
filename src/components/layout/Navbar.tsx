@@ -63,8 +63,8 @@ export default function Navbar() {
   };
 
   const navLinks = [
-    { name: 'Practice', href: '/practice', icon: BookOpen },
-    { name: 'Mock Exams', href: '/mock-exam', icon: FileCheck2 },
+    { name: 'Practice', href: '/practice-questions', icon: BookOpen },
+    { name: 'Mock Exams', href: '/mock-exams', icon: FileCheck2 },
     { name: 'Flashcards (SRS)', href: '/flashcards', icon: Layers },
     { name: 'AI Tutor', href: '/ai-tutor', icon: Bot, highlight: true },
     { name: 'Study Guides', href: '/study-guides', icon: GraduationCap },
