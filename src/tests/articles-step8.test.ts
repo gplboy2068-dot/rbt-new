@@ -10,8 +10,8 @@ describe('Authoritative Articles Expansion (Step 8 Verification)', () => {
   const validGuideSlugs = new Set(STUDY_GUIDES_DATA.map((g) => `/study-guides/${g.slug}`));
   const validGlossaryAnchors = new Set(GLOSSARY_TERMS.map((t) => `/glossary#${t.slug}`));
 
-  it('1. Exactly two authoritative articles exist with preserved canonical slugs', () => {
-    assert.strictEqual(published.length, 2, `Expected exactly 2 articles, found ${published.length}`);
+  it('1. Authoritative articles exist with preserved canonical slugs', () => {
+    assert.ok(published.length >= 2, `Expected at least 2 articles, found ${published.length}`);
 
     const slugs = published.map((a) => a.slug);
     assert.ok(

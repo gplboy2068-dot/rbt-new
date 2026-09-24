@@ -57,10 +57,17 @@ const tableOfContents = tocMatches.map((m) => {
 
 const currentUrl = `https://rbtpracticeexam.xyz/articles/${article.slug}`;
 
-// Determine domain practice link
-const domainPracticeUrl = article.domain.includes('A')
-  ? '/practice-questions?domain=A%3A%20Measurement'
-  : '/practice-questions?domain=D%3A%20Behavior%20Reduction';
+// Determine domain practice link and label
+const isDomainSpecific = article.domain.includes('Domain');
+const domainPracticeUrl = article.domain.includes('Domain A')
+  ? '/practice-questions?domain=A%3A%20Data%20Collection%20and%20Graphing'
+  : article.domain.includes('Domain D')
+  ? '/practice-questions?domain=D%3A%20Behavior%20Reduction'
+  : '/practice-questions';
+
+const practiceButtonLabel = isDomainSpecific
+  ? `Practice ${article.domain.split('—')[0]?.trim()} Questions`
+  : 'Practice All Exam Questions';
 
 // Schema.org Article & Breadcrumbs
 const articleJsonLd = {
@@ -257,7 +264,7 @@ const breadcrumbJsonLd = {
               class="px-5 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs sm:text-sm font-bold shadow-md flex items-center gap-2 transition-all hover:scale-[1.02]"
             >
               <HelpCircle className="w-4 h-4" />
-              <span>Practice {article.domain.split('—')[0]?.trim()} Questions</span>
+              <span>{practiceButtonLabel}</span>
             </a>
             <a
               href="/flashcards"
