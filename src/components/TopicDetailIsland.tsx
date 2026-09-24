@@ -90,12 +90,22 @@ export default function TopicDetailIsland({
             <span>Instant Topic Mastery Check</span>
           </h2>
           <span className="text-xs text-slate-500 font-medium">
-            {relatedQuestions.length} Questions
+            {relatedQuestions.length > 0 ? `${relatedQuestions.length} Questions` : 'Curating'}
           </span>
         </div>
 
-        <div className="space-y-4">
-          {relatedQuestions.map((q, qIndex) => {
+        {relatedQuestions.length === 0 ? (
+          <div className="p-6 rounded-3xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 text-center space-y-2">
+            <p className="text-sm font-semibold text-slate-700 dark:text-slate-300">
+              Practice questions for this specific topic are currently being curated.
+            </p>
+            <p className="text-xs text-slate-500 dark:text-slate-400">
+              In the meantime, explore full domain mock exams and terminology flashcards below.
+            </p>
+          </div>
+        ) : (
+          <div className="space-y-4">
+            {relatedQuestions.map((q, qIndex) => {
             const isAnswered = selectedAnswers[q.id] !== undefined;
             const chosen = selectedAnswers[q.id];
             const isCorrect = chosen === q.correctAnswer;
@@ -162,6 +172,7 @@ export default function TopicDetailIsland({
             );
           })}
         </div>
+      )}
       </div>
 
       {/* Bottom CTA to Flashcards & Study Guides */}

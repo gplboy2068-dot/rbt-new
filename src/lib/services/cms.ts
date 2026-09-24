@@ -281,6 +281,34 @@ export class CMSService {
   </url>`);
     }
 
+    // Add published curriculum topic guides (RBT TCO 3rd ed.)
+    const publishedTopics = [
+      'continuous-measurement',
+      'discontinuous-measurement',
+      'permanent-product',
+      'graphing-data',
+      'preference-assessments',
+      'abc-narrative-data',
+      'skill-acquisition-plans',
+      'prompting-hierarchies',
+      'shaping-chaining',
+      'behavior-reduction-plans',
+      'differential-reinforcement',
+      'extinction-procedures',
+      'objective-session-notes',
+      'incident-reporting',
+      'professional-boundaries-gifts',
+      'client-dignity-communication',
+    ];
+
+    for (const t of publishedTopics) {
+      urls.push(`  <url>
+    <loc>${baseUrl}/topics/${t}</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>`);
+    }
+
     // Add published articles
     for (const a of publishedArticles) {
       urls.push(`  <url>

@@ -4,69 +4,268 @@ import TopicDetailIsland from '@/components/TopicDetailIsland';
 
 const { slug } = Astro.params;
 
-const TOPICS_DATA: Record<string, { code: string; name: string; domainName: string; summary: string; keyPoints: string[] }> = {
+interface TopicEntry {
+  code: string;
+  name: string;
+  domainName: string;
+  summary: string;
+  keyPoints: string[];
+}
+
+const TOPICS_DATA: Record<string, TopicEntry> = {
+  // Domain A — Data Collection and Graphing
   'continuous-measurement': {
     code: 'A-01',
     name: 'Continuous Measurement Procedures',
-    domainName: 'Domain A: Measurement',
-    summary: 'Continuous measurement records every single occurrence of the target behavior during an observation period. Core dimensions include Frequency, Rate, Duration, Latency, and Inter-response Time (IRT).',
+    domainName: 'Domain A — Data Collection and Graphing',
+    summary: 'Continuous measurement records every occurrence of the target behavior during an observation period. Core dimensions include Frequency, Rate, Duration, Latency, and Inter-Response Time (IRT).',
     keyPoints: [
-      'Rate = Frequency / Observation Time (e.g., 6 instances in 30 mins = 12 / hour).',
-      'Latency = Elapsed time from SD presentation until the client initiates the response.',
-      'Duration = Total elapsed time from behavior onset to termination.',
-      'Inter-Response Time (IRT) = Elapsed time between the end of one response and start of the next.',
+      'Rate = Frequency / Total Observation Time (e.g., 6 occurrences in 30 minutes = 12 per hour).',
+      'Latency = Time elapsed from the delivery of the SD until the client initiates the response.',
+      'Duration = Total elapsed time from the onset of the behavior to its termination.',
+      'Inter-Response Time (IRT) = Elapsed time between the end of one response and the beginning of the next.',
     ],
   },
   'discontinuous-measurement': {
     code: 'A-02',
     name: 'Discontinuous Measurement (Time Sampling)',
-    domainName: 'Domain A: Measurement',
-    summary: 'Discontinuous measurement captures an estimate of behavior by dividing an observation session into intervals. Includes Whole Interval, Partial Interval, and Momentary Time Sampling (MTS).',
+    domainName: 'Domain A — Data Collection and Graphing',
+    summary: 'Discontinuous measurement samples intervals of time rather than recording every occurrence. Common time-sampling methods include Whole Interval, Partial Interval, and Momentary Time Sampling (MTS).',
     keyPoints: [
-      'Whole Interval: Behavior must occur during the ENTIRE interval (underestimates duration).',
-      'Partial Interval: Behavior occurs at ANY point during the interval (overestimates duration).',
-      'Momentary Time Sampling: Behavior occurs at the EXACT moment the interval ends.',
+      'Whole Interval Recording: Behavior must occur during the entire interval; underestimates duration.',
+      'Partial Interval Recording: Behavior occurs at any point during the interval; overestimates frequency.',
+      'Momentary Time Sampling: Behavior is recorded only if occurring at the exact end of the interval.',
+      'Artifact: Discontinuous measurement produces an estimate and may introduce measurement bias.',
+    ],
+  },
+  'permanent-product': {
+    code: 'A-03',
+    name: 'Permanent Product Recording',
+    domainName: 'Domain A — Data Collection and Graphing',
+    summary: 'Permanent product recording measures behavior after it has occurred by observing the tangible effects or physical outcomes the behavior produced in the environment.',
+    keyPoints: [
+      'Does not require direct real-time observation of the client while the behavior occurs.',
+      'Common clinical examples: Number of math problems completed, homework turned in, or items assembled.',
+      'Advantage: Allows the behavior technician to attend to other responsibilities while tasks are completed.',
+      'Limitation: The observer must be certain the client, and not someone else, produced the product.',
+    ],
+  },
+  'graphing-data': {
+    code: 'A-04',
+    name: 'Enter Data and Update Graphs',
+    domainName: 'Domain A — Data Collection and Graphing',
+    summary: 'Behavior technicians are responsible for entering data accurately and maintaining clinical progress graphs. Visual analysis of graphed data is the primary tool used by BCBAs to evaluate intervention effectiveness.',
+    keyPoints: [
+      'Horizontal X-Axis (Abscissa): Typically represents continuous time intervals (sessions, days, weeks).',
+      'Vertical Y-Axis (Ordinate): Represents the quantitative dimension of behavior (count, rate, percentage).',
+      'Phase Change Line: Vertical solid or dashed line indicating an environmental or intervention change.',
+      'Visual Analysis Dimensions: Technicians help supervisors inspect level, trend, and variability.',
+    ],
+  },
+
+  // Domain B — Behavior Assessment
+  'preference-assessments': {
+    code: 'B-01',
+    name: 'Stimulus Preference Assessments',
+    domainName: 'Domain B — Behavior Assessment',
+    summary: 'Preference assessments identify potential reinforcers by presenting items to determine client preference hierarchies. Technicians assist supervisors by conducting systematic preference evaluations.',
+    keyPoints: [
+      'Free Operant: The client has unrestricted access to all items in an area; duration of engagement is timed.',
+      'Paired Stimulus (Forced Choice): Two items presented simultaneously; client chooses one, repeated across pairings.',
+      'Multiple Stimulus Without Replacement (MSWO): Array presented; chosen item is removed on subsequent trials.',
+      'Multiple Stimulus With Replacement (MSW): Array presented; chosen item is replaced in the array for next trial.',
+    ],
+  },
+  'abc-narrative-data': {
+    code: 'B-02',
+    name: 'Functional Assessment Assistance & ABC Data',
+    domainName: 'Domain B — Behavior Assessment',
+    summary: 'RBTs assist supervisors with functional behavior assessments (FBAs) by recording descriptive antecedent-behavior-consequence (ABC) data in naturalistic settings.',
+    keyPoints: [
+      'Antecedent: Environmental event or demand occurring immediately prior to the behavior.',
+      'Behavior: Observable, measurable response described in clear operational terms without mentalisms.',
+      'Consequence: Environmental change or social reaction occurring immediately following the behavior.',
+      'Scope of Practice: RBTs assist with data collection; functional analyses and hypotheses are developed by the BCBA.',
+    ],
+  },
+
+  // Domain C — Behavior Acquisition
+  'skill-acquisition-plans': {
+    code: 'C-01',
+    name: 'Components of a Skill Acquisition Plan',
+    domainName: 'Domain C — Behavior Acquisition',
+    summary: 'A written skill acquisition plan provides detailed instructions for teaching new skills. Behavior technicians must prepare materials, review target definitions, and implement procedures as specified.',
+    keyPoints: [
+      'Core Plan Components: Target skill definition, materials needed, prerequisite skills, and environmental setup.',
+      'Instructional Procedures: Specific discriminative stimulus (SD), prompt hierarchy, and prompting strategies.',
+      'Reinforcement Schedule: Specific reinforcers, delivery schedule (e.g., CRF, VR3), and error-correction protocols.',
+      'Mastery & Generalization Criteria: Objective benchmark defining when the client has mastered the skill.',
+    ],
+  },
+  'prompting-hierarchies': {
+    code: 'C-02',
+    name: 'Prompting and Prompt Fading Hierarchies',
+    domainName: 'Domain C — Behavior Acquisition',
+    summary: 'Prompts are antecedent stimuli used to increase the likelihood that a client will emit the correct response. Systematic prompt fading transfers stimulus control to natural discriminative stimuli.',
+    keyPoints: [
+      'Prompt Hierarchy: Full Physical > Partial Physical > Model > Gestural > Verbal > Independent.',
+      'Most-to-Least Fading: Starts with highest support and fades down as learner demonstrates independence.',
+      'Least-to-Most Fading: Gives learner opportunity to respond independently before providing progressive prompts.',
+      'Time Delay: Introducing a predetermined delay between the SD and prompt to encourage spontaneous responding.',
+    ],
+  },
+  'shaping-chaining': {
+    code: 'C-03',
+    name: 'Shaping, Task Analysis, and Chaining',
+    domainName: 'Domain C — Behavior Acquisition',
+    summary: 'Shaping reinforces successive approximations toward a terminal behavior. Chaining teaches complex multi-step behaviors broken down through task analysis.',
+    keyPoints: [
+      'Shaping: Differential reinforcement applied to successive approximations of a novel target behavior.',
+      'Task Analysis: Breaking a complex multi-step skill (e.g., brushing teeth) into discrete, observable steps.',
+      'Forward Chaining: Teaching begins with step 1; client completes step 1 independently before moving forward.',
+      'Backward Chaining: Technician completes all steps except the final step, allowing immediate access to terminal reinforcement.',
+    ],
+  },
+
+  // Domain D — Behavior Reduction
+  'behavior-reduction-plans': {
+    code: 'D-01',
+    name: 'Behavior Intervention Plans & Functions of Behavior',
+    domainName: 'Domain D — Behavior Reduction',
+    summary: 'A Behavior Intervention Plan (BIP) outlines strategies to decrease interfering behavior and teach functionally equivalent replacement behaviors based on the four maintaining functions (SEAT).',
+    keyPoints: [
+      'Four Functions (SEAT): Sensory (Automatic), Escape/Avoidance, Attention, and Tangible access.',
+      'Antecedent Interventions: Proactive environmental modifications designed to prevent challenging behavior.',
+      'Replacement Behaviors: Functionally equivalent skills taught to replace maladaptive responses (e.g., FCT).',
+      'Consequence Strategies: Specified protocols for how technicians respond when target behavior occurs.',
     ],
   },
   'differential-reinforcement': {
     code: 'D-02',
     name: 'Differential Reinforcement (DRA, DRI, DRO)',
-    domainName: 'Domain D: Behavior Reduction',
-    summary: 'Differential reinforcement combines reinforcement of desired replacement behaviors with extinction for problem behavior.',
+    domainName: 'Domain D — Behavior Reduction',
+    summary: 'Differential reinforcement combines reinforcement of a desirable behavior with extinction for problem behavior. It is one of the most effective non-aversive behavior reduction strategies.',
     keyPoints: [
-      'DRA (Alternative): Reinforcing an alternative behavior serving the same function.',
-      'DRI (Incompatible): Reinforcing a behavior that cannot physically occur at the same time.',
-      'DRO (Other): Delivering reinforcement contingent on the ABSENCE of problem behavior for an interval.',
+      'DRA (Alternative Behavior): Reinforcing a functional alternative serving the same maintaining function.',
+      'DRI (Incompatible Behavior): Reinforcing a behavior that cannot physically occur at the same time.',
+      'DRO (Other Behavior): Delivering reinforcement contingent on the zero occurrence of the target behavior for an interval.',
+      'DRL (Lower Rates): Reinforcing lower rates of a behavior that is acceptable at moderate frequencies.',
     ],
   },
-  'prompting-hierarchies': {
-    code: 'C-02',
-    name: 'Prompting & Prompt Fading Hierarchies',
-    domainName: 'Domain C: Skill Acquisition',
-    summary: 'Prompts are supplemental stimuli provided before or during a response to increase the likelihood of correct behavior. Fading transfers stimulus control to the natural SD.',
+  'extinction-procedures': {
+    code: 'D-03',
+    name: 'Extinction Procedures & Managing Extinction Bursts',
+    domainName: 'Domain D — Behavior Reduction',
+    summary: 'Extinction involves terminating the reinforcement contingency for a previously reinforced behavior, resulting in a gradual reduction in the future frequency of that behavior.',
     keyPoints: [
-      'Hierarchy: Full Physical > Partial Physical > Model > Gestural > Verbal > Independent.',
-      'Most-to-Least: Starts with intrusive prompts, fading down as mastery improves.',
-      'Least-to-Most: Starts independent, increasing prompt invasiveness only if errors occur.',
-      'Time Delay: Introducing a fixed or progressive latency before delivering the prompt.',
+      'Function-Matched Extinction: Must withhold the specific reinforcer maintaining the behavior (SEAT).',
+      'Extinction Burst: A temporary, predictable increase in the frequency, duration, or intensity of behavior upon implementation.',
+      'Spontaneous Recovery: The reappearance of the extinguished behavior after a period of time has elapsed.',
+      'Safety Consideration: Extinction must not be used alone for dangerous behaviors without replacement skill training.',
+    ],
+  },
+
+  // Domain E — Documentation and Reporting
+  'objective-session-notes': {
+    code: 'E-01',
+    name: 'Writing Objective Clinical Session Notes',
+    domainName: 'Domain E — Documentation and Reporting',
+    summary: 'Behavior technicians are legally and ethically required to maintain objective, measurable session notes describing clinical interventions, progress toward goals, and client responding without subjective bias.',
+    keyPoints: [
+      'Objective Language: Describing observable client actions and environmental events rather than internal emotional states.',
+      'Avoid Mentalisms: Replace subjective terms ("client felt angry") with operational facts ("client engaged in 3 instances of screaming").',
+      'Required Elements: Session start/end times, goals addressed, data collection summaries, and technician signature.',
+      'Confidentiality & HIPAA: Protecting client records, ensuring secure storage, and complying with data retention mandates.',
+    ],
+  },
+  'incident-reporting': {
+    code: 'E-02',
+    name: 'Incident Reporting, Crisis Documentation & Supervisor Communication',
+    domainName: 'Domain E — Documentation and Reporting',
+    summary: 'RBTs must immediately communicate critical clinical changes, safety incidents, and mandatory reporting concerns to their supervising BCBA/BCaBA in accordance with organizational policies and legal statutes.',
+    keyPoints: [
+      'Critical Variables: Documenting medication changes, illness, physical injury, or major environmental transitions.',
+      'Incident Reports: Formally documenting critical safety events, physical aggression, elopement, or property destruction.',
+      'Mandatory Abuse Reporting: Immediate statutory obligation to report suspected child or vulnerable adult abuse/neglect.',
+      'Clinical Chain of Command: Promptly reporting any ethical conflicts, boundary concerns, or intervention ambiguities to the supervisor.',
+    ],
+  },
+
+  // Domain F — Ethics
+  'professional-boundaries-gifts': {
+    code: 'F-01',
+    name: 'Professional Boundaries, Gifts & Avoiding Dual Relationships',
+    domainName: 'Domain F — Ethics',
+    summary: 'Under the RBT Ethics Code (2.0), behavior technicians must maintain strict professional boundaries with clients, families, and team members to prevent conflicts of interest and impaired clinical judgment.',
+    keyPoints: [
+      'Multiple/Dual Relationships: Prohibited from entering romantic, business, or personal relationships with clients or families.',
+      'Gift Policies: RBT Ethics Code 2.0 provides strict guidance on gift acceptance to avoid creating debt or favoritism.',
+      'Social Media Boundaries: Technicians must not friend, follow, or interact with current clients or families on personal social accounts.',
+      'Supervision Mandate: RBTs must receive a minimum of 5% of their monthly behavior-analytic service hours in direct supervision.',
+    ],
+  },
+  'client-dignity-communication': {
+    code: 'F-02',
+    name: 'Client Dignity, Assent, Confidentiality & Scope of Practice',
+    domainName: 'Domain F — Ethics',
+    summary: 'Registered Behavior Technicians are committed to promoting client dignity, respecting assent, safeguarding confidential information, and practicing strictly within the RBT scope of competence.',
+    keyPoints: [
+      'Client Dignity: Treating clients with respect, ensuring privacy during hygiene routines, and using age-appropriate materials.',
+      'Assent & Consent: Monitoring ongoing learner engagement and honoring nonverbal or verbal indications of distress or withdrawal.',
+      'Confidentiality: Protecting private health information (PHI) across spoken communication, paper records, and digital devices.',
+      'Scope of Practice: RBTs implement behavioral programs developed by a supervisor; they do not independently design or modify treatment plans.',
     ],
   },
 };
 
-const topic = TOPICS_DATA[slug || 'continuous-measurement'] || TOPICS_DATA['continuous-measurement'];
+const topic = slug ? TOPICS_DATA[slug] : null;
+
+if (!topic) {
+  Astro.response.status = 404;
+}
 ---
 
-<Layout 
-  title={`${topic.name} (${topic.code}) — RBT Prep Hub`}
-  description={topic.summary}
->
-  <TopicDetailIsland 
-    client:load
-    slug={slug || 'continuous-measurement'}
-    code={topic.code}
-    name={topic.name}
-    domainName={topic.domainName}
-    summary={topic.summary}
-    keyPoints={topic.keyPoints}
-  />
-</Layout>
+{topic ? (
+  <Layout 
+    title={`${topic.name} (${topic.code}) — RBT Exam Prep Guide`}
+    description={topic.summary}
+  >
+    <TopicDetailIsland 
+      client:load
+      slug={slug!}
+      code={topic.code}
+      name={topic.name}
+      domainName={topic.domainName}
+      summary={topic.summary}
+      keyPoints={topic.keyPoints}
+    />
+  </Layout>
+) : (
+  <Layout 
+    title="404 — Topic Not Found | RBT Practice Exam"
+    description="The requested RBT curriculum topic does not exist or has been relocated."
+  >
+    <main class="max-w-3xl mx-auto px-4 py-16 text-center space-y-6 animate-fadeIn">
+      <div class="w-16 h-16 rounded-2xl bg-amber-50 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 flex items-center justify-center mx-auto text-2xl font-black border border-amber-200 dark:border-amber-800 shadow-sm">
+        404
+      </div>
+      <div class="space-y-2">
+        <h1 class="text-3xl font-black text-slate-900 dark:text-white">
+          Topic Not Found
+        </h1>
+        <p class="text-sm text-slate-600 dark:text-slate-400 max-w-md mx-auto leading-relaxed">
+          The curriculum topic you requested (<code>/topics/{slug}</code>) is not a recognized RBT exam outline item or has been updated.
+        </p>
+      </div>
+      <div class="pt-2">
+        <a
+          href="/topics"
+          class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs sm:text-sm shadow-md transition-colors"
+        >
+          <span>Return to Curriculum Topics Directory</span>
+          <span>→</span>
+        </a>
+      </div>
+    </main>
+  </Layout>
+)}
