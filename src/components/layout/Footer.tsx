@@ -106,6 +106,11 @@ export default function Footer() {
             </h5>
             <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-400">
               <li>
+                <Link href="/faq" className="hover:text-brand-600 dark:hover:text-brand-400 font-semibold text-brand-600 dark:text-brand-400 transition-colors">
+                  Frequently Asked Questions (FAQ)
+                </Link>
+              </li>
+              <li>
                 <Link href="/analytics" className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
                   Local Analytics & Backup
                 </Link>

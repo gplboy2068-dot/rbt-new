@@ -90,36 +90,19 @@ for (const art of ARTICLES_DATA) {
   articlesStore.set(art.id, art);
 }
 
-// Seed initial authentic FAQs
-const INITIAL_FAQS: FAQItem[] = [
-  {
-    id: 'faq_001',
-    question: 'Is this RBT Exam Prep platform completely free to use?',
-    answer: 'Yes! The platform is 100% free with zero student login, zero signup walls, and zero mandatory account creation. All practice questions, mock exams, flashcards, and AI tutor features are open access.',
-    category: 'Platform & Access',
-    orderIndex: 1,
-    status: 'published',
-  },
-  {
-    id: 'faq_002',
-    question: 'How does local progress saving work without an account?',
-    answer: 'Your question attempts, practice test scores, flashcard spaced repetition intervals, and bookmarks are saved locally in your browser’s IndexedDB (RTB_StudyDB). You can download a 1-Click JSON backup anytime from the Analytics tab to transfer your progress.',
-    category: 'Platform & Access',
-    orderIndex: 2,
-    status: 'published',
-  },
-  {
-    id: 'faq_003',
-    question: 'Which examination blueprint are these questions aligned with?',
-    answer: 'All questions, flashcards, and diagnostic drills are strictly aligned with the current BACB Registered Behavior Technician® (RBT®) Test Content Outline (3rd ed.) across Domains A through F.',
-    category: 'Curriculum & Exam',
-    orderIndex: 3,
-    status: 'published',
-  },
-];
+import { FAQ_ENTRIES } from '../../data/faq-data';
 
-for (const f of INITIAL_FAQS) {
-  faqStore.set(f.id, f);
+// Seed initial authentic FAQs from verified dataset
+for (let i = 0; i < FAQ_ENTRIES.length; i++) {
+  const item = FAQ_ENTRIES[i];
+  faqStore.set(item.id, {
+    id: item.id,
+    question: item.question,
+    answer: item.answerText,
+    category: item.categoryId,
+    orderIndex: i + 1,
+    status: 'published',
+  });
 }
 
 // Seed broadcast notifications
