@@ -83,41 +83,10 @@ for (const g of INITIAL_STUDY_GUIDES) {
   studyGuidesStore.set(g.id, g);
 }
 
-// Seed initial authentic Clinical Articles
-const INITIAL_ARTICLES: Article[] = [
-  {
-    id: 'art_001',
-    slug: 'continuous-vs-discontinuous-measurement-rbt-guide',
-    title: 'Continuous vs. Discontinuous Measurement: The Complete RBT Exam Guide',
-    excerpt: 'Master the critical differences between Frequency, Duration, Latency, IRT, Whole Interval, Partial Interval, and Momentary Time Sampling.',
-    content: `## Understanding Behavioral Measurement in ABA\n\nMeasurement is the cornerstone of Applied Behavior Analysis (ABA). As a Registered Behavior Technician (RBT), you are responsible for collecting accurate, objective data across continuous and discontinuous recording procedures.\n\n### 1. Continuous Measurement\nContinuous measurement records every single instance of a behavior during the observation period:\n* **Frequency (Count)**: Total count of discrete behaviors with a clear beginning and end.\n* **Rate**: Frequency divided by total observation time (e.g. 6 occurrences per hour).\n* **Duration**: Total time elapsed from when the behavior starts to when it stops.\n* **Latency**: Time elapsed between the presentation of the SD and response initiation.\n* **Inter-Response Time (IRT)**: Elapsed time between the end of one response and the beginning of the next.\n\n### 2. Discontinuous Measurement\nDiscontinuous measurement samples intervals of time:\n* **Partial Interval**: Overestimates behavior duration.\n* **Whole Interval**: Underestimates behavior occurrence.\n* **Momentary Time Sampling**: Easiest for therapists managing multiple clients simultaneously.`,
-    author: 'RBT Clinical Curriculum Team',
-    domain: 'A: Measurement',
-    readTimeMinutes: 6,
-    seoTitle: 'Continuous vs Discontinuous Measurement RBT Guide',
-    seoDescription: 'Master continuous and discontinuous measurement for the BACB RBT 2nd Edition exam with clinical examples.',
-    status: 'published',
-    publishedAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
-  },
-  {
-    id: 'art_002',
-    slug: 'the-4-functions-of-behavior-seat-explained',
-    title: 'The 4 Functions of Behavior (SEAT) Explained for RBTs',
-    excerpt: 'How to identify Sensory, Escape, Attention, and Tangible functions in clinical practice.',
-    content: `## Why Does Behavior Occur?\n\nAll human behavior serves a function. In behavior analysis, every operant behavior is maintained by one or more of the four environmental functions (acronym: **SEAT**):\n\n1. **S - Sensory / Automatic Reinforcement**: The behavior produces internal physical stimulation.\n2. **E - Escape / Avoidance**: The behavior terminates or avoids an aversive demand or stimulus.\n3. **A - Attention**: The behavior results in social reaction from others (positive or negative).\n4. **T - Tangible**: The behavior produces access to preferred items, activities, or food.`,
-    author: 'RBT Clinical Curriculum Team',
-    domain: 'D: Behavior Reduction',
-    readTimeMinutes: 5,
-    seoTitle: 'The 4 Functions of Behavior (SEAT) RBT Study Guide',
-    seoDescription: 'Learn the SEAT acronym and how to identify behavioral functions on the RBT examination.',
-    status: 'published',
-    publishedAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
-  },
-];
+import { ARTICLES_DATA } from '../../data/articles-data';
 
-for (const art of INITIAL_ARTICLES) {
+// Seed initial authentic Clinical Articles
+for (const art of ARTICLES_DATA) {
   articlesStore.set(art.id, art);
 }
 
@@ -141,8 +110,8 @@ const INITIAL_FAQS: FAQItem[] = [
   },
   {
     id: 'faq_003',
-    question: 'Which BACB Task List Edition are these questions aligned with?',
-    answer: 'All questions, flashcards, and diagnostic drills are strictly mapped to the BACB Registered Behavior Technician (RBT) Task List (2nd Edition) across Domains A through F.',
+    question: 'Which examination blueprint are these questions aligned with?',
+    answer: 'All questions, flashcards, and diagnostic drills are strictly aligned with the current BACB Registered Behavior Technician® (RBT®) Test Content Outline (3rd ed.) across Domains A through F.',
     category: 'Curriculum & Exam',
     orderIndex: 3,
     status: 'published',
