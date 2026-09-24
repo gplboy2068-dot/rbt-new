@@ -105,6 +105,9 @@ const {
             <a href="/study-guides" class="px-3 py-2 rounded-xl text-slate-700 dark:text-slate-200 hover:text-brand-600 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-colors">
               Guides
             </a>
+            <a href="/articles" class="px-3 py-2 rounded-xl text-slate-700 dark:text-slate-200 hover:text-brand-600 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-colors">
+              Articles
+            </a>
             <a href="/topics" class="px-3 py-2 rounded-xl text-slate-700 dark:text-slate-200 hover:text-brand-600 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-colors">
               Topics
             </a>
@@ -273,6 +276,14 @@ const {
               </a>
 
               <a
+                href="/articles"
+                class="mobile-nav-link flex items-center gap-3 p-3 rounded-xl text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/80 transition-colors"
+              >
+                <svg class="w-4 h-4 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" /></svg>
+                <span>Articles & Study Plan</span>
+              </a>
+
+              <a
                 href="/topics"
                 class="mobile-nav-link flex items-center gap-3 p-3 rounded-xl text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/80 transition-colors"
               >
@@ -329,48 +340,61 @@ const {
     <!-- Global Footer -->
     <footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 mt-20 transition-colors text-xs">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-10 border-b border-slate-100 dark:border-slate-800">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 pb-10 border-b border-slate-100 dark:border-slate-800">
           <!-- Col 1 -->
-          <div class="space-y-3">
+          <div class="space-y-3 sm:col-span-2 lg:col-span-1">
             <div class="flex items-center space-x-2">
               <span class="text-base font-black text-slate-900 dark:text-white">RBT Practice Exam</span>
               <span class="text-[10px] text-brand-600 dark:text-brand-400 font-bold px-2 py-0.5 rounded-full bg-brand-50 dark:bg-brand-950/60 border border-brand-200 dark:border-brand-800">OPEN ACCESS</span>
             </div>
             <p class="text-slate-500 dark:text-slate-400 leading-relaxed">
-              100% free, open-access RBT examination preparation on <strong>rbtpracticeexam.xyz</strong>. Master the BACB Task List with AI-guided tutoring, practice tests, and spaced repetition flashcards.
+              100% free, open-access RBT examination preparation on <strong>rbtpracticeexam.xyz</strong>. Aligned with the BACB RBT Test Content Outline (3rd ed.) with AI tutoring, practice tests, and spaced repetition.
             </p>
           </div>
 
           <!-- Col 2 -->
           <div class="space-y-2.5">
-            <div class="font-bold text-slate-900 dark:text-white uppercase tracking-wider text-[11px]">Learning Modules</div>
+            <div class="font-bold text-slate-900 dark:text-white uppercase tracking-wider text-[11px]">Practice Modules</div>
             <ul class="space-y-1.5 text-slate-600 dark:text-slate-400 font-medium">
-              <li><a href="/practice-questions" class="hover:text-brand-600">Practice Questions</a></li>
+              <li><a href="/study" class="hover:text-brand-600 text-brand-600 dark:text-brand-400 font-bold">Unlimited Study</a></li>
+              <li><a href="/practice-questions" class="hover:text-brand-600">Practice Questions (60Q+)</a></li>
               <li><a href="/practice-tests" class="hover:text-brand-600">Topic Practice Tests</a></li>
               <li><a href="/mock-exams" class="hover:text-brand-600">85Q Timed Mock Exams</a></li>
               <li><a href="/flashcards" class="hover:text-brand-600">SuperMemo-2 Flashcards</a></li>
               <li><a href="/ai-tutor" class="hover:text-brand-600">AI Clinical Tutor</a></li>
               <li><a href="/glossary" class="hover:text-brand-600 font-bold text-amber-600 dark:text-amber-400">RBT & ABA Glossary</a></li>
             </ul>
-
           </div>
 
-          <!-- Col 3 -->
+          <!-- Col 3: Dedicated Articles & Study Plans -->
           <div class="space-y-2.5">
-            <div class="font-bold text-slate-900 dark:text-white uppercase tracking-wider text-[11px]">RBT Curriculum Domains (3rd ed.)</div>
+            <div class="font-bold text-slate-900 dark:text-white uppercase tracking-wider text-[11px]">Articles & Guides</div>
             <ul class="space-y-1.5 text-slate-600 dark:text-slate-400 font-medium">
-              <li><a href="/topics/continuous-measurement" class="hover:text-brand-600">Domain A: Measurement</a></li>
-              <li><a href="/topics/preference-assessments" class="hover:text-brand-600">Domain B: Assessment</a></li>
-              <li><a href="/topics/prompting-hierarchies" class="hover:text-brand-600">Domain C: Skill Acquisition</a></li>
-              <li><a href="/topics/differential-reinforcement" class="hover:text-brand-600">Domain D: Behavior Reduction</a></li>
-              <li><a href="/topics/objective-session-notes" class="hover:text-brand-600">Domain E: Documentation</a></li>
-              <li><a href="/topics/professional-boundaries-gifts" class="hover:text-brand-600">Domain F: Ethics</a></li>
+              <li><a href="/articles" class="hover:text-brand-600 font-bold text-brand-600 dark:text-brand-400">Clinical Articles Hub</a></li>
+              <li><a href="/articles/how-to-pass-rbt-exam-30-day-study-plan" class="hover:text-brand-600 font-semibold text-amber-600 dark:text-amber-400">30-Day Study Plan</a></li>
+              <li><a href="/articles/continuous-vs-discontinuous-measurement-rbt-guide" class="hover:text-brand-600">Continuous vs Discontinuous</a></li>
+              <li><a href="/articles/the-4-functions-of-behavior-seat-explained" class="hover:text-brand-600">4 Functions (SEAT)</a></li>
+              <li><a href="/study-guides" class="hover:text-brand-600 font-semibold text-slate-700 dark:text-slate-200">Pillar Study Guides (All 6)</a></li>
+              <li><a href="/topics" class="hover:text-brand-600">Curriculum Topic Outlines</a></li>
             </ul>
           </div>
 
           <!-- Col 4 -->
           <div class="space-y-2.5">
-            <div class="font-bold text-slate-900 dark:text-white uppercase tracking-wider text-[11px]">Trust, Quality & Legal</div>
+            <div class="font-bold text-slate-900 dark:text-white uppercase tracking-wider text-[11px]">Curriculum Domains</div>
+            <ul class="space-y-1.5 text-slate-600 dark:text-slate-400 font-medium">
+              <li><a href="/study-guides/measurement-guide" class="hover:text-brand-600">Domain A: Measurement</a></li>
+              <li><a href="/study-guides/behavior-assessment" class="hover:text-brand-600">Domain B: Assessment</a></li>
+              <li><a href="/study-guides/behavior-acquisition" class="hover:text-brand-600">Domain C: Skill Acquisition</a></li>
+              <li><a href="/study-guides/behavior-reduction-guide" class="hover:text-brand-600">Domain D: Behavior Reduction</a></li>
+              <li><a href="/study-guides/documentation-and-reporting" class="hover:text-brand-600">Domain E: Documentation</a></li>
+              <li><a href="/study-guides/ethics" class="hover:text-brand-600">Domain F: Ethics</a></li>
+            </ul>
+          </div>
+
+          <!-- Col 5 -->
+          <div class="space-y-2.5">
+            <div class="font-bold text-slate-900 dark:text-white uppercase tracking-wider text-[11px]">Trust & Legal</div>
             <ul class="space-y-1.5 text-slate-600 dark:text-slate-400 font-medium">
               <li><a href="/about" class="hover:text-brand-600">About Us & Developer</a></li>
               <li><a href="/editorial-policy" class="hover:text-brand-600">Editorial Policy</a></li>

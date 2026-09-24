@@ -68,6 +68,7 @@ export default function Navbar() {
     { name: 'Flashcards (SRS)', href: '/flashcards', icon: Layers },
     { name: 'AI Tutor', href: '/ai-tutor', icon: Bot, highlight: true },
     { name: 'Study Guides', href: '/study-guides', icon: GraduationCap },
+    { name: 'Articles', href: '/articles', icon: BookOpen },
     { name: 'Analytics', href: '/analytics', icon: BarChart3 },
   ];
 

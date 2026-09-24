@@ -86,6 +86,16 @@ export default function Footer() {
                   Formula & Concept Guides
                 </Link>
               </li>
+              <li>
+                <Link href="/articles" className="hover:text-brand-600 dark:hover:text-brand-400 font-semibold text-brand-600 dark:text-brand-400 transition-colors">
+                  Clinical Articles & 30-Day Plan
+                </Link>
+              </li>
+              <li>
+                <Link href="/glossary" className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
+                  RBT & ABA Glossary
+                </Link>
+              </li>
             </ul>
           </div>
 
