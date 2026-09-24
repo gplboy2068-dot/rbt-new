@@ -4,8 +4,9 @@
  * In-App Broadcast Notifications, and Dynamic Sitemap Generation.
  */
 
-import { StudyGuide } from '../../types';
+import { StudyGuide, GlossaryTerm } from '../../types';
 import { INITIAL_STUDY_GUIDES, INITIAL_DOMAINS, INITIAL_TOPICS } from '../../data/mock-data';
+import { GLOSSARY_TERMS } from '../../data/glossary-data';
 import { AppError } from '../errors/app-error';
 
 export interface Article {
@@ -200,6 +201,15 @@ export class CMSService {
     return null;
   }
 
+  // Glossary
+  static getGlossaryTerms(): GlossaryTerm[] {
+    return GLOSSARY_TERMS;
+  }
+
+  static getGlossaryTermBySlug(slug: string): GlossaryTerm | null {
+    return GLOSSARY_TERMS.find((t) => t.slug === slug) || null;
+  }
+
   // FAQs
   static getPublishedFAQs(): FAQItem[] {
     return Array.from(faqStore.values())
@@ -250,6 +260,7 @@ export class CMSService {
       '/ai-tutor',
       '/topics',
       '/study-guides',
+      '/glossary',
       '/articles',
       '/analytics',
       '/faq',

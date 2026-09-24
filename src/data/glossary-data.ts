@@ -1,0 +1,2084 @@
+// Authoritative Glossary Data for RBTPracticeExam.xyz
+// Aligned with BACB RBT Test Content Outline (3rd ed.) and RBT Ethics Code (2.0)
+// Independent educational glossary resource with original fictional examples.
+
+import { GlossaryTerm } from '../types';
+
+export const GLOSSARY_TERMS: GlossaryTerm[] = [
+  {
+    "slug": "abc-data",
+    "term": "ABC Data (Antecedent-Behavior-Consequence)",
+    "letter": "A",
+    "shortDefinition": "A direct continuous or narrative observation recording method capturing the environmental events that occur immediately before and after a target behavior.",
+    "inSimpleTerms": "A three-part log tracking what happened right before a behavior (A), the exact physical behavior (B), and what happened right after (C).",
+    "detailedExplanation": "ABC data collection is foundational in descriptive functional assessments. By noting chronological sequences of antecedents, behaviors, and consequences over repeated observations, behavior analysts identify potential correlations and formulate functional hypotheses regarding what maintains the behavior.",
+    "example": "Example scenario: The teacher hands the student a worksheet (Antecedent). The student throws the worksheet on the floor (Behavior). The teacher sends the student to the quiet corner for 5 minutes (Consequence).",
+    "whyItMatters": "RBTs frequently collect ABC narrative data during baseline sessions to help BCBAs uncover the maintaining function (SEAT) of challenging behaviors.",
+    "commonMistake": "Do not write subjective feelings or unobservable thoughts in ABC logs (e.g., \"Client felt angry\"). Document only observable physical actions and environmental events.",
+    "relatedTerms": [
+      "antecedent",
+      "behavior",
+      "consequence",
+      "functional-behavior-assessment"
+    ],
+    "domain": "Domain B — Behavior Assessment",
+    "topicSlug": "abc-narrative-data",
+    "studyGuideSlug": "behavior-assessment",
+    "practiceDomain": "B: Behavior Assessment",
+    "keywords": [
+      "abc",
+      "three term contingency",
+      "narrative",
+      "baseline",
+      "consequence",
+      "antecedent"
+    ]
+  },
+  {
+    "slug": "antecedent",
+    "term": "Antecedent",
+    "letter": "A",
+    "shortDefinition": "An environmental event, stimulus, or condition that occurs immediately before a behavior in time.",
+    "inSimpleTerms": "The trigger or circumstance that happens right before a person does something.",
+    "detailedExplanation": "Antecedents set the occasion for behavior. They include discriminative stimuli (SDs) that signal reinforcer availability, establishing operations (EOs) that alter reinforcer value, and physical setting events that influence responsiveness.",
+    "example": "Example scenario: The RBT turns off the living room television and says, \"Time to wash hands for dinner.\" This prompt and environmental transition serve as the antecedent.",
+    "whyItMatters": "Identifying antecedents allows clinical teams to design proactive antecedent modifications (e.g., visual schedules, priming, choices) that prevent challenging behaviors before they occur.",
+    "commonMistake": "Confusing an antecedent with a setting event. An antecedent happens immediately before the behavior (seconds prior), whereas setting events may occur hours or days earlier (e.g., poor sleep last night).",
+    "relatedTerms": [
+      "abc-data",
+      "discriminative-stimulus",
+      "motivating-operation",
+      "setting-event"
+    ],
+    "domain": "Domain B — Behavior Assessment",
+    "topicSlug": "abc-narrative-data",
+    "studyGuideSlug": "behavior-assessment",
+    "practiceDomain": "B: Behavior Assessment",
+    "keywords": [
+      "trigger",
+      "stimulus",
+      "prior event",
+      "sd"
+    ]
+  },
+  {
+    "slug": "applied-behavior-analysis",
+    "term": "Applied Behavior Analysis (ABA)",
+    "letter": "A",
+    "shortDefinition": "The scientific discipline devoted to understanding and improving human behavior using principles of operant and respondent conditioning.",
+    "inSimpleTerms": "An evidence-based therapy that helps individuals learn helpful communication, social, and daily living skills while reducing unsafe behaviors.",
+    "detailedExplanation": "ABA is characterized by seven core dimensions (Baer, Wolf, & Risley, 1968): Applied, Behavioral, Analytic, Technological, Conceptually Systematic, Effective, and Generality. Services focus on socially significant goals that directly enhance independence and quality of life.",
+    "example": "Example scenario: A clinical team uses systematic prompting, differential reinforcement, and task analysis to teach a non-verbal child to request food items using an augmentative communication device.",
+    "whyItMatters": "Understanding the scientific foundation of ABA reinforces the requirement for objective measurement, evidence-based practices, and strict ethical accountability.",
+    "commonMistake": "ABA is not a single rigid method (like discrete trial drills alone); it encompasses a wide range of naturalistic, instructional, and functional approaches tailored to individual needs.",
+    "relatedTerms": [
+      "discrete-trial-teaching",
+      "naturalistic-teaching",
+      "reinforcement"
+    ],
+    "domain": "Domain C — Behavior Acquisition",
+    "topicSlug": "skill-acquisition-plans",
+    "studyGuideSlug": "behavior-acquisition",
+    "practiceDomain": "C: Behavior Acquisition",
+    "keywords": [
+      "science",
+      "operant conditioning",
+      "behavior analysis",
+      "evidence based"
+    ]
+  },
+  {
+    "slug": "assent",
+    "term": "Assent",
+    "letter": "A",
+    "shortDefinition": "The vocal or non-vocal ongoing affirmative agreement of an individual to participate in behavioral services, distinct from legal guardian consent.",
+    "inSimpleTerms": "A learner showing through their words, smiles, or cooperation that they willingly want to take part in therapy.",
+    "detailedExplanation": "While legal consent is provided by parents or legal guardians, assent is obtained directly from the learner throughout the session. Under modern ethical ABA standards and RBT Ethics Code (2.0), practitioners must monitor for indicators of assent and withdraw or adjust demands when signs of distress or refusal occur.",
+    "example": "Example scenario: When the RBT brings out a puzzle, the child smiles, sits at the table, and reaches for the pieces (demonstrating assent). Later, when the child pushes the materials away and crosses their arms, the RBT pauses instruction to evaluate comfort (honoring non-assent).",
+    "whyItMatters": "Preserving client dignity and assent is a core ethical mandate (Code 2.02) that ensures learners are active, willing participants rather than forced into compliance.",
+    "commonMistake": "Confusing legal consent with client assent. Even if a parent signs consent for 30 hours of ABA, the RBT must continuously verify and respect the child's assent in real time.",
+    "relatedTerms": [
+      "client-dignity",
+      "ethics-code",
+      "mandated-reporting"
+    ],
+    "domain": "Domain F — Ethics",
+    "topicSlug": "client-dignity-communication",
+    "studyGuideSlug": "ethics",
+    "practiceDomain": "F: Ethics",
+    "keywords": [
+      "consent",
+      "dignity",
+      "ethics",
+      "willingness",
+      "client assent"
+    ]
+  },
+  {
+    "slug": "automatic-reinforcement",
+    "term": "Automatic Reinforcement (Sensory)",
+    "letter": "A",
+    "shortDefinition": "Reinforcement that occurs directly from the physical sensation produced by the behavior itself, without the social mediation of another person.",
+    "inSimpleTerms": "Doing something because it feels good internally or relieves physical discomfort, without anyone else being involved.",
+    "detailedExplanation": "Automatic reinforcement is one of the four functions of behavior (SEAT). It is non-socially mediated. Common examples include hand flapping, rocking, nail biting, or scratching an itch. Interventions often involve sensory replacement or competing stimuli.",
+    "example": "Example scenario: A learner twirls a shiny bead necklace close to their eyes for 15 minutes while alone in a quiet room, because the visual refraction produces pleasant visual stimulation.",
+    "whyItMatters": "Behaviors maintained by automatic reinforcement persist when the learner is entirely alone and do not respond to social extinction (e.g., planned ignoring).",
+    "commonMistake": "Assuming that every repetitive motor behavior is automatic. Always verify through functional assessment data, as repetitive behaviors can also be maintained by escape or access to tangibles.",
+    "relatedTerms": [
+      "functions-of-behavior",
+      "extinction",
+      "differential-reinforcement"
+    ],
+    "domain": "Domain D — Behavior Reduction",
+    "topicSlug": "behavior-reduction-plans",
+    "studyGuideSlug": "behavior-reduction-guide",
+    "practiceDomain": "D: Behavior Reduction",
+    "keywords": [
+      "sensory",
+      "self-stimulatory",
+      "stimming",
+      "non-social"
+    ]
+  },
+  {
+    "slug": "backward-chaining",
+    "term": "Backward Chaining",
+    "letter": "B",
+    "shortDefinition": "A chaining procedure where all initial steps of a task analysis are completed by the therapist, and the learner is taught to independently execute the final step first.",
+    "inSimpleTerms": "Teaching a multi-step routine by starting with the very last step so the learner immediately gets the finished reward.",
+    "detailedExplanation": "Once the final step (Step N) is mastered independently, instruction moves backward to the second-to-last step (Step N-1), requiring the learner to complete Step N-1 and Step N to earn the terminal reinforcer. This continues backward until the entire chain is performed independently.",
+    "example": "Example scenario: In teaching shoe tying, the therapist completes all steps up to pulling the loops tight. The child pulls the loops tight (Step 6) and is immediately praised. Next session, the child forms the second loop and pulls tight (Steps 5 and 6).",
+    "whyItMatters": "Backward chaining is highly motivating for learners because every instructional trial terminates with the natural reinforcing outcome of the completed task.",
+    "commonMistake": "Confusing backward chaining with forward chaining. In forward chaining, Step 1 is taught first; in backward chaining, the final step is taught first.",
+    "relatedTerms": [
+      "forward-chaining",
+      "total-task-presentation",
+      "task-analysis",
+      "chaining"
+    ],
+    "domain": "Domain C — Behavior Acquisition",
+    "topicSlug": "shaping-chaining",
+    "studyGuideSlug": "behavior-acquisition",
+    "practiceDomain": "C: Behavior Acquisition",
+    "keywords": [
+      "chaining",
+      "task analysis",
+      "last step",
+      "skills"
+    ]
+  },
+  {
+    "slug": "baseline",
+    "term": "Baseline",
+    "letter": "B",
+    "shortDefinition": "The measurement of a client's target behavior prior to the introduction of an intervention, instructional strategy, or treatment plan.",
+    "inSimpleTerms": "Recording how often a skill or behavior happens naturally before any teaching or behavior plan begins.",
+    "detailedExplanation": "Baseline data establish a quantitative benchmark against which future progress or behavior reduction is compared. Baseline data must be collected in natural conditions without prompts or artificial consequences.",
+    "example": "Example scenario: For 5 consecutive therapy sessions before introducing a hand-raising token plan, the RBT counts how many times the student calls out without raising their hand (averaging 14 times per hour).",
+    "whyItMatters": "Without baseline data, clinicians cannot prove that an intervention was responsible for behavioral changes.",
+    "commonMistake": "Attempting to prompt or correct errors while collecting baseline data. Baseline probes must be unprompted to reveal true independent ability.",
+    "relatedTerms": [
+      "data-collection",
+      "graphing",
+      "measurement"
+    ],
+    "domain": "Domain A — Data Collection and Graphing",
+    "topicSlug": "graphing-data",
+    "studyGuideSlug": "measurement-guide",
+    "practiceDomain": "A: Measurement",
+    "keywords": [
+      "pre-intervention",
+      "benchmark",
+      "probe",
+      "initial data"
+    ]
+  },
+  {
+    "slug": "behavior",
+    "term": "Behavior",
+    "letter": "B",
+    "shortDefinition": "Any physical, observable, and measurable movement or activity of an organism that interacts with the surrounding environment.",
+    "inSimpleTerms": "Anything a person physically says or does that someone else can see, hear, or measure.",
+    "detailedExplanation": "In behavior analysis, behavior is distinct from mental states, traits, or emotional labels. To qualify as behavior, it must pass the \"Dead Man's Test\" (if a dead man can do it, it is not behavior; e.g., sitting silently is not active behavior, but reading aloud is).",
+    "example": "Example scenario: The student vocalizes \"I want water\" at 70dB, steps toward the sink, and turns the cold water knob. These are observable, measurable behaviors.",
+    "whyItMatters": "RBTs must define target behaviors operationally so that multiple independent observers record identical occurrences without subjective bias.",
+    "commonMistake": "Labeling an emotion as a behavior (e.g., writing \"Client had an angry episode\"). \"Angry\" is an unobservable internal state; \"hitting the wall\" is the actual behavior.",
+    "relatedTerms": [
+      "operational-definition",
+      "antecedent",
+      "consequence",
+      "abc-data"
+    ],
+    "domain": "Domain A — Data Collection and Graphing",
+    "topicSlug": "continuous-measurement",
+    "studyGuideSlug": "measurement-guide",
+    "practiceDomain": "A: Measurement",
+    "keywords": [
+      "response",
+      "action",
+      "movement",
+      "observable"
+    ]
+  },
+  {
+    "slug": "behavior-intervention-plan",
+    "term": "Behavior Intervention Plan (BIP)",
+    "letter": "B",
+    "shortDefinition": "A formal clinical document authored by a BCBA that outlines proactive antecedent strategies, replacement behaviors, consequence protocols, and crisis safety plans to reduce target behaviors.",
+    "inSimpleTerms": "A personalized action plan showing therapists exactly how to prevent problem behavior, what new skill to teach instead, and how to react safely if the behavior occurs.",
+    "detailedExplanation": "A BIP is developed following a Functional Behavior Assessment (FBA). Core sections include: operational definitions of target behaviors, hypothesized function, antecedent environmental modifications, functionally equivalent replacement behaviors (FERBs), reinforcement schedules, and crisis management.",
+    "example": "Example scenario: A BIP for aggressive behavior specifies giving visual warnings 2 minutes before transitions (antecedent), teaching the client to touch an \"I need a break\" card (replacement behavior), and withholding attention/escape for aggression (consequence).",
+    "whyItMatters": "RBTs are responsible for implementing the BIP with high treatment integrity across all therapy sessions.",
+    "commonMistake": "RBTs do not write or alter BIP protocols independently. Any modifications must be designed and authorized by the supervising BCBA.",
+    "relatedTerms": [
+      "functional-behavior-assessment",
+      "differential-reinforcement",
+      "extinction"
+    ],
+    "domain": "Domain D — Behavior Reduction",
+    "topicSlug": "behavior-reduction-plans",
+    "studyGuideSlug": "behavior-reduction-guide",
+    "practiceDomain": "D: Behavior Reduction",
+    "keywords": [
+      "bip",
+      "behavior plan",
+      "reduction",
+      "intervention",
+      "treatment plan"
+    ]
+  },
+  {
+    "slug": "chaining",
+    "term": "Chaining",
+    "letter": "C",
+    "shortDefinition": "An instructional procedure used to teach a complex multi-step behavioral sequence by linking discrete behaviors together into a chain.",
+    "inSimpleTerms": "Teaching a series of smaller steps in order to complete a larger task, like washing hands or making a bed.",
+    "detailedExplanation": "Each step in a behavioral chain produces a stimulus change that serves both as a conditioned reinforcer for the preceding response and as the discriminative stimulus (SD) for the subsequent response. Methods include Forward Chaining, Backward Chaining, and Total Task presentation.",
+    "example": "Example scenario: Hand washing is taught as an 8-step sequence: turn on water -> wet hands -> dispense soap -> rub hands 20s -> rinse -> turn off water -> dry hands -> dispose paper towel.",
+    "whyItMatters": "Chaining enables individuals with developmental delays to achieve genuine independence in complex daily life, vocational, and self-care skills.",
+    "commonMistake": "Confusing chaining with shaping. Chaining connects multiple existing distinct behaviors together; shaping refines a single behavior through successive approximations.",
+    "relatedTerms": [
+      "task-analysis",
+      "forward-chaining",
+      "backward-chaining",
+      "total-task-presentation"
+    ],
+    "domain": "Domain C — Behavior Acquisition",
+    "topicSlug": "shaping-chaining",
+    "studyGuideSlug": "behavior-acquisition",
+    "practiceDomain": "C: Behavior Acquisition",
+    "keywords": [
+      "task analysis",
+      "steps",
+      "sequence",
+      "links"
+    ]
+  },
+  {
+    "slug": "conditioned-reinforcer",
+    "term": "Conditioned Reinforcer (Secondary)",
+    "letter": "C",
+    "shortDefinition": "A stimulus that initially possessed no reinforcing value but acquired reinforcing effectiveness through repeated pairing with existing reinforcers.",
+    "inSimpleTerms": "A reward that has to be learned, like praise, stickers, grades, or tokens.",
+    "detailedExplanation": "Conditioned reinforcers are established via stimulus-stimulus pairing. Unlike biological needs, their effectiveness depends on the learner's individual learning history. When paired with diverse backup reinforcers, they become generalized conditioned reinforcers (e.g., money, tokens).",
+    "example": "Example scenario: The sound of a clicker or the word \"Good job!\" initially meant nothing to a toddler until consistently paired with sips of juice and tickles. Over time, \"Good job!\" alone maintains behavior.",
+    "whyItMatters": "Conditioned reinforcers enable therapists to reward behaviors instantly in social and community environments without relying solely on food or drinks.",
+    "commonMistake": "Assuming verbal praise is automatically a reinforcer for every learner. If praise was never paired with primary reinforcers, it may function as neutral or even aversive.",
+    "relatedTerms": [
+      "unconditioned-reinforcer",
+      "generalized-conditioned-reinforcer",
+      "token-economy"
+    ],
+    "domain": "Domain C — Behavior Acquisition",
+    "topicSlug": "skill-acquisition-plans",
+    "studyGuideSlug": "behavior-acquisition",
+    "practiceDomain": "C: Behavior Acquisition",
+    "keywords": [
+      "secondary reinforcer",
+      "learned reinforcer",
+      "praise",
+      "tokens"
+    ]
+  },
+  {
+    "slug": "consequence",
+    "term": "Consequence",
+    "letter": "C",
+    "shortDefinition": "An environmental stimulus change that occurs immediately after a response in time and alters the future probability of that response.",
+    "inSimpleTerms": "What happens immediately after a behavior that makes the behavior more or less likely to happen again in the future.",
+    "detailedExplanation": "Consequences are the primary mechanism of operant learning. They fall into reinforcement (which increases behavior) and punishment (which decreases behavior), each operating through either presentation (+) or removal (-) of stimuli.",
+    "example": "Example scenario: A child points to a cookie and vocalizes \"Cookie.\" The parent gives the child the cookie (Consequence), resulting in more frequent verbal pointing in the future.",
+    "whyItMatters": "Documenting real consequences reveals what environmental contingencies are actively maintaining problem behaviors or promoting new skills.",
+    "commonMistake": "Believing \"consequence\" always means a negative punishment. In ABA, consequences include praise, high-fives, breaks, edibles, or planned ignoring.",
+    "relatedTerms": [
+      "abc-data",
+      "reinforcement",
+      "punishment",
+      "extinction"
+    ],
+    "domain": "Domain C — Behavior Acquisition",
+    "topicSlug": "skill-acquisition-plans",
+    "studyGuideSlug": "behavior-acquisition",
+    "practiceDomain": "C: Behavior Acquisition",
+    "keywords": [
+      "outcome",
+      "reaction",
+      "post-behavior",
+      "stimulus change"
+    ]
+  },
+  {
+    "slug": "continuous-measurement",
+    "term": "Continuous Measurement",
+    "letter": "C",
+    "shortDefinition": "Data collection procedures that capture every single instance of the target behavior during an entire observation window.",
+    "inSimpleTerms": "Tracking every time a behavior happens, without skipping any moments during the session.",
+    "detailedExplanation": "Continuous measurement is the most accurate measurement class for discrete behaviors with distinct start and stop times. Dimensions include frequency (count), rate (count per unit of time), duration (total time), latency (time to start), and inter-response time (IRT).",
+    "example": "Example scenario: An RBT records a tally mark every time a student raises their hand during a 45-minute lesson, recording exactly 9 occurrences (Rate = 12/hr).",
+    "whyItMatters": "Provides 100% accurate behavioral representation without the sampling artifacts inherent in discontinuous time-sampling methods.",
+    "commonMistake": "Continuous measurement cannot easily be applied to high-rate behaviors (e.g., rapid humming) or behaviors without clear boundaries; discontinuous sampling is preferred in those cases.",
+    "relatedTerms": [
+      "discontinuous-measurement",
+      "frequency",
+      "duration",
+      "latency",
+      "rate"
+    ],
+    "domain": "Domain A — Data Collection and Graphing",
+    "topicSlug": "continuous-measurement",
+    "studyGuideSlug": "measurement-guide",
+    "practiceDomain": "A: Measurement",
+    "keywords": [
+      "frequency",
+      "rate",
+      "duration",
+      "irt",
+      "latency",
+      "full measurement"
+    ]
+  },
+  {
+    "slug": "data-collection",
+    "term": "Data Collection",
+    "letter": "D",
+    "shortDefinition": "The systematic recording of behavioral occurrences and skill targets using objective measurement procedures.",
+    "inSimpleTerms": "Writing down numbers, tallies, or times during therapy to see if a learner is making progress.",
+    "detailedExplanation": "Data collection is the empirical engine of ABA. RBTs record trial-by-trial responses, interval time samples, and duration data on digital tablets or paper data sheets, which are subsequently graphed for visual analysis.",
+    "example": "Example scenario: During discrete trial instruction for expressive colors, the RBT logs whether each of 10 trials was independent (+), prompted (P), or incorrect (-).",
+    "whyItMatters": "Decisions in ABA are 100% data-driven; interventions are never modified based on subjective hunches or casual impressions.",
+    "commonMistake": "Waiting until the end of the day to record session data from memory. Contemporaneous real-time logging prevents recall distortion.",
+    "relatedTerms": [
+      "graphing",
+      "continuous-measurement",
+      "discontinuous-measurement"
+    ],
+    "domain": "Domain A — Data Collection and Graphing",
+    "topicSlug": "continuous-measurement",
+    "studyGuideSlug": "measurement-guide",
+    "practiceDomain": "A: Measurement",
+    "keywords": [
+      "logging",
+      "recording",
+      "metrics",
+      "tallying"
+    ]
+  },
+  {
+    "slug": "deprivation",
+    "term": "Deprivation",
+    "letter": "D",
+    "shortDefinition": "A motivating operation resulting from withholding access to a reinforcing stimulus for a period of time, which increases its reinforcing effectiveness.",
+    "inSimpleTerms": "Not having something for a while, which makes you want it even more.",
+    "detailedExplanation": "Deprivation functions as an Establishing Operation (EO). For example, going without food increases the momentary value of food as a reinforcer and evokes behaviors that have previously yielded food.",
+    "example": "Example scenario: A learner has not played with their favorite remote-control car for 48 hours. When brought into therapy, the car possesses extraordinarily high reinforcer value.",
+    "whyItMatters": "RBTs leverage controlled deprivation (e.g., reserving specialized toys exclusively for therapy sessions) to maintain high instructional motivation.",
+    "commonMistake": "Confusing deprivation with satiation. Satiation is having too much of a reinforcer (decreasing value); deprivation is having none (increasing value).",
+    "relatedTerms": [
+      "satiation",
+      "motivating-operation",
+      "establishing-operation"
+    ],
+    "domain": "Domain C — Behavior Acquisition",
+    "topicSlug": "skill-acquisition-plans",
+    "studyGuideSlug": "behavior-acquisition",
+    "practiceDomain": "C: Behavior Acquisition",
+    "keywords": [
+      "withholding",
+      "hunger",
+      "eo",
+      "value altering"
+    ]
+  },
+  {
+    "slug": "differential-reinforcement",
+    "term": "Differential Reinforcement (DRA, DRI, DRO)",
+    "letter": "D",
+    "shortDefinition": "A procedure that reinforces desirable target behaviors while simultaneously withholding reinforcement (extinction) for challenging behaviors.",
+    "inSimpleTerms": "Rewarding the good behavior while ignoring or not rewarding the problem behavior.",
+    "detailedExplanation": "Variations include: DRA (Alternative behavior—reinforces a functional equivalent like asking politely), DRI (Incompatible behavior—reinforces a behavior that cannot physically occur at the same time, like hands in pockets instead of hitting), and DRO (Other behavior—reinforces the complete absence of problem behavior during an interval).",
+    "example": "Example scenario: In a DRA procedure, when the client screams for a snack, the therapist withholds the snack (extinction). When the client hands over the \"Snack\" communication icon, the therapist immediately delivers the snack and praise.",
+    "whyItMatters": "Differential reinforcement is the preferred, positive, and non-punitive standard in behavior reduction.",
+    "commonMistake": "In DRO, you do not teach a replacement skill; you only reward the absence of the behavior. Use DRA or DRI when you need to teach an active alternative skill.",
+    "relatedTerms": [
+      "extinction",
+      "functions-of-behavior",
+      "behavior-intervention-plan"
+    ],
+    "domain": "Domain D — Behavior Reduction",
+    "topicSlug": "differential-reinforcement",
+    "studyGuideSlug": "behavior-reduction-guide",
+    "practiceDomain": "D: Behavior Reduction",
+    "keywords": [
+      "dra",
+      "dri",
+      "dro",
+      "reinforce alternative",
+      "omission"
+    ]
+  },
+  {
+    "slug": "discontinuous-measurement",
+    "term": "Discontinuous Measurement",
+    "letter": "D",
+    "shortDefinition": "Measurement procedures that sample intervals of time rather than recording every instance of behavior throughout the entire session.",
+    "inSimpleTerms": "Checking in at specific time intervals to see if a behavior is happening, rather than watching every single second.",
+    "detailedExplanation": "Because observers cannot always watch continuously (e.g., in busy classrooms), time sampling provides an estimation. Common forms: Whole Interval (underestimates duration), Partial Interval (overestimates frequency), and Momentary Time Sampling (MTS).",
+    "example": "Example scenario: An RBT breaks a 10-minute session into thirty 20-second intervals and records whether the client was on-task during each interval.",
+    "whyItMatters": "Essential for behaviors that occur at very high rates or without clear beginnings and endings (e.g., vocal stereotypy, on-task study).",
+    "commonMistake": "Time sampling produces measurement artifacts (biases). Whole interval underestimates; partial interval overestimates.",
+    "relatedTerms": [
+      "whole-interval-recording",
+      "partial-interval-recording",
+      "momentary-time-sampling"
+    ],
+    "domain": "Domain A — Data Collection and Graphing",
+    "topicSlug": "discontinuous-measurement",
+    "studyGuideSlug": "measurement-guide",
+    "practiceDomain": "A: Measurement",
+    "keywords": [
+      "time sampling",
+      "intervals",
+      "whole interval",
+      "partial interval",
+      "mts"
+    ]
+  },
+  {
+    "slug": "discrimination-training",
+    "term": "Discrimination Training",
+    "letter": "D",
+    "shortDefinition": "The process of reinforcing a response in the presence of one stimulus (SD) while withholding reinforcement in the presence of other stimuli (S-Delta).",
+    "inSimpleTerms": "Teaching a learner to tell the difference between two or more things, like knowing red from green.",
+    "detailedExplanation": "Through differential reinforcement across stimulus conditions, the learner develops stimulus control. The behavior reliably occurs when the SD is presented and does not occur when the S-Delta is present.",
+    "example": "Example scenario: When shown pictures of a dog and a cat, the therapist says \"Point to dog.\" Touching the dog is reinforced with praise. Touching the cat results in no reinforcement and error correction.",
+    "whyItMatters": "Discrimination training is the basis of all cognitive, receptive, and expressive academic learning in ABA.",
+    "commonMistake": "Discrimination training is the opposite of stimulus generalization. Discrimination is responding differently to different stimuli; generalization is responding the same way to varied stimuli.",
+    "relatedTerms": [
+      "discriminative-stimulus",
+      "s-delta",
+      "stimulus-control"
+    ],
+    "domain": "Domain C — Behavior Acquisition",
+    "topicSlug": "skill-acquisition-plans",
+    "studyGuideSlug": "behavior-acquisition",
+    "practiceDomain": "C: Behavior Acquisition",
+    "keywords": [
+      "sd",
+      "s-delta",
+      "differentiation",
+      "stimulus control"
+    ]
+  },
+  {
+    "slug": "discriminative-stimulus",
+    "term": "Discriminative Stimulus (SD)",
+    "letter": "D",
+    "shortDefinition": "An antecedent stimulus correlated with the availability of reinforcement for a particular behavior.",
+    "inSimpleTerms": "A cue or instruction that tells the learner: \"If you do this behavior right now, you will get rewarded.\"",
+    "detailedExplanation": "An SD exerts stimulus control because of a past history where the response was reinforced in its presence and extinguished in its absence. An SD is distinct from an establishing operation (EO): the SD signals availability of reinforcement; the EO signals value/desirability.",
+    "example": "Example scenario: The green traffic light is an SD signaling that driving through the intersection will be reinforced with safe passage.",
+    "whyItMatters": "RBTs deliver clear, consistent verbal and visual SDs during DTT and naturalistic instruction to evoke target skills reliably.",
+    "commonMistake": "Do not repeat the SD multiple times before the learner responds (e.g., saying \"Touch nose, touch nose, touch nose\"). Deliver the SD once, wait the designated latency window, and prompt if needed.",
+    "relatedTerms": [
+      "s-delta",
+      "stimulus-control",
+      "antecedent",
+      "prompt"
+    ],
+    "domain": "Domain C — Behavior Acquisition",
+    "topicSlug": "skill-acquisition-plans",
+    "studyGuideSlug": "behavior-acquisition",
+    "practiceDomain": "C: Behavior Acquisition",
+    "keywords": [
+      "instruction",
+      "cue",
+      "sd",
+      "signal"
+    ]
+  },
+  {
+    "slug": "dual-relationship",
+    "term": "Dual Relationship (Multiple Relationship)",
+    "letter": "D",
+    "shortDefinition": "A situation where a behavior technician maintains a professional role and an additional personal, financial, social, or romantic relationship with a client or family member.",
+    "inSimpleTerms": "Mixing professional therapy work with personal life, like babysitting, dating, or being personal friends with a client's family.",
+    "detailedExplanation": "Under the BACB RBT Ethics Code (2.0) Code 3.06, dual relationships are strictly prohibited. They compromise clinical objectivity, blur boundaries, and increase the risk of client exploitation.",
+    "example": "Example scenario: A client's parent offers to pay the RBT cash to babysit the client on weekends. The RBT must decline and explain that professional ethics codes forbid outside dual employment.",
+    "whyItMatters": "Protecting boundaries safeguards the therapeutic integrity of the treatment and protects both the client family and the technician from conflicts of interest.",
+    "commonMistake": "Believing that babysitting is fine because \"it occurs outside clinic hours.\" Multiple relationships are prohibited regardless of time or setting.",
+    "relatedTerms": [
+      "ethics-code",
+      "client-dignity",
+      "supervision-requirements"
+    ],
+    "domain": "Domain F — Ethics",
+    "topicSlug": "professional-boundaries-gifts",
+    "studyGuideSlug": "ethics",
+    "practiceDomain": "F: Ethics",
+    "keywords": [
+      "boundaries",
+      "ethics",
+      "babysitting",
+      "conflict of interest",
+      "multiple relationship"
+    ]
+  },
+  {
+    "slug": "duration",
+    "term": "Duration",
+    "letter": "D",
+    "shortDefinition": "A continuous measurement dimension recording the total elapsed time from the onset of a behavior to its cessation.",
+    "inSimpleTerms": "How long a behavior lasts from start to finish.",
+    "detailedExplanation": "Duration is typically measured using a stopwatch or digital timer. It is expressed in units of time (seconds, minutes, hours) or as duration per occurrence and total duration.",
+    "example": "Example scenario: A client starts screaming at 10:04:00 AM and stops at 10:07:45 AM. The RBT records a duration of 3 minutes and 45 seconds.",
+    "whyItMatters": "Duration is the optimal metric for behaviors that persist for extended periods, such as crying, tantrums, out-of-seat behavior, or sustained attention to tasks.",
+    "commonMistake": "Confusing duration with latency. Duration is how long the behavior lasts; latency is how long it takes for the behavior to START after the instruction is given.",
+    "relatedTerms": [
+      "continuous-measurement",
+      "latency",
+      "rate"
+    ],
+    "domain": "Domain A — Data Collection and Graphing",
+    "topicSlug": "continuous-measurement",
+    "studyGuideSlug": "measurement-guide",
+    "practiceDomain": "A: Measurement",
+    "keywords": [
+      "elapsed time",
+      "stopwatch",
+      "how long",
+      "continuous"
+    ]
+  },
+  {
+    "slug": "error-correction",
+    "term": "Error Correction",
+    "letter": "E",
+    "shortDefinition": "A predetermined instructional procedure implemented immediately following an incorrect response or failure to respond to an SD.",
+    "inSimpleTerms": "A systematic way a teacher helps a learner correct a mistake without getting frustrated.",
+    "detailedExplanation": "Common error correction procedures in DTT include Model-Prompt-Check (4-step error correction) or immediate physical redirection. The goal is to provide prompt assistance on the next trial so the learner does not practice errors.",
+    "example": "Example scenario: Therapist says \"Touch blue.\" Learner touches red. Therapist blocks, clears field, re-presents cards, says \"Touch blue,\" and immediately points to blue (gestural prompt).",
+    "whyItMatters": "Consistent error correction prevents the reinforcement of erroneous response patterns and guides the learner toward mastery.",
+    "commonMistake": "Delivering verbal scolding or saying \"No!\" harshly during error correction. Error correction should be neutral and instructive.",
+    "relatedTerms": [
+      "discrete-trial-teaching",
+      "errorless-learning",
+      "prompt"
+    ],
+    "domain": "Domain C — Behavior Acquisition",
+    "topicSlug": "skill-acquisition-plans",
+    "studyGuideSlug": "behavior-acquisition",
+    "practiceDomain": "C: Behavior Acquisition",
+    "keywords": [
+      "mistake",
+      "correction",
+      "dtt procedure",
+      "feedback"
+    ]
+  },
+  {
+    "slug": "errorless-learning",
+    "term": "Errorless Learning",
+    "letter": "E",
+    "shortDefinition": "An instructional strategy where the controlling prompt is provided immediately upon delivery of the SD (0-second delay), preventing the learner from making an error.",
+    "inSimpleTerms": "Helping the learner get the right answer immediately so they never make a mistake or get discouraged.",
+    "detailedExplanation": "Errorless teaching is critical during the initial acquisition of new skills or for learners prone to emotional frustration following errors. Over successive trials, the prompt is systematically faded using time delay or reduced intrusiveness.",
+    "example": "Example scenario: In teaching letter recognition, the therapist says \"Point to A\" and simultaneously guides the child's hand directly to the letter A (0-second full physical prompt).",
+    "whyItMatters": "Eliminates error rehearsal, reduces problem behaviors evoked by instructional frustration, and accelerates learning curves.",
+    "commonMistake": "Failing to fade prompts over time. Errorless learning requires prompt fading to transfer stimulus control to the natural SD.",
+    "relatedTerms": [
+      "most-to-least-prompting",
+      "time-delay",
+      "prompt-fading"
+    ],
+    "domain": "Domain C — Behavior Acquisition",
+    "topicSlug": "prompting-hierarchies",
+    "studyGuideSlug": "behavior-acquisition",
+    "practiceDomain": "C: Behavior Acquisition",
+    "keywords": [
+      "zero second prompt",
+      "error prevention",
+      "immediate prompt"
+    ]
+  },
+  {
+    "slug": "escape-function",
+    "term": "Escape / Avoidance Function",
+    "letter": "E",
+    "shortDefinition": "A behavioral function where the behavior results in terminating, postponing, or avoiding an aversive task, demand, person, or setting.",
+    "inSimpleTerms": "Engaging in a behavior to get out of doing work, chores, or being around something unpleasant.",
+    "detailedExplanation": "Escape-maintained behavior operates through negative reinforcement: emitting the behavior removes the aversive condition, increasing future behavior rates. Common interventions include functional communication training (FCT to request breaks) and escape extinction (non-removal of demand).",
+    "example": "Example scenario: Whenever handed a 20-problem math worksheet, the student sweeps materials off the desk and drops to the floor. The teacher sends the student to the hallway, removing the worksheet (escape function).",
+    "whyItMatters": "Recognizing escape functions prevents therapists from accidentally reinforcing problem behaviors by removing demands during tantrums.",
+    "commonMistake": "Putting an escape-maintained behavior on \"planned ignoring.\" Ignoring a child who ran away from math leaves them in escape, which actively REINFORCES the behavior.",
+    "relatedTerms": [
+      "functions-of-behavior",
+      "negative-reinforcement",
+      "extinction"
+    ],
+    "domain": "Domain D — Behavior Reduction",
+    "topicSlug": "behavior-reduction-plans",
+    "studyGuideSlug": "behavior-reduction-guide",
+    "practiceDomain": "D: Behavior Reduction",
+    "keywords": [
+      "seat",
+      "avoidance",
+      "get out of demand",
+      "break"
+    ]
+  },
+  {
+    "slug": "establishing-operation",
+    "term": "Establishing Operation (EO)",
+    "letter": "E",
+    "shortDefinition": "A motivating operation that increases the momentary effectiveness of a stimulus as a reinforcer and evokes behaviors that produce that reinforcer.",
+    "inSimpleTerms": "A condition that makes you want something more right now, and makes you do things to get it.",
+    "detailedExplanation": "An EO has two effects: Value-Altering Effect (increases the value of the reinforcer) and Behavior-Altering Effect (evokes behaviors associated with obtaining that reinforcer). For example, physical thirst is an EO that makes water highly valuable and evokes mands for water.",
+    "example": "Example scenario: Running outside on a hot day produces intense thirst (Establishing Operation), making cold water exceptionally reinforcing and evoking the behavior of opening the refrigerator.",
+    "whyItMatters": "RBTs contrive EOs during naturalistic teaching (e.g., placing preferred toys in clear containers out of reach) to evoke functional vocal mands.",
+    "commonMistake": "Confusing an EO with an Abolishing Operation (AO). An EO increases reinforcer value; an AO decreases reinforcer value.",
+    "relatedTerms": [
+      "motivating-operation",
+      "satiation",
+      "deprivation"
+    ],
+    "domain": "Domain C — Behavior Acquisition",
+    "topicSlug": "skill-acquisition-plans",
+    "studyGuideSlug": "behavior-acquisition",
+    "practiceDomain": "C: Behavior Acquisition",
+    "keywords": [
+      "eo",
+      "value altering",
+      "mand training",
+      "motivation"
+    ]
+  },
+  {
+    "slug": "extinction",
+    "term": "Extinction",
+    "letter": "E",
+    "shortDefinition": "A behavioral procedure in which reinforcement of a previously reinforced behavior is discontinued, resulting in a decrease in the future frequency of that behavior.",
+    "inSimpleTerms": "No longer giving the reward that used to keep a problem behavior going, causing the behavior to stop over time.",
+    "detailedExplanation": "Extinction must match the maintaining function of behavior: Attention Extinction (withholding social attention/planned ignoring), Escape Extinction (non-removal of demand), Tangible Extinction (withholding preferred items), and Sensory Extinction (masking sensory feedback).",
+    "example": "Example scenario: A child previously screamed at bedtime and parents came into the bedroom to cuddle. Under extinction, parents stop entering the room contingent on screaming (attention extinction).",
+    "whyItMatters": "Extinction is one of the most powerful behavioral reduction procedures and a core element of Differential Reinforcement (DRA/DRI).",
+    "commonMistake": "Extinction is NOT the same as planned ignoring. Planned ignoring is ONLY extinction for behaviors maintained by attention. If behavior is maintained by escape, planned ignoring will reinforce the behavior.",
+    "relatedTerms": [
+      "extinction-burst",
+      "spontaneous-recovery",
+      "differential-reinforcement"
+    ],
+    "domain": "Domain D — Behavior Reduction",
+    "topicSlug": "extinction-procedures",
+    "studyGuideSlug": "behavior-reduction-guide",
+    "practiceDomain": "D: Behavior Reduction",
+    "keywords": [
+      "withholding reinforcement",
+      "planned ignoring",
+      "escape extinction",
+      "extinguish"
+    ]
+  },
+  {
+    "slug": "extinction-burst",
+    "term": "Extinction Burst",
+    "letter": "E",
+    "shortDefinition": "A predictable, temporary increase in the frequency, duration, intensity, or variability of a behavior immediately following the implementation of extinction.",
+    "inSimpleTerms": "A temporary spike where the behavior gets worse before it gets better, right after the reward is cut off.",
+    "detailedExplanation": "When extinction begins, the organism naturally tries harder or tries novel variations to produce the former consequence. If therapists maintain extinction fidelity, the behavior eventually decreases steadily. If the therapist gives in during the burst, they accidentally reinforce a higher magnitude of the problem behavior.",
+    "example": "Example scenario: When parents first stop giving juice after tantrums, the child screams twice as loud, bangs their heels on the floor, and cries for 25 minutes (the burst) before calming down.",
+    "whyItMatters": "RBTs must anticipate extinction bursts and prepare parents/caregivers so they do not abandon the intervention prematurely or give in.",
+    "commonMistake": "Never \"give in\" and reinforce during an extinction burst. Doing so teaches the client that extreme intensity is required to achieve reinforcement.",
+    "relatedTerms": [
+      "extinction",
+      "spontaneous-recovery",
+      "differential-reinforcement"
+    ],
+    "domain": "Domain D — Behavior Reduction",
+    "topicSlug": "extinction-procedures",
+    "studyGuideSlug": "behavior-reduction-guide",
+    "practiceDomain": "D: Behavior Reduction",
+    "keywords": [
+      "burst",
+      "spike",
+      "intensity spike",
+      "temporary increase"
+    ]
+  },
+  {
+    "slug": "forward-chaining",
+    "term": "Forward Chaining",
+    "letter": "F",
+    "shortDefinition": "A chaining procedure where the learner is taught to independently perform the first step of a task analysis first, with the therapist prompting all subsequent steps.",
+    "inSimpleTerms": "Teaching a multi-step routine starting with step 1, rewarding that step, and helping with the rest.",
+    "detailedExplanation": "Once Step 1 is mastered independently, the learner is taught Step 2 (requiring Steps 1 and 2 to receive reinforcement). This progresses sequentially forward through the task analysis until the terminal step is reached.",
+    "example": "Example scenario: In teaching hand washing, the child independently turns on the water (Step 1) and receives praise and a token. The RBT physically prompts all remaining steps.",
+    "whyItMatters": "Forward chaining is intuitive and works exceptionally well for linear tasks where initial steps establish the physical framework for later steps.",
+    "commonMistake": "Confusing forward chaining with backward chaining. In forward chaining, Step 1 is reinforced first; in backward chaining, the final step is reinforced first.",
+    "relatedTerms": [
+      "backward-chaining",
+      "total-task-presentation",
+      "task-analysis",
+      "chaining"
+    ],
+    "domain": "Domain C — Behavior Acquisition",
+    "topicSlug": "shaping-chaining",
+    "studyGuideSlug": "behavior-acquisition",
+    "practiceDomain": "C: Behavior Acquisition",
+    "keywords": [
+      "step 1",
+      "linear chaining",
+      "task analysis"
+    ]
+  },
+  {
+    "slug": "free-operant",
+    "term": "Free Operant Preference Assessment",
+    "letter": "F",
+    "shortDefinition": "A preference assessment where the learner has unrestricted access to multiple items in an environment, and the observer measures the cumulative duration of engagement with each item.",
+    "inSimpleTerms": "Letting a learner explore toys freely in a room and timing how long they play with each one, without taking anything away.",
+    "detailedExplanation": "Free Operant assessments can be Naturalistic (everyday room) or Contrived (placing items in designated zones). Because the therapist never removes items or places demands, it is ideal for clients who exhibit aggression upon item removal.",
+    "example": "Example scenario: The RBT places 6 toys around the clinic play area. The child plays with trains for 8 minutes, bubbles for 3 minutes, and blocks for 30 seconds. Trains are identified as the highest-preference item.",
+    "whyItMatters": "Zero demand placement, low risk of evoking problem behaviors, and fast execution.",
+    "commonMistake": "Free operant assessments measure duration of engagement, not ranked trial-by-trial forced choices like MSWOR or Paired Stimulus.",
+    "relatedTerms": [
+      "preference-assessment",
+      "single-stimulus",
+      "paired-stimulus",
+      "multiple-stimulus-without-replacement"
+    ],
+    "domain": "Domain B — Behavior Assessment",
+    "topicSlug": "preference-assessments",
+    "studyGuideSlug": "behavior-assessment",
+    "practiceDomain": "B: Behavior Assessment",
+    "keywords": [
+      "naturalistic preference",
+      "unrestricted",
+      "duration of play"
+    ]
+  },
+  {
+    "slug": "frequency",
+    "term": "Frequency / Count",
+    "letter": "F",
+    "shortDefinition": "A continuous measurement dimension recording the raw count of occurrences of a behavior during an observation period.",
+    "inSimpleTerms": "Tallying how many times a behavior happens.",
+    "detailedExplanation": "Frequency is appropriate for behaviors with a discrete start and finish and consistent duration. When observation periods vary in length, frequency must be converted to Rate (Count / Time).",
+    "example": "Example scenario: The RBT tallies that a client said \"Thank you\" 8 times during a 60-minute therapy session.",
+    "whyItMatters": "Fundamental data metric used across baseline and intervention tracking.",
+    "commonMistake": "Do not use raw frequency to compare sessions of unequal duration. Always convert to rate (e.g., 6 times in 30 min = 12/hr; 6 times in 60 min = 6/hr).",
+    "relatedTerms": [
+      "rate",
+      "continuous-measurement",
+      "duration"
+    ],
+    "domain": "Domain A — Data Collection and Graphing",
+    "topicSlug": "continuous-measurement",
+    "studyGuideSlug": "measurement-guide",
+    "practiceDomain": "A: Measurement",
+    "keywords": [
+      "count",
+      "tally",
+      "raw number",
+      "occurrences"
+    ]
+  },
+  {
+    "slug": "functional-behavior-assessment",
+    "term": "Functional Behavior Assessment (FBA)",
+    "letter": "F",
+    "shortDefinition": "A systematic diagnostic process used to identify the environmental variables, triggers, and maintaining functions of a challenging behavior.",
+    "inSimpleTerms": "A comprehensive clinical investigation to find out WHY a person engages in problem behavior.",
+    "detailedExplanation": "An FBA integrates three tiers: Indirect Assessments (caregiver interviews, rating scales), Direct Descriptive Assessments (ABC recording, scatterplots), and Functional Analyses (analog experimental manipulation). BCBAs design and interpret FBAs; RBTs assist with data collection.",
+    "example": "Example scenario: Through parent interviews and 10 hours of direct ABC data, the clinical team concludes that head-banging is maintained by escape from difficult academic tasks.",
+    "whyItMatters": "Treatments built on verified functional assessments are significantly more effective and ethical than arbitrary punishment procedures.",
+    "commonMistake": "RBTs do not conduct or interpret FBAs independently. The RBT assists the supervising BCBA with data collection.",
+    "relatedTerms": [
+      "abc-data",
+      "behavior-intervention-plan",
+      "functions-of-behavior"
+    ],
+    "domain": "Domain B — Behavior Assessment",
+    "topicSlug": "abc-narrative-data",
+    "studyGuideSlug": "behavior-assessment",
+    "practiceDomain": "B: Behavior Assessment",
+    "keywords": [
+      "fba",
+      "functional assessment",
+      "assessment",
+      "function"
+    ]
+  },
+  {
+    "slug": "generalization",
+    "term": "Generalization",
+    "letter": "G",
+    "shortDefinition": "The occurrence of a learned behavior across untrained people, settings, materials (Stimulus Generalization) or the emergence of novel functional variations (Response Generalization).",
+    "inSimpleTerms": "Being able to use a learned skill in new places, with new people, or in new ways without being retrained.",
+    "detailedExplanation": "Generalization is one of the 7 core dimensions of ABA. Without planned generalization, skills remain rigid and bound to the specific therapy table or therapist.",
+    "example": "Example scenario: After learning to say \"Hello\" to their therapist at the clinic, the student independently waves and says \"Good morning\" to their teacher at school.",
+    "whyItMatters": "Skills are only truly mastered when the learner can successfully demonstrate them in everyday home, school, and community environments.",
+    "commonMistake": "Do not confuse stimulus generalization (same response across different stimuli/settings) with response generalization (different novel responses serving the same function).",
+    "relatedTerms": [
+      "stimulus-generalization",
+      "response-generalization",
+      "maintenance"
+    ],
+    "domain": "Domain C — Behavior Acquisition",
+    "topicSlug": "skill-acquisition-plans",
+    "studyGuideSlug": "behavior-acquisition",
+    "practiceDomain": "C: Behavior Acquisition",
+    "keywords": [
+      "transfer",
+      "settings",
+      "people",
+      "mastery"
+    ]
+  },
+  {
+    "slug": "generalized-conditioned-reinforcer",
+    "term": "Generalized Conditioned Reinforcer",
+    "letter": "G",
+    "shortDefinition": "A conditioned reinforcer that has been paired with numerous unconditioned and conditioned backup reinforcers, making it resistant to satiation.",
+    "inSimpleTerms": "A reward like money or tokens that can be traded for many different things, so a person rarely gets tired of earning it.",
+    "detailedExplanation": "Because generalized conditioned reinforcers (e.g., money, tokens, points) do not depend on a specific biological deprivation state (e.g., being thirsty or hungry), they maintain consistent motivating power across diverse conditions.",
+    "example": "Example scenario: Tokens in a classroom token economy can be exchanged for extra recess, stickers, computer time, or snacks.",
+    "whyItMatters": "Enables high-efficiency instructional delivery during table-top and naturalistic sessions without risking food satiation.",
+    "commonMistake": "A token is NOT automatically reinforcing until the learner is formally taught the exchange system and values the backup reinforcers.",
+    "relatedTerms": [
+      "token-economy",
+      "conditioned-reinforcer",
+      "backup-reinforcer"
+    ],
+    "domain": "Domain C — Behavior Acquisition",
+    "topicSlug": "skill-acquisition-plans",
+    "studyGuideSlug": "behavior-acquisition",
+    "practiceDomain": "C: Behavior Acquisition",
+    "keywords": [
+      "token",
+      "money",
+      "backup",
+      "satiation resistant"
+    ]
+  },
+  {
+    "slug": "graphing",
+    "term": "Graphing",
+    "letter": "G",
+    "shortDefinition": "The visual display of behavioral data over time on an equal-interval line graph to evaluate client progress and intervention efficacy.",
+    "inSimpleTerms": "Plotting session scores on a chart so everyone can clearly see if a behavior is going up, down, or staying the same.",
+    "detailedExplanation": "Standard ABA line graphs plot time/sessions on the horizontal X-axis (abscissa) and the behavior metric on the vertical Y-axis (ordinate). Solid vertical lines designate major phase changes (e.g., baseline to treatment), and data paths must not cross phase change lines.",
+    "example": "Example scenario: An RBT enters daily mand counts onto a line graph, showing that mands increased from 2 per session at baseline to 18 per session after DTT training.",
+    "whyItMatters": "Graphing provides continuous visual analysis of level, trend, and variability, enabling timely clinical adjustments.",
+    "commonMistake": "Never connect data points across a phase change line. Each experimental condition must remain visually distinct.",
+    "relatedTerms": [
+      "baseline",
+      "data-collection",
+      "continuous-measurement"
+    ],
+    "domain": "Domain A — Data Collection and Graphing",
+    "topicSlug": "graphing-data",
+    "studyGuideSlug": "measurement-guide",
+    "practiceDomain": "A: Measurement",
+    "keywords": [
+      "line graph",
+      "visual analysis",
+      "trend",
+      "level",
+      "variability",
+      "x-axis"
+    ]
+  },
+  {
+    "slug": "high-probability-request-sequence",
+    "term": "High-Probability (High-p) Request Sequence",
+    "letter": "H",
+    "shortDefinition": "An antecedent intervention where 2 to 5 easy, high-compliance tasks with known history of compliance are presented immediately before presenting a low-probability (difficult) target request.",
+    "inSimpleTerms": "Building \"behavioral momentum\" by asking for a few easy things first (like high-fives) before asking for a harder chore or task.",
+    "detailedExplanation": "Also known as behavioral momentum. Reinforcing rapid compliance with easy requests increases the likelihood that the learner will comply with the subsequent low-p request, reducing escape-maintained avoidance.",
+    "example": "Example scenario: Before asking a child to sit and open a math workbook (low-p), the RBT asks for high-five, \"Touch head,\" and \"Spin around\" (high-p requests), praising each before delivering the math instruction.",
+    "whyItMatters": "Effective non-punitive antecedent strategy to decrease instructional resistance and increase task engagement.",
+    "commonMistake": "Do not pause for too long between the high-p requests and the low-p request. The low-p command must be presented within 3 to 5 seconds of the final high-p completion to capitalize on momentum.",
+    "relatedTerms": [
+      "antecedent",
+      "behavior-intervention-plan",
+      "reinforcement"
+    ],
+    "domain": "Domain C — Behavior Acquisition",
+    "topicSlug": "skill-acquisition-plans",
+    "studyGuideSlug": "behavior-acquisition",
+    "practiceDomain": "C: Behavior Acquisition",
+    "keywords": [
+      "behavioral momentum",
+      "high-p",
+      "compliance",
+      "antecedent strategy"
+    ]
+  },
+  {
+    "slug": "incident-report",
+    "term": "Incident Report",
+    "letter": "I",
+    "shortDefinition": "A formal legal and administrative document detailing unexpected, dangerous, or emergency events (e.g., injuries, severe aggression, elopement, physical holds) occurring during therapy.",
+    "inSimpleTerms": "A written safety report filled out whenever an accident, injury, or emergency happens during a session.",
+    "detailedExplanation": "Incident reports require objective, factual documentation: exact date and time, individuals present, objective antecedent triggers, physical actions taken, first aid provided, and immediate notification to the supervising BCBA.",
+    "example": "Example scenario: A client eloped through a clinic side door onto the sidewalk before being safely blocked by staff. The RBT completes a formal incident report detailing the door failure and notifications made.",
+    "whyItMatters": "Fulfills legal, regulatory, and BACB clinical compliance mandates, ensuring transparency and client protection.",
+    "commonMistake": "Do not delay completing incident reports. Most agency and state regulations require completion within 24 hours of the incident.",
+    "relatedTerms": [
+      "objective-session-notes",
+      "mandated-reporting",
+      "supervision-requirements"
+    ],
+    "domain": "Domain E — Documentation and Reporting",
+    "topicSlug": "incident-reporting",
+    "studyGuideSlug": "documentation-and-reporting",
+    "practiceDomain": "E: Documentation and Reporting",
+    "keywords": [
+      "accident",
+      "injury",
+      "crisis documentation",
+      "legal record"
+    ]
+  },
+  {
+    "slug": "inter-response-time",
+    "term": "Inter-Response Time (IRT)",
+    "letter": "I",
+    "shortDefinition": "The elapsed time between the termination of one response and the beginning of the next consecutive occurrence of the same response.",
+    "inSimpleTerms": "The amount of time between two instances of the same behavior.",
+    "detailedExplanation": "IRT is inversely related to rate: shorter IRT indicates a higher rate of behavior, while longer IRT indicates a lower rate. Clinicians target IRT when pacing needs to be increased (e.g., speed of responding to questions) or decreased (e.g., slowing down rapid bites of food).",
+    "example": "Example scenario: A client finishes taking one bite of dinner at 6:00:10 PM and initiates the next bite at 6:00:25 PM. The IRT is 15 seconds.",
+    "whyItMatters": "Essential metric when modifying the tempo or cadence of behaviors.",
+    "commonMistake": "Confusing IRT with latency. Latency is the time from the external SD to the START of the behavior; IRT is the time BETWEEN two consecutive behaviors.",
+    "relatedTerms": [
+      "latency",
+      "continuous-measurement",
+      "rate",
+      "duration"
+    ],
+    "domain": "Domain A — Data Collection and Graphing",
+    "topicSlug": "continuous-measurement",
+    "studyGuideSlug": "measurement-guide",
+    "practiceDomain": "A: Measurement",
+    "keywords": [
+      "irt",
+      "time between",
+      "pace",
+      "cadence"
+    ]
+  },
+  {
+    "slug": "joint-attention",
+    "term": "Joint Attention",
+    "letter": "J",
+    "shortDefinition": "The shared focus of two individuals on an object or event, established through gaze following, pointing, or vocal cues.",
+    "inSimpleTerms": "When two people look at and pay attention to the same interesting thing together, like both looking at an airplane flying overhead.",
+    "detailedExplanation": "Joint attention is a critical early communicative and social milestone. It encompasses Responding to Joint Attention (RJA - looking where another points) and Initiating Joint Attention (IJA - pointing or showing an item to share enjoyment).",
+    "example": "Example scenario: A toddler sees a dog in the yard, turns to the RBT, points to the dog, and smiles to ensure the RBT sees the dog too (initiating joint attention).",
+    "whyItMatters": "Pivotal social skill taught early in behavioral programs because it serves as the foundation for language, social interactions, and cooperative play.",
+    "commonMistake": "Joint attention is not simply requesting. Pointing to GET an item is a mand; pointing simply to SHARE enjoyment or notice something is joint attention.",
+    "relatedTerms": [
+      "mand",
+      "tact",
+      "naturalistic-teaching"
+    ],
+    "domain": "Domain C — Behavior Acquisition",
+    "topicSlug": "skill-acquisition-plans",
+    "studyGuideSlug": "behavior-acquisition",
+    "practiceDomain": "C: Behavior Acquisition",
+    "keywords": [
+      "shared focus",
+      "pointing",
+      "gaze",
+      "social skills"
+    ]
+  },
+  {
+    "slug": "latency",
+    "term": "Latency",
+    "letter": "L",
+    "shortDefinition": "A continuous measurement dimension recording the elapsed time between the delivery of a stimulus (SD) and the initiation of the response.",
+    "inSimpleTerms": "How long it takes a learner to start doing what was asked after receiving the instruction.",
+    "detailedExplanation": "Latency measures response promptness. It is tracked using a stopwatch started at the delivery of the SD and stopped the instant the learner begins executing the target behavior.",
+    "example": "Example scenario: The therapist says, \"Open your book.\" The student looks down and opens the book cover 6 seconds later. The response latency is 6 seconds.",
+    "whyItMatters": "Vital for instructional compliance and safety commands (e.g., reducing latency to stop when commanded near a roadway).",
+    "commonMistake": "Confusing latency with duration. Latency is the time BEFORE the behavior starts; duration is the total time the behavior LASTS once started.",
+    "relatedTerms": [
+      "duration",
+      "inter-response-time",
+      "continuous-measurement"
+    ],
+    "domain": "Domain A — Data Collection and Graphing",
+    "topicSlug": "continuous-measurement",
+    "studyGuideSlug": "measurement-guide",
+    "practiceDomain": "A: Measurement",
+    "keywords": [
+      "reaction time",
+      "delay",
+      "time to start",
+      "promptness"
+    ]
+  },
+  {
+    "slug": "least-to-most-prompting",
+    "term": "Least-to-Most Prompting (LTM)",
+    "letter": "L",
+    "shortDefinition": "A prompting hierarchy that provides the learner with an opportunity to respond independently before progressively introducing increasingly intrusive levels of assistance as needed.",
+    "inSimpleTerms": "Giving the learner a chance to do it alone first, and only stepping in with more help if they make a mistake or get stuck.",
+    "detailedExplanation": "Typical LTM hierarchy: Independent -> Visual/Gestural -> Verbal -> Model -> Partial Physical -> Full Physical. LTM allows maximum opportunities for independent responding.",
+    "example": "Example scenario: The therapist says \"Put on your backpack\" and pauses for 4 seconds. If no response occurs, the therapist points to the backpack (gestural). If still no response, the therapist models putting a backpack on.",
+    "whyItMatters": "Ideal for skills the learner has partially acquired or during maintenance and generalization phases to prevent prompt dependency.",
+    "commonMistake": "Using LTM when teaching brand new, difficult skills. For initial acquisition, Most-to-Least (MTL) is preferred to avoid error rehearsal.",
+    "relatedTerms": [
+      "most-to-least-prompting",
+      "prompt-fading",
+      "prompt-dependency"
+    ],
+    "domain": "Domain C — Behavior Acquisition",
+    "topicSlug": "prompting-hierarchies",
+    "studyGuideSlug": "behavior-acquisition",
+    "practiceDomain": "C: Behavior Acquisition",
+    "keywords": [
+      "ltm",
+      "increasing assistance",
+      "independent probe"
+    ]
+  },
+  {
+    "slug": "maintenance",
+    "term": "Maintenance",
+    "letter": "M",
+    "shortDefinition": "The continued demonstration of a learned skill over time after direct instruction and artificial reinforcement schedules have been faded or terminated.",
+    "inSimpleTerms": "Remembering and being able to perform a skill weeks or months after you learned it.",
+    "detailedExplanation": "Once mastery criteria are met, skills are placed on maintenance schedules (e.g., probed once weekly or monthly) to ensure the learner does not lose the skill.",
+    "example": "Example scenario: A learner mastered shoe tying in March. During a monthly probe in July with no prompts, the learner ties both shoes independently in under 45 seconds.",
+    "whyItMatters": "True clinical success requires skills to remain durable and functional across the individual's lifespan.",
+    "commonMistake": "Assuming that once a skill is mastered, it never needs to be practiced again. Periodic maintenance checks are necessary to prevent skill decay.",
+    "relatedTerms": [
+      "generalization",
+      "mastery-criteria",
+      "reinforcement"
+    ],
+    "domain": "Domain C — Behavior Acquisition",
+    "topicSlug": "skill-acquisition-plans",
+    "studyGuideSlug": "behavior-acquisition",
+    "practiceDomain": "C: Behavior Acquisition",
+    "keywords": [
+      "durability",
+      "retention",
+      "probes",
+      "long term"
+    ]
+  },
+  {
+    "slug": "mand",
+    "term": "Mand",
+    "letter": "M",
+    "shortDefinition": "A verbal operant evoked by a motivating operation (MO) and reinforced by the specific characteristic consequence requested.",
+    "inSimpleTerms": "A request or demand for something you want or need (e.g., asking for water when thirsty).",
+    "detailedExplanation": "The mand is the only verbal operant that directly benefits the speaker. It is controlled by deprivation or aversive stimulation (MOs). Mands can be vocal words, sign language, PECS icons, or AAC button presses.",
+    "example": "Example scenario: A hungry toddler says \"Cracker\" and the parent immediately delivers a cracker.",
+    "whyItMatters": "Mand training is the primary initial focus in functional communication training (FCT) because it empowers the individual to express needs and drastically reduces frustration-driven problem behaviors.",
+    "commonMistake": "Confusing a mand with a tact. A mand is asking for something you want (controlled by motivation); a tact is labeling something you see, hear, or smell (controlled by non-verbal stimuli).",
+    "relatedTerms": [
+      "tact",
+      "motivating-operation",
+      "establishing-operation"
+    ],
+    "domain": "Domain C — Behavior Acquisition",
+    "topicSlug": "skill-acquisition-plans",
+    "studyGuideSlug": "behavior-acquisition",
+    "practiceDomain": "C: Behavior Acquisition",
+    "keywords": [
+      "request",
+      "verbal operant",
+      "fct",
+      "asking"
+    ]
+  },
+  {
+    "slug": "mandated-reporting",
+    "term": "Mandated Reporting",
+    "letter": "M",
+    "shortDefinition": "The legal requirement for designated healthcare and behavioral professionals to report any suspected child, elder, or vulnerable adult abuse or neglect immediately to state authorities.",
+    "inSimpleTerms": "A legally required duty to report suspected abuse or neglect right away to child protective services or the police.",
+    "detailedExplanation": "Under BACB RBT Ethics Code (2.0) Code 2.08 and state statutes, RBTs are mandated reporters. This obligation is individual: while technicians should notify their supervising BCBA, they MUST NOT delay or wait for supervisor permission to file a report.",
+    "example": "Example scenario: An RBT observes unexplained deep linear bruises and burns on a child's back. The RBT immediately contacts the state child abuse hotline to file a report and then alerts the supervising BCBA.",
+    "whyItMatters": "Protects vulnerable clients from severe physical, emotional, or sexual harm and fulfills non-negotiable legal mandates.",
+    "commonMistake": "Believing you must have absolute proof before reporting, or waiting for a weekly supervisor meeting. Reasonable suspicion is the legal standard, and reporting must be immediate.",
+    "relatedTerms": [
+      "ethics-code",
+      "client-dignity",
+      "incident-report"
+    ],
+    "domain": "Domain F — Ethics",
+    "topicSlug": "client-dignity-communication",
+    "studyGuideSlug": "ethics",
+    "practiceDomain": "F: Ethics",
+    "keywords": [
+      "abuse",
+      "neglect",
+      "child protection",
+      "hotline",
+      "legal duty"
+    ]
+  },
+  {
+    "slug": "momentary-time-sampling",
+    "term": "Momentary Time Sampling (MTS)",
+    "letter": "M",
+    "shortDefinition": "A discontinuous measurement procedure where the observer records whether the target behavior is occurring at the exact instant the observation interval ends.",
+    "inSimpleTerms": "Looking up at the exact sound of a timer and marking whether the person is doing the behavior at that exact split second.",
+    "detailedExplanation": "MTS does not require continuous observation throughout the interval, making it uniquely practical for teachers or therapists managing multiple students. However, it can over- or underestimate behavior depending on interval duration.",
+    "example": "Example scenario: A timer chimes every 5 minutes. At the exact second the chime sounds, the technician looks at the student and records a (+) if the student is seated, or a (-) if standing.",
+    "whyItMatters": "Enables behavioral data collection in natural group environments without demanding 100% continuous visual tracking.",
+    "commonMistake": "Do not record what happened earlier in the interval. In MTS, only the exact final moment matters.",
+    "relatedTerms": [
+      "whole-interval-recording",
+      "partial-interval-recording",
+      "discontinuous-measurement"
+    ],
+    "domain": "Domain A — Data Collection and Graphing",
+    "topicSlug": "discontinuous-measurement",
+    "studyGuideSlug": "measurement-guide",
+    "practiceDomain": "A: Measurement",
+    "keywords": [
+      "mts",
+      "time sampling",
+      "timer chime",
+      "instant"
+    ]
+  },
+  {
+    "slug": "most-to-least-prompting",
+    "term": "Most-to-Least Prompting (MTL)",
+    "letter": "M",
+    "shortDefinition": "A prompting hierarchy that begins with the highest level of assistance (e.g., full physical) and systematically fades to less intrusive prompts as the learner demonstrates mastery.",
+    "inSimpleTerms": "Starting with full help (like hand-over-hand) and slowly backing off as the learner gets better at doing it themselves.",
+    "detailedExplanation": "Hierarchy order: Full Physical -> Partial Physical -> Model -> Gestural -> Verbal -> Independent. MTL is the gold standard for teaching brand new skills because it minimizes error rehearsal (errorless learning).",
+    "example": "Example scenario: When first teaching spoon holding, the RBT guides the child's hand completely (full physical). After 3 successful sessions, the RBT guides only at the elbow (partial physical).",
+    "whyItMatters": "Minimizes errors, builds learner confidence, and prevents frustration-induced challenging behaviors during early acquisition.",
+    "commonMistake": "Confusing MTL with Least-to-Most (LTM). MTL starts with highest help; LTM starts with independent trial.",
+    "relatedTerms": [
+      "least-to-most-prompting",
+      "prompt-fading",
+      "errorless-learning"
+    ],
+    "domain": "Domain C — Behavior Acquisition",
+    "topicSlug": "prompting-hierarchies",
+    "studyGuideSlug": "behavior-acquisition",
+    "practiceDomain": "C: Behavior Acquisition",
+    "keywords": [
+      "mtl",
+      "hand over hand",
+      "errorless",
+      "decreasing assistance"
+    ]
+  },
+  {
+    "slug": "motivating-operation",
+    "term": "Motivating Operation (MO)",
+    "letter": "M",
+    "shortDefinition": "An environmental variable that alters the reinforcing effectiveness of a stimulus (value-altering) and alters the momentary frequency of behavior reinforced by that stimulus (behavior-altering).",
+    "inSimpleTerms": "Something that changes how badly you want a reward and how hard you will work to get it right now.",
+    "detailedExplanation": "MOs encompass Establishing Operations (EOs—which increase reinforcer value, e.g., deprivation) and Abolishing Operations (AOs—which decrease reinforcer value, e.g., satiation).",
+    "example": "Example scenario: Eating salty chips acts as an MO that increases the value of water (value-altering) and evokes pouring a glass of water (behavior-altering).",
+    "whyItMatters": "RBTs must understand MOs to capture and contrive motivation during skill acquisition and behavior reduction.",
+    "commonMistake": "Confusing an MO with an SD. An SD signals that reinforcement is AVAILABLE; an MO determines how much the learner WANTS the reinforcer.",
+    "relatedTerms": [
+      "establishing-operation",
+      "satiation",
+      "deprivation",
+      "discriminative-stimulus"
+    ],
+    "domain": "Domain C — Behavior Acquisition",
+    "topicSlug": "skill-acquisition-plans",
+    "studyGuideSlug": "behavior-acquisition",
+    "practiceDomain": "C: Behavior Acquisition",
+    "keywords": [
+      "mo",
+      "motivation",
+      "value altering",
+      "behavior altering"
+    ]
+  },
+  {
+    "slug": "multiple-stimulus-without-replacement",
+    "term": "Multiple Stimulus without Replacement (MSWOR)",
+    "letter": "M",
+    "shortDefinition": "A preference assessment where an array of items is presented simultaneously, and the item chosen by the learner is removed from subsequent trials without replacement.",
+    "inSimpleTerms": "Lining up several toys, letting the learner pick one, and taking the chosen toy away so they pick from the remaining toys on the next turn.",
+    "detailedExplanation": "Because the chosen item is never put back into the array, the array shrinks by one item after each trial. This rapidly establishes a clear hierarchy of preferences from 1st choice to last choice.",
+    "example": "Example scenario: An RBT presents 6 items. The child picks the train. The RBT removes the train and presents the remaining 5 items. The child picks the car next. The result is a ranked list of preferences.",
+    "whyItMatters": "MSWOR is the fastest and most efficient way to establish a differentiated preference hierarchy (typically under 5 minutes).",
+    "commonMistake": "Do not use MSWOR if the learner engages in severe aggression or tantrums when items are removed. Use Free Operant in those cases.",
+    "relatedTerms": [
+      "multiple-stimulus-with-replacement",
+      "paired-stimulus",
+      "preference-assessment"
+    ],
+    "domain": "Domain B — Behavior Assessment",
+    "topicSlug": "preference-assessments",
+    "studyGuideSlug": "behavior-assessment",
+    "practiceDomain": "B: Behavior Assessment",
+    "keywords": [
+      "mswor",
+      "preference hierarchy",
+      "ranking toys"
+    ]
+  },
+  {
+    "slug": "naturalistic-teaching",
+    "term": "Naturalistic Teaching Procedures (NET)",
+    "letter": "N",
+    "shortDefinition": "Instructional methodologies that embed learning trials directly into naturally occurring routines, child-led play, and natural environments.",
+    "inSimpleTerms": "Teaching skills during fun, everyday activities by following the learner's interests rather than sitting at a desk.",
+    "detailedExplanation": "NET (also known as Incidental Teaching) capitalizes on child-led establishing operations (EOs). Reinforcers are functionally related to the activity (e.g., asking for a swing results in swinging, not an arbitrary edible).",
+    "example": "Example scenario: While playing with bubbles in the backyard, the RBT pauses before blowing and holds the wand. The child says \"Blow,\" and the RBT immediately blows bubbles.",
+    "whyItMatters": "Maximizes spontaneous communication and ensures seamless generalization to natural home and school settings.",
+    "commonMistake": "NET is not unstructured free play. The RBT systematically contrives learning opportunities, records trial data, and delivers target prompts during natural routines.",
+    "relatedTerms": [
+      "discrete-trial-teaching",
+      "mand",
+      "generalization"
+    ],
+    "domain": "Domain C — Behavior Acquisition",
+    "topicSlug": "skill-acquisition-plans",
+    "studyGuideSlug": "behavior-acquisition",
+    "practiceDomain": "C: Behavior Acquisition",
+    "keywords": [
+      "net",
+      "incidental teaching",
+      "play based",
+      "child led"
+    ]
+  },
+  {
+    "slug": "negative-punishment",
+    "term": "Negative Punishment",
+    "letter": "N",
+    "shortDefinition": "A contingency where the removal or termination of a preferred stimulus immediately following a behavior results in a decrease in the future frequency of that behavior.",
+    "inSimpleTerms": "Taking away something good after a behavior to make that behavior happen less often in the future.",
+    "detailedExplanation": "Examples include Time-Out from reinforcement (removing access to enjoyable activities for a set duration) and Response Cost (losing earned tokens, points, or privileges contingent on target behaviors).",
+    "example": "Example scenario: Two students fight over a video game controller. The teacher removes the controller for 10 minutes (removal of preferred item), decreasing future fighting.",
+    "whyItMatters": "RBTs must understand negative punishment principles to implement response cost or timeout protocols strictly as specified in a BCBA-written BIP.",
+    "commonMistake": "Confusing negative punishment with negative reinforcement. Punishment ALWAYS decreases behavior; reinforcement ALWAYS increases behavior.",
+    "relatedTerms": [
+      "positive-punishment",
+      "negative-reinforcement",
+      "positive-reinforcement"
+    ],
+    "domain": "Domain D — Behavior Reduction",
+    "topicSlug": "behavior-reduction-plans",
+    "studyGuideSlug": "behavior-reduction-guide",
+    "practiceDomain": "D: Behavior Reduction",
+    "keywords": [
+      "punishment",
+      "response cost",
+      "time out",
+      "decrease behavior"
+    ]
+  },
+  {
+    "slug": "negative-reinforcement",
+    "term": "Negative Reinforcement",
+    "letter": "N",
+    "shortDefinition": "A contingency where the removal, reduction, or termination of an aversive stimulus immediately following a behavior results in an increase in the future frequency of that behavior.",
+    "inSimpleTerms": "Taking away something annoying or unpleasant when a behavior happens, which makes that behavior happen more often in the future.",
+    "detailedExplanation": "In negative reinforcement, \"negative\" means subtraction (removal of a stimulus). Examples include putting on sunglasses to remove bright sunlight, or completing chores to stop parental nagging.",
+    "example": "Example scenario: A child puts their hands over their ears when entering a noisy gym. The loud sound is muffled (aversive stimulus removed), increasing future ear-covering in noisy areas.",
+    "whyItMatters": "Underpins escape- and avoidance-maintained behaviors and functional communication training (e.g., teaching \"Break please\").",
+    "commonMistake": "Negative reinforcement is NOT punishment! Reinforcement ALWAYS increases behavior. Negative reinforcement means removing an aversive stimulus to increase behavior.",
+    "relatedTerms": [
+      "positive-reinforcement",
+      "escape-function",
+      "negative-punishment"
+    ],
+    "domain": "Domain C — Behavior Acquisition",
+    "topicSlug": "skill-acquisition-plans",
+    "studyGuideSlug": "behavior-acquisition",
+    "practiceDomain": "C: Behavior Acquisition",
+    "keywords": [
+      "escape",
+      "relief",
+      "removal",
+      "increase behavior"
+    ]
+  },
+  {
+    "slug": "objective-session-notes",
+    "term": "Objective Session Notes",
+    "letter": "O",
+    "shortDefinition": "Clinical session documentation written in factual, observable, and measurable terms without personal opinions, emotional adjectives, or speculative diagnoses.",
+    "inSimpleTerms": "Writing clinical notes that describe exactly what happened physically, without guessing what the person was feeling inside.",
+    "detailedExplanation": "Session notes serve as legal medical records and insurance billing documentation. Notes must include objective counts, durations, target accuracy, response to behavior plans, caregiver updates, and next-session plans (SOAP format).",
+    "example": "Example scenario: Appropriate: \"Client pushed materials off desk 3 times and verbalized 'No' at 75dB.\" Inappropriate: \"Client was having a manic episode and acted spitefully all day.\"",
+    "whyItMatters": "Ensures clinical accuracy, protects against insurance audit clawbacks, and maintains professional legal compliance.",
+    "commonMistake": "Including judgmental words like \"lazy\", \"stubborn\", \"bad\", or offering medical diagnoses like \"client was depressed.\"",
+    "relatedTerms": [
+      "soap-note",
+      "operational-definition",
+      "incident-report"
+    ],
+    "domain": "Domain E — Documentation and Reporting",
+    "topicSlug": "objective-session-notes",
+    "studyGuideSlug": "documentation-and-reporting",
+    "practiceDomain": "E: Documentation and Reporting",
+    "keywords": [
+      "notes",
+      "soap",
+      "documentation",
+      "factual",
+      "insurance billing"
+    ]
+  },
+  {
+    "slug": "operational-definition",
+    "term": "Operational Definition",
+    "letter": "O",
+    "shortDefinition": "An explicit, objective, clear, and complete description of a target behavior allowing two independent observers to record identical data.",
+    "inSimpleTerms": "A clear definition of a behavior so precise that anyone reading it knows exactly what it looks like and what counts vs. what doesn't.",
+    "detailedExplanation": "Must meet three criteria (Hawkins & Dobes, 1977): Objective (refers only to observable characteristics), Clear (unambiguous), and Complete (specifies boundaries and non-examples).",
+    "example": "Example scenario: Operational definition of Flopping: \"Client's torso, knees, or hips making contact with the floor for more than 2 seconds following an instructional demand. Non-example: Sitting cross-legged on a carpet during circle time.\"",
+    "whyItMatters": "Prevents subjective disagreement among therapy team members and ensures reliable measurement.",
+    "commonMistake": "Writing definitions that describe internal mental states (e.g., \"Tantrum: When client feels overwhelmed\") rather than observable physical actions.",
+    "relatedTerms": [
+      "behavior",
+      "continuous-measurement",
+      "abc-data"
+    ],
+    "domain": "Domain B — Behavior Assessment",
+    "topicSlug": "abc-narrative-data",
+    "studyGuideSlug": "behavior-assessment",
+    "practiceDomain": "B: Behavior Assessment",
+    "keywords": [
+      "definition",
+      "clear",
+      "observable",
+      "measurable",
+      "examples and non-examples"
+    ]
+  },
+  {
+    "slug": "paired-stimulus",
+    "term": "Paired Stimulus (Forced Choice)",
+    "letter": "P",
+    "shortDefinition": "A preference assessment where two stimuli are presented simultaneously, and the learner is instructed to choose one item.",
+    "inSimpleTerms": "Holding up two toys side-by-side and telling the learner to \"pick one,\" repeating this with every possible pair.",
+    "detailedExplanation": "Every item in the assessment pool is paired against every other item. Positions (left/right) must be counterbalanced to control for side bias. Produces a highly differentiated, accurate hierarchy of preferences.",
+    "example": "Example scenario: The RBT presents a ball on the left and a truck on the right. The child selects the truck. On a later trial, the truck is presented on the left against a puzzle on the right.",
+    "whyItMatters": "Higher ranking reliability than single-stimulus assessments when establishing primary and secondary reinforcers.",
+    "commonMistake": "If the learner reaches for both items at once, the RBT must block both and re-present the pair with the instruction \"Pick one.\"",
+    "relatedTerms": [
+      "preference-assessment",
+      "multiple-stimulus-without-replacement",
+      "free-operant"
+    ],
+    "domain": "Domain B — Behavior Assessment",
+    "topicSlug": "preference-assessments",
+    "studyGuideSlug": "behavior-assessment",
+    "practiceDomain": "B: Behavior Assessment",
+    "keywords": [
+      "forced choice",
+      "pick one",
+      "two items",
+      "paired choice"
+    ]
+  },
+  {
+    "slug": "partial-interval-recording",
+    "term": "Partial Interval Recording",
+    "letter": "P",
+    "shortDefinition": "A discontinuous measurement procedure where the observer records whether the behavior occurred at ANY point during the observation interval.",
+    "inSimpleTerms": "Marking a \"yes\" if the behavior happened for even one split second during the interval.",
+    "detailedExplanation": "Because occurrence requires only a fleeting instant, partial interval recording systematically overestimates the overall duration and frequency of behavior. It is primarily used for behaviors targeted for reduction.",
+    "example": "Example scenario: An RBT tracks vocal humming in 15-second intervals. If the student hums for 1 second during interval 1, interval 1 is scored as an occurrence (+).",
+    "whyItMatters": "Practical for high-rate, non-discrete behaviors (skin picking, humming, hand flapping) that cannot be counted individually.",
+    "commonMistake": "Do not use partial interval for behaviors you want to INCREASE, as it overestimates behavior and makes progress look artificially high.",
+    "relatedTerms": [
+      "whole-interval-recording",
+      "momentary-time-sampling",
+      "discontinuous-measurement"
+    ],
+    "domain": "Domain A — Data Collection and Graphing",
+    "topicSlug": "discontinuous-measurement",
+    "studyGuideSlug": "measurement-guide",
+    "practiceDomain": "A: Measurement",
+    "keywords": [
+      "partial interval",
+      "overestimates",
+      "any point",
+      "time sampling"
+    ]
+  },
+  {
+    "slug": "permanent-product",
+    "term": "Permanent Product Recording",
+    "letter": "P",
+    "shortDefinition": "Measuring behavior after it has occurred by observing the physical outcome or environmental product the behavior left behind.",
+    "inSimpleTerms": "Grading or counting the tangible result of a behavior after the person is done, without having to watch them do it.",
+    "detailedExplanation": "Does not require direct real-time observation of the client during response execution. Products can be reviewed, verified, and audited later.",
+    "example": "Example scenario: Counting the number of completed math problems on a turned-in worksheet, or counting the number of dirty dishes washed and put away.",
+    "whyItMatters": "Permits measurement in classrooms or work environments when the technician cannot stare at the learner every second.",
+    "commonMistake": "You must be certain that the client was the sole person who produced the product, and that others did not assist or interfere.",
+    "relatedTerms": [
+      "continuous-measurement",
+      "data-collection"
+    ],
+    "domain": "Domain A — Data Collection and Graphing",
+    "topicSlug": "permanent-product",
+    "studyGuideSlug": "measurement-guide",
+    "practiceDomain": "A: Measurement",
+    "keywords": [
+      "worksheet",
+      "tangible product",
+      "after the fact",
+      "indirect"
+    ]
+  },
+  {
+    "slug": "positive-punishment",
+    "term": "Positive Punishment",
+    "letter": "P",
+    "shortDefinition": "A contingency where the presentation of an aversive stimulus immediately following a behavior results in a decrease in the future frequency of that behavior.",
+    "inSimpleTerms": "Adding something unpleasant immediately after a behavior so the behavior happens less in the future.",
+    "detailedExplanation": "In positive punishment, \"positive\" means addition (+). Examples include vocal reprimands, overcorrection (restitution/positive practice), and response blocking. Punishment must be used with caution, supervised by a BCBA, and paired with reinforcement for alternative behaviors.",
+    "example": "Example scenario: A child touches a hot radiator and feels painful heat (addition of painful heat), decreasing future touching of the radiator.",
+    "whyItMatters": "RBTs must recognize positive punishment procedures and never implement punishment unless written explicitly into a BCBA plan with human rights committee approval.",
+    "commonMistake": "Punishment decreases behavior; reinforcement increases behavior. Positive punishment adds an aversive; negative punishment removes a preferred item.",
+    "relatedTerms": [
+      "negative-punishment",
+      "positive-reinforcement",
+      "negative-reinforcement"
+    ],
+    "domain": "Domain D — Behavior Reduction",
+    "topicSlug": "behavior-reduction-plans",
+    "studyGuideSlug": "behavior-reduction-guide",
+    "practiceDomain": "D: Behavior Reduction",
+    "keywords": [
+      "punishment",
+      "overcorrection",
+      "reprimand",
+      "decrease"
+    ]
+  },
+  {
+    "slug": "positive-reinforcement",
+    "term": "Positive Reinforcement",
+    "letter": "P",
+    "shortDefinition": "A contingency where the delivery or presentation of a stimulus immediately following a behavior results in an increase in the future frequency of that behavior.",
+    "inSimpleTerms": "Giving something rewarding immediately after a good behavior to make that behavior happen more often in the future.",
+    "detailedExplanation": "The cornerstone of Applied Behavior Analysis. In positive reinforcement, \"positive\" means addition (+). Stimuli can be unconditioned (food) or conditioned (praise, tokens, privileges).",
+    "example": "Example scenario: When the child says \"Pencil please,\" the teacher hands over the pencil and praises the polite request (addition of pencil and praise), increasing polite mands.",
+    "whyItMatters": "Positive reinforcement is the primary ethical and clinical mechanism used to teach all new adaptive behaviors and communication repertoires.",
+    "commonMistake": "A reward is NOT positive reinforcement unless it actually INCREASES future behavior rate. If praise does not increase behavior, it is not functioning as reinforcement.",
+    "relatedTerms": [
+      "negative-reinforcement",
+      "conditioned-reinforcer",
+      "unconditioned-reinforcer"
+    ],
+    "domain": "Domain C — Behavior Acquisition",
+    "topicSlug": "skill-acquisition-plans",
+    "studyGuideSlug": "behavior-acquisition",
+    "practiceDomain": "C: Behavior Acquisition",
+    "keywords": [
+      "reward",
+      "addition",
+      "sr+",
+      "increase behavior"
+    ]
+  },
+  {
+    "slug": "preference-assessment",
+    "term": "Preference Assessment",
+    "letter": "P",
+    "shortDefinition": "A structured evaluation procedure designed to identify stimuli, items, or activities that a client prefers and that may serve as potential reinforcers.",
+    "inSimpleTerms": "A systematic test to find out what toys, snacks, or activities a learner likes best.",
+    "detailedExplanation": "Methodologies include: Free Operant, Single Stimulus, Paired Stimulus, Multiple Stimulus with Replacement (MSWR), and Multiple Stimulus without Replacement (MSWOR).",
+    "example": "Example scenario: An RBT conducts an MSWOR with 5 sensory toys to find out which item ranks as the child's #1 preferred choice before beginning discrete trials.",
+    "whyItMatters": "Effective reinforcement requires knowing what the learner currently desires; preferences change frequently and must be assessed regularly.",
+    "commonMistake": "Preference is NOT reinforcement! A preferred item is merely a candidate; it only becomes a reinforcer if delivering it increases future behavior rates.",
+    "relatedTerms": [
+      "multiple-stimulus-without-replacement",
+      "free-operant",
+      "paired-stimulus",
+      "single-stimulus"
+    ],
+    "domain": "Domain B — Behavior Assessment",
+    "topicSlug": "preference-assessments",
+    "studyGuideSlug": "behavior-assessment",
+    "practiceDomain": "B: Behavior Assessment",
+    "keywords": [
+      "preference",
+      "assessment",
+      "reinforcer identification",
+      "mswor",
+      "paired choice"
+    ]
+  },
+  {
+    "slug": "prompt",
+    "term": "Prompt",
+    "letter": "P",
+    "shortDefinition": "An antecedent stimulus added to an instructional SD to evoke the correct response before an error occurs.",
+    "inSimpleTerms": "An extra hint or assistance given to help a learner answer or perform a task correctly.",
+    "detailedExplanation": "Prompts are categorized into response prompts (physical, model, verbal) and stimulus prompts (positional, visual, movement). Prompts must be systematically faded to ensure independent responding.",
+    "example": "Example scenario: The therapist says \"Clap your hands\" and immediately demonstrates hand clapping (modeling prompt) so the child imitates successfully.",
+    "whyItMatters": "Enables learners to experience success and earn reinforcement when learning new or complex skills.",
+    "commonMistake": "Allowing the learner to become prompt-dependent by failing to fade prompts over time.",
+    "relatedTerms": [
+      "prompt-fading",
+      "prompt-dependency",
+      "most-to-least-prompting",
+      "least-to-most-prompting"
+    ],
+    "domain": "Domain C — Behavior Acquisition",
+    "topicSlug": "prompting-hierarchies",
+    "studyGuideSlug": "behavior-acquisition",
+    "practiceDomain": "C: Behavior Acquisition",
+    "keywords": [
+      "hint",
+      "assistance",
+      "model",
+      "physical prompt",
+      "gestural"
+    ]
+  },
+  {
+    "slug": "prompt-fading",
+    "term": "Prompt Fading",
+    "letter": "P",
+    "shortDefinition": "The systematic, gradual removal of artificial prompts over time to transfer stimulus control to the naturally occurring discriminative stimulus (SD).",
+    "inSimpleTerms": "Gradually giving less and less help until the learner can do the task all on their own.",
+    "detailedExplanation": "Fading methods include: Most-to-Least (decreasing intrusiveness across sessions), Least-to-Most (probing independence first), Time Delay (inserting a delay between SD and prompt), and Stimulus Fading (reducing physical cues).",
+    "example": "Example scenario: When teaching hand writing, the therapist moves from full hand-over-hand guidance -> guiding at the wrist -> guiding at the elbow -> gestural pointing -> fully independent.",
+    "whyItMatters": "Without prompt fading, learners will only perform when assisted, preventing true autonomy.",
+    "commonMistake": "Fading prompts too quickly (evoking errors and frustration) or fading too slowly (creating prompt dependency).",
+    "relatedTerms": [
+      "prompt",
+      "prompt-dependency",
+      "stimulus-control-transfer"
+    ],
+    "domain": "Domain C — Behavior Acquisition",
+    "topicSlug": "prompting-hierarchies",
+    "studyGuideSlug": "behavior-acquisition",
+    "practiceDomain": "C: Behavior Acquisition",
+    "keywords": [
+      "fading",
+      "transfer of control",
+      "time delay",
+      "independence"
+    ]
+  },
+  {
+    "slug": "qabf",
+    "term": "Questions About Behavioral Function (QABF)",
+    "letter": "Q",
+    "shortDefinition": "A 25-item indirect behavioral assessment rating scale completed by caregivers to evaluate the hypothesized functions of challenging behavior.",
+    "inSimpleTerms": "A questionnaire that parents or teachers fill out to help guess why a behavior is happening.",
+    "detailedExplanation": "The QABF assesses 5 potential functions/factors: Attention, Escape, Non-social (automatic/sensory), Physical (pain/discomfort), and Tangible. As an indirect assessment, it relies on informant recall and must be confirmed through direct observations.",
+    "example": "Example scenario: A caregiver completes the QABF rating scale with an RBT, rating questions 1 to 25 from \"Never\" to \"Often\" regarding when a student hits peers.",
+    "whyItMatters": "RBTs may assist BCBAs by distributing or collecting rating scales from caregivers and school staff during initial assessment phases.",
+    "commonMistake": "The QABF is an indirect assessment and does NOT prove functional causation. Direct ABC data or experimental analysis is required for confirmation.",
+    "relatedTerms": [
+      "indirect-assessment",
+      "functional-behavior-assessment",
+      "abc-data"
+    ],
+    "domain": "Domain B — Behavior Assessment",
+    "topicSlug": "abc-narrative-data",
+    "studyGuideSlug": "behavior-assessment",
+    "practiceDomain": "B: Behavior Assessment",
+    "keywords": [
+      "qabf",
+      "rating scale",
+      "indirect assessment",
+      "questionnaire"
+    ]
+  },
+  {
+    "slug": "rate",
+    "term": "Rate",
+    "letter": "R",
+    "shortDefinition": "A continuous measurement metric calculated as the total frequency (count) of behavior divided by the total observation time.",
+    "inSimpleTerms": "How many times a behavior happens per hour, per minute, or per day (Rate = Count / Time).",
+    "detailedExplanation": "Rate standardizes behavioral data across sessions of unequal lengths. For example, 10 screams in a 30-minute session = 20 screams/hour; 10 screams in a 60-minute session = 10 screams/hour.",
+    "example": "Example scenario: A client emitted 15 spontaneous vocal mands during a 2.5-hour therapy session (Rate = 6 mands per hour).",
+    "whyItMatters": "Essential for comparing client progress when session durations fluctuate across days or therapy settings.",
+    "commonMistake": "Always verify time units on exam questions (per minute vs. per hour). Rate requires dividing by the exact time unit requested.",
+    "relatedTerms": [
+      "frequency",
+      "continuous-measurement",
+      "duration"
+    ],
+    "domain": "Domain A — Data Collection and Graphing",
+    "topicSlug": "continuous-measurement",
+    "studyGuideSlug": "measurement-guide",
+    "practiceDomain": "A: Measurement",
+    "keywords": [
+      "frequency per time",
+      "count per hour",
+      "rate calculation"
+    ]
+  },
+  {
+    "slug": "reinforcement",
+    "term": "Reinforcement",
+    "letter": "R",
+    "shortDefinition": "Any environmental consequence that immediately follows a behavior and increases or maintains the future probability or rate of that behavior.",
+    "inSimpleTerms": "The process of strengthening a behavior so it happens more often in the future.",
+    "detailedExplanation": "Reinforcement is operant conditioning's fundamental principle. It is categorized into Positive Reinforcement (adding a desired stimulus) and Negative Reinforcement (removing an aversive stimulus).",
+    "example": "Example scenario: Giving high-fives and verbal praise immediately after a child uses the toilet results in the child using the toilet more consistently each day.",
+    "whyItMatters": "All skill acquisition in ABA is built upon systematic, high-fidelity reinforcement delivery.",
+    "commonMistake": "Reinforcement is not defined by the intention of the teacher, but by its EFFECT on behavior. If the future rate of behavior does not increase, reinforcement did not occur.",
+    "relatedTerms": [
+      "positive-reinforcement",
+      "negative-reinforcement",
+      "reinforcer"
+    ],
+    "domain": "Domain C — Behavior Acquisition",
+    "topicSlug": "skill-acquisition-plans",
+    "studyGuideSlug": "behavior-acquisition",
+    "practiceDomain": "C: Behavior Acquisition",
+    "keywords": [
+      "strengthen",
+      "increase",
+      "operant conditioning",
+      "sr"
+    ]
+  },
+  {
+    "slug": "reinforcer",
+    "term": "Reinforcer",
+    "letter": "R",
+    "shortDefinition": "A specific stimulus or event whose presentation or removal contingent on a response results in an increase in the future frequency of that response.",
+    "inSimpleTerms": "The actual item, activity, or break that works as a reward to increase behavior.",
+    "detailedExplanation": "A stimulus is only a reinforcer if it is empirically proven to increase behavior. Types include primary/unconditioned (food, sleep) and secondary/conditioned (tokens, praise).",
+    "example": "Example scenario: Bubbles function as a reinforcer for Leo because delivering bubbles contingent on vocalizations increased his daily vocal requests from 2 to 14.",
+    "whyItMatters": "Identifying and rotating potent reinforcers keeps learners engaged and accelerates acquisition.",
+    "commonMistake": "Do not assume what a child likes is a reinforcer. A preference is only a potential reinforcer until behavioral increase is documented.",
+    "relatedTerms": [
+      "reinforcement",
+      "positive-reinforcement",
+      "preference-assessment"
+    ],
+    "domain": "Domain C — Behavior Acquisition",
+    "topicSlug": "skill-acquisition-plans",
+    "studyGuideSlug": "behavior-acquisition",
+    "practiceDomain": "C: Behavior Acquisition",
+    "keywords": [
+      "reward item",
+      "stimulus",
+      "tangible",
+      "praise"
+    ]
+  },
+  {
+    "slug": "satiation",
+    "term": "Satiation",
+    "letter": "S",
+    "shortDefinition": "A motivating operation resulting from prolonged or excessive access to a reinforcer, which decreases its momentary effectiveness.",
+    "inSimpleTerms": "Having too much of something so that you don't want it anymore for a while.",
+    "detailedExplanation": "Satiation functions as an Abolishing Operation (AO). For example, eating three slices of cake abolishes the value of cake as a reinforcer, meaning the child will not work to earn cake.",
+    "example": "Example scenario: After drinking two large juice boxes before therapy, the learner refuses to complete tasks to earn juice because they are fully satiated.",
+    "whyItMatters": "RBTs prevent satiation by delivering small portions (e.g., single chips, 30 seconds with a toy) and rotating reinforcers frequently.",
+    "commonMistake": "Confusing satiation with deprivation. Satiation decreases reinforcer value; deprivation increases reinforcer value.",
+    "relatedTerms": [
+      "deprivation",
+      "motivating-operation",
+      "establishing-operation"
+    ],
+    "domain": "Domain C — Behavior Acquisition",
+    "topicSlug": "skill-acquisition-plans",
+    "studyGuideSlug": "behavior-acquisition",
+    "practiceDomain": "C: Behavior Acquisition",
+    "keywords": [
+      "ao",
+      "full",
+      "too much",
+      "loss of value"
+    ]
+  },
+  {
+    "slug": "shaping",
+    "term": "Shaping",
+    "letter": "S",
+    "shortDefinition": "The differential reinforcement of successive approximations toward a terminal target behavior.",
+    "inSimpleTerms": "Teaching a brand new behavior by rewarding small steps that get closer and closer to the final goal.",
+    "detailedExplanation": "The therapist reinforces behaviors that resemble the terminal target. As closer approximations emerge, earlier approximations are put on extinction. Shaping teaches a single, novel behavior.",
+    "example": "Example scenario: In teaching speech, the therapist reinforces \"b\" -> then extinguishes \"b\" and reinforces \"ba\" -> then extinguishes \"ba\" and reinforces \"ball.\"",
+    "whyItMatters": "Enables learners to acquire completely new behaviors that are not currently in their repertoire.",
+    "commonMistake": "Confusing shaping with chaining. Shaping teaches ONE new behavior through successive approximations; chaining connects MULTIPLE existing behaviors together.",
+    "relatedTerms": [
+      "chaining",
+      "differential-reinforcement",
+      "task-analysis"
+    ],
+    "domain": "Domain C — Behavior Acquisition",
+    "topicSlug": "shaping-chaining",
+    "studyGuideSlug": "behavior-acquisition",
+    "practiceDomain": "C: Behavior Acquisition",
+    "keywords": [
+      "successive approximations",
+      "new skill",
+      "refinement",
+      "differential reinforcement"
+    ]
+  },
+  {
+    "slug": "single-stimulus",
+    "term": "Single Stimulus Preference Assessment",
+    "letter": "S",
+    "shortDefinition": "A preference assessment where items are presented one at a time to the learner, recording whether the client approaches and how long they engage.",
+    "inSimpleTerms": "Showing one toy at a time to see if the learner reaches for it and how long they play with it.",
+    "detailedExplanation": "Also known as the Successive Choice method. Highly recommended for learners who have difficulty scanning multiple items or who struggle to make choices between two or more options.",
+    "example": "Example scenario: The RBT places a lighted spinner on the table. The child reaches within 2 seconds and plays for 4 minutes. The spinner is recorded as a high-approach stimulus.",
+    "whyItMatters": "Accessible assessment method for individuals with severe visual impairments or limited choice repertoires.",
+    "commonMistake": "Does not produce a ranked hierarchy as efficiently as paired choice or MSWOR because items are not evaluated against one another.",
+    "relatedTerms": [
+      "paired-stimulus",
+      "multiple-stimulus-without-replacement",
+      "free-operant"
+    ],
+    "domain": "Domain B — Behavior Assessment",
+    "topicSlug": "preference-assessments",
+    "studyGuideSlug": "behavior-assessment",
+    "practiceDomain": "B: Behavior Assessment",
+    "keywords": [
+      "successive choice",
+      "one item",
+      "approach response"
+    ]
+  },
+  {
+    "slug": "soap-note",
+    "term": "SOAP Note",
+    "letter": "S",
+    "shortDefinition": "A standardized clinical progress note framework comprising Subjective, Objective, Assessment, and Plan components.",
+    "inSimpleTerms": "A structured 4-part therapy note documenting caregiver updates (S), exact data (O), clinical progress (A), and next steps (P).",
+    "detailedExplanation": "Widely used in healthcare and ABA: S (caregiver reported setting events), O (measurable session data, target accuracy, behavior duration), A (progress evaluation relative to baseline), and P (plan for upcoming sessions and supervisor contact).",
+    "example": "Example scenario: S: Mom stated client slept poorly. O: Manding accuracy was 85% (17/20); screaming occurred 2 times (duration 3m). A: Manding maintained above mastery criterion. P: Continue current DTT phase.",
+    "whyItMatters": "Guarantees comprehensive, professional, and audit-compliant medical records for insurance authorization.",
+    "commonMistake": "Do not put unverified opinions in the Objective section. The Objective section is strictly for quantifiable data.",
+    "relatedTerms": [
+      "objective-session-notes",
+      "incident-report"
+    ],
+    "domain": "Domain E — Documentation and Reporting",
+    "topicSlug": "objective-session-notes",
+    "studyGuideSlug": "documentation-and-reporting",
+    "practiceDomain": "E: Documentation and Reporting",
+    "keywords": [
+      "soap",
+      "progress note",
+      "clinical note",
+      "medical record"
+    ]
+  },
+  {
+    "slug": "spontaneous-recovery",
+    "term": "Spontaneous Recovery",
+    "letter": "S",
+    "shortDefinition": "The sudden, temporary reappearance of a previously extinguished behavior after a period of dormancy, occurring without any reintroduction of reinforcement.",
+    "inSimpleTerms": "An old problem behavior unexpectedly showing up again after it had already stopped, just to \"test\" if it works again.",
+    "detailedExplanation": "Spontaneous recovery is a natural phenomenon in operant extinction. If therapists continue to maintain extinction (withholding reinforcement), the behavior quickly drops back down to zero.",
+    "example": "Example scenario: A child whose screaming at bedtime was extinguished 3 weeks ago suddenly screams for 10 minutes on Tuesday night. Parents maintain extinction, and screaming does not recur the next night.",
+    "whyItMatters": "Knowing this phenomenon prevents technicians and parents from concluding that the intervention failed when old behaviors briefly reappear.",
+    "commonMistake": "Giving in and reinforcing the behavior during spontaneous recovery. If reinforced, the behavior will be reinstated at full strength.",
+    "relatedTerms": [
+      "extinction",
+      "extinction-burst"
+    ],
+    "domain": "Domain D — Behavior Reduction",
+    "topicSlug": "extinction-procedures",
+    "studyGuideSlug": "behavior-reduction-guide",
+    "practiceDomain": "D: Behavior Reduction",
+    "keywords": [
+      "recovery",
+      "reappearance",
+      "dormancy",
+      "extinction"
+    ]
+  },
+  {
+    "slug": "stimulus-control",
+    "term": "Stimulus Control",
+    "letter": "S",
+    "shortDefinition": "A situation in which the frequency, latency, duration, or amplitude of a behavior is altered by the presence or absence of an antecedent stimulus.",
+    "inSimpleTerms": "A behavior happening reliably when a specific signal is present, and not happening when it is absent.",
+    "detailedExplanation": "Occurs because the behavior has been reinforced in the presence of that stimulus (SD) and not reinforced in its absence (S-Delta). Examples include stopping at a red traffic light and walking when the walk signal illuminates.",
+    "example": "Example scenario: The child sits down at the table immediately when the teacher rings the transition bell (the bell has acquired stimulus control over sitting).",
+    "whyItMatters": "All instructional cues, compliance, and academic skills in ABA rely on establishing stimulus control.",
+    "commonMistake": "Stimulus control is not automatic; it requires consistent discrimination training with differential reinforcement.",
+    "relatedTerms": [
+      "discriminative-stimulus",
+      "discrimination-training",
+      "stimulus-control-transfer"
+    ],
+    "domain": "Domain C — Behavior Acquisition",
+    "topicSlug": "skill-acquisition-plans",
+    "studyGuideSlug": "behavior-acquisition",
+    "practiceDomain": "C: Behavior Acquisition",
+    "keywords": [
+      "sd",
+      "control",
+      "cue",
+      "reliable responding"
+    ]
+  },
+  {
+    "slug": "supervision-requirements",
+    "term": "Supervision Requirements (5% Rule)",
+    "letter": "S",
+    "shortDefinition": "The BACB mandate requiring active Registered Behavior Technicians to receive ongoing clinical supervision for at least 5% of their monthly behavior-analytic service hours.",
+    "inSimpleTerms": "An RBT must have a BCBA observe and guide their work for at least 5% of all client hours worked each calendar month.",
+    "detailedExplanation": "Additional rules: Minimum 2 face-to-face contacts per month; at least 1 contact must include direct client observation; group supervision is capped at 50% of total monthly supervision; supervision logs must be retained for at least 7 years.",
+    "example": "Example scenario: An RBT works 120 client hours in October. The RBT must receive at least 6 hours of verified supervision (5% of 120), with at least 2 distinct meetings and 1 direct observation.",
+    "whyItMatters": "Non-compliance results in immediate BACB disciplinary action, credential suspension, or revocation.",
+    "commonMistake": "Supervision is calculated per CALENDAR MONTH, not averaged across quarters or years. RBTs must track their hours contemporaneously.",
+    "relatedTerms": [
+      "ethics-code",
+      "dual-relationship"
+    ],
+    "domain": "Domain F — Ethics",
+    "topicSlug": "client-dignity-communication",
+    "studyGuideSlug": "ethics",
+    "practiceDomain": "F: Ethics",
+    "keywords": [
+      "5 percent rule",
+      "supervision log",
+      "monthly hours",
+      "bacb audit"
+    ]
+  },
+  {
+    "slug": "tact",
+    "term": "Tact",
+    "letter": "T",
+    "shortDefinition": "A verbal operant evoked by a non-verbal sensory stimulus (object, picture, sound, smell) and reinforced by generalized conditioned social reinforcement.",
+    "inSimpleTerms": "Labeling or naming something you see, hear, smell, taste, or touch (e.g., saying \"Airplane!\" when looking at the sky).",
+    "detailedExplanation": "One of B.F. Skinner's core verbal operants. A tact is distinct from a mand because the speaker is labeling the environment, not requesting the item.",
+    "example": "Example scenario: While looking at a storybook, the child points to an illustration of an elephant and says \"Elephant.\" The RBT says, \"That's right, it's an elephant!\" (generalized social praise).",
+    "whyItMatters": "Tact training expands vocabulary, environmental awareness, and conversational repertoires.",
+    "commonMistake": "Confusing a tact with a mand. If a hungry child sees an apple and says \"Apple\" to GET the apple, it is a mand. If they see an apple in a picture and say \"Apple\" to label it, it is a tact.",
+    "relatedTerms": [
+      "mand",
+      "conditioned-reinforcer"
+    ],
+    "domain": "Domain C — Behavior Acquisition",
+    "topicSlug": "skill-acquisition-plans",
+    "studyGuideSlug": "behavior-acquisition",
+    "practiceDomain": "C: Behavior Acquisition",
+    "keywords": [
+      "label",
+      "naming",
+      "verbal operant",
+      "skinner"
+    ]
+  },
+  {
+    "slug": "task-analysis",
+    "term": "Task Analysis",
+    "letter": "T",
+    "shortDefinition": "The process of breaking a complex behavioral sequence or multi-step skill down into small, discrete, and measurable component units.",
+    "inSimpleTerms": "Breaking down a big task like brushing teeth into a checklist of small, easy-to-learn steps.",
+    "detailedExplanation": "Once broken down, the task analysis serves as the blueprint for Forward, Backward, or Total Task chaining. Steps are written based on observing an expert, consulting with occupational therapists, or self-performing the task.",
+    "example": "Example scenario: A task analysis for making toast: 1) Get bread, 2) Place slice in toaster slot, 3) Push toaster lever down, 4) Wait for pop, 5) Remove toast with tongs, 6) Spread butter with knife.",
+    "whyItMatters": "Enables individualized step-by-step data collection and targeted prompt fading on specific difficult links.",
+    "commonMistake": "Writing steps that are too broad (e.g., \"Step 1: Clean room\"). Each step must be a discrete, observable physical action.",
+    "relatedTerms": [
+      "chaining",
+      "forward-chaining",
+      "backward-chaining",
+      "total-task-presentation"
+    ],
+    "domain": "Domain C — Behavior Acquisition",
+    "topicSlug": "shaping-chaining",
+    "studyGuideSlug": "behavior-acquisition",
+    "practiceDomain": "C: Behavior Acquisition",
+    "keywords": [
+      "breakdown",
+      "steps",
+      "chaining blueprint",
+      "self care"
+    ]
+  },
+  {
+    "slug": "token-economy",
+    "term": "Token Economy",
+    "letter": "T",
+    "shortDefinition": "A behavior change system where generalized conditioned reinforcers (tokens, chips, stars) are awarded contingent on target behaviors and later exchanged for backup reinforcers.",
+    "inSimpleTerms": "An earning system where a learner collects tokens for doing good work and later trades them for toys or free time.",
+    "detailedExplanation": "Consists of three parts: specified target behaviors, physical tokens, and a menu of backup reinforcers with set exchange ratios. Effective because tokens can be delivered immediately without disrupting learning flow.",
+    "example": "Example scenario: A student earns a star token on a board for every 3 math problems completed. When 5 stars are collected, the student trades them for 10 minutes of tablet play.",
+    "whyItMatters": "Builds delayed gratification, bridges the gap between behavior and backup rewards, and resists satiation.",
+    "commonMistake": "Do not take tokens away (response cost) unless it is explicitly authored in a BCBA-approved BIP with pre-established rules.",
+    "relatedTerms": [
+      "generalized-conditioned-reinforcer",
+      "conditioned-reinforcer",
+      "backup-reinforcer"
+    ],
+    "domain": "Domain C — Behavior Acquisition",
+    "topicSlug": "skill-acquisition-plans",
+    "studyGuideSlug": "behavior-acquisition",
+    "practiceDomain": "C: Behavior Acquisition",
+    "keywords": [
+      "token board",
+      "stars",
+      "backup reinforcer",
+      "points system"
+    ]
+  },
+  {
+    "slug": "total-task-presentation",
+    "term": "Total Task Presentation",
+    "letter": "T",
+    "shortDefinition": "A chaining procedure where the learner attempts every step of the task analysis from beginning to end on every trial, with assistance provided on steps where needed.",
+    "inSimpleTerms": "Doing the whole task from start to finish every time, with the therapist giving help only on the steps where you struggle.",
+    "detailedExplanation": "Also known as concurrent chaining. Graduated guidance is used: prompt assistance is stepped in immediately when hesitation or an error occurs, and relaxed on mastered steps.",
+    "example": "Example scenario: In teaching hand washing, the child attempts all 8 steps. The child turns on water and wets hands independently, receives a gestural prompt for soap, scrubs independently, and receives partial physical help to dry hands.",
+    "whyItMatters": "Faster acquisition when the learner already knows many steps of the sequence or possesses rapid imitation skills.",
+    "commonMistake": "Do not use Total Task for learners who become overwhelmed by long sequences. Forward or backward chaining is better for those learners.",
+    "relatedTerms": [
+      "task-analysis",
+      "forward-chaining",
+      "backward-chaining",
+      "chaining"
+    ],
+    "domain": "Domain C — Behavior Acquisition",
+    "topicSlug": "shaping-chaining",
+    "studyGuideSlug": "behavior-acquisition",
+    "practiceDomain": "C: Behavior Acquisition",
+    "keywords": [
+      "concurrent chaining",
+      "all steps",
+      "graduated guidance"
+    ]
+  },
+  {
+    "slug": "unconditioned-reinforcer",
+    "term": "Unconditioned Reinforcer (Primary)",
+    "letter": "U",
+    "shortDefinition": "A stimulus that reinforces behavior due to biological/phylogenic importance without any prior learning history required.",
+    "inSimpleTerms": "A natural reward you are born needing, like food, water, warmth, sleep, and physical comfort.",
+    "detailedExplanation": "Primary reinforcers are tied to survival. Their motivating power is heavily regulated by deprivation (which increases value) and satiation (which decreases value).",
+    "example": "Example scenario: Sips of water function as an unconditioned reinforcer for an athlete running outside on a 95-degree summer afternoon.",
+    "whyItMatters": "Often used during early intervention or initial pairing when social praise and tokens do not yet possess reinforcing value.",
+    "commonMistake": "Do not rely solely on unconditioned reinforcers. Always pair primary reinforcers with praise and tokens to develop conditioned reinforcers.",
+    "relatedTerms": [
+      "conditioned-reinforcer",
+      "deprivation",
+      "satiation"
+    ],
+    "domain": "Domain C — Behavior Acquisition",
+    "topicSlug": "skill-acquisition-plans",
+    "studyGuideSlug": "behavior-acquisition",
+    "practiceDomain": "C: Behavior Acquisition",
+    "keywords": [
+      "primary",
+      "biological",
+      "food",
+      "water",
+      "survival"
+    ]
+  },
+  {
+    "slug": "variable-ratio-schedule",
+    "term": "Variable Ratio (VR) Schedule of Reinforcement",
+    "letter": "V",
+    "shortDefinition": "An intermittent schedule of reinforcement where reinforcement is delivered after an unpredictable, average number of correct responses.",
+    "inSimpleTerms": "Rewarding a behavior after an unpredictable number of times (like an average of every 5 times), just like a slot machine.",
+    "detailedExplanation": "VR schedules produce high, consistent, and steady rates of responding with no post-reinforcement pause. They are highly resistant to extinction. Example: A VR-3 schedule might reinforce after 2 responses, then 5 responses, then 2 responses (averaging 3).",
+    "example": "Example scenario: During math drills, the RBT provides praise and tokens on a VR-4 schedule (reinforcing after 3 correct answers, then 5, then 4), keeping the learner consistently engaged.",
+    "whyItMatters": "Used to thin reinforcement schedules during maintenance and generalization to match natural community contingencies.",
+    "commonMistake": "Confusing Variable Ratio (VR) with Fixed Ratio (FR). Fixed Ratio reinforces after an exact, predictable count (e.g., every 5th time); Variable Ratio reinforces around an unpredictable average.",
+    "relatedTerms": [
+      "reinforcement",
+      "token-economy",
+      "maintenance"
+    ],
+    "domain": "Domain C — Behavior Acquisition",
+    "topicSlug": "skill-acquisition-plans",
+    "studyGuideSlug": "behavior-acquisition",
+    "practiceDomain": "C: Behavior Acquisition",
+    "keywords": [
+      "vr",
+      "schedule of reinforcement",
+      "intermittent",
+      "variable ratio"
+    ]
+  },
+  {
+    "slug": "visual-schedule",
+    "term": "Visual Schedule",
+    "letter": "V",
+    "shortDefinition": "An antecedent intervention that utilizes sequential pictures, icons, or text to represent the scheduled activities of a therapy session or day.",
+    "inSimpleTerms": "A visual picture or checklist that shows the learner what activities are happening and in what order.",
+    "detailedExplanation": "Visual schedules promote predictability, ease environmental transitions, reduce anxiety, and foster independent task completion by providing clear, concrete visual cues regarding upcoming demands and breaks.",
+    "example": "Example scenario: A visual schedule shows icons: 1) Math puzzle, 2) Snack time, 3) Coloring, 4) Outdoor playground. The student removes each icon as the activity is completed.",
+    "whyItMatters": "Extremely effective proactive antecedent strategy for reducing transition-induced challenging behaviors.",
+    "commonMistake": "A visual schedule should be accessible and interactive for the learner (e.g., allowing them to flip over or check off finished items), not merely held by the therapist.",
+    "relatedTerms": [
+      "antecedent",
+      "behavior-intervention-plan",
+      "naturalistic-teaching"
+    ],
+    "domain": "Domain C — Behavior Acquisition",
+    "topicSlug": "skill-acquisition-plans",
+    "studyGuideSlug": "behavior-acquisition",
+    "practiceDomain": "C: Behavior Acquisition",
+    "keywords": [
+      "visual support",
+      "antecedent",
+      "schedule",
+      "icons",
+      "transition"
+    ]
+  },
+  {
+    "slug": "whole-interval-recording",
+    "term": "Whole Interval Recording",
+    "letter": "W",
+    "shortDefinition": "A discontinuous measurement procedure where the behavior is scored as an occurrence ONLY if it persists for the entire 100% duration of the observation interval.",
+    "inSimpleTerms": "Marking a \"yes\" only if the behavior happened continuously for the entire time interval without stopping for even a second.",
+    "detailedExplanation": "Because the behavior must persist unbroken throughout the whole interval, whole interval recording systematically underestimates the overall duration of behavior. It is primarily used for behaviors targeted for increase.",
+    "example": "Example scenario: An RBT records cooperative play in 30-second intervals. If the child plays cooperatively for 28 seconds and looks away for 2 seconds, the interval is scored as a non-occurrence (0).",
+    "whyItMatters": "Guarantees high standards of sustained engagement when teaching on-task study or continuous play.",
+    "commonMistake": "Confusing whole interval with partial interval. Whole interval requires 100% continuous occurrence; partial interval requires only a fraction of a second.",
+    "relatedTerms": [
+      "partial-interval-recording",
+      "momentary-time-sampling",
+      "discontinuous-measurement"
+    ],
+    "domain": "Domain A — Data Collection and Graphing",
+    "topicSlug": "discontinuous-measurement",
+    "studyGuideSlug": "measurement-guide",
+    "practiceDomain": "A: Measurement",
+    "keywords": [
+      "whole interval",
+      "underestimates",
+      "continuous duration",
+      "time sampling"
+    ]
+  }
+];

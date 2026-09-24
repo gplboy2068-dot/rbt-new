@@ -211,3 +211,21 @@ export interface SiteBrandingConfig {
   copyrightText: string;
   headerAnnouncement?: string;
 }
+
+export interface GlossaryTerm {
+  slug: string;
+  term: string;
+  letter: string;
+  shortDefinition: string;
+  inSimpleTerms: string;
+  detailedExplanation?: string;
+  example: string;
+  whyItMatters: string;
+  commonMistake: string;
+  relatedTerms?: string[];
+  domain?: string;
+  topicSlug?: string;
+  studyGuideSlug?: string;
+  practiceDomain?: string;
+  keywords?: string[];
+}
