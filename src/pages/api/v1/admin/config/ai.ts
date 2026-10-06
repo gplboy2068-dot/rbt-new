@@ -2,14 +2,14 @@ import type { APIRoute } from 'astro';
 import { rateLimiter } from '@/lib/rate-limit/rate-limiter';
 import { verifyAdminToken } from '@/lib/auth/admin-auth';
 
-async function checkAdmin(request: Request, cookies: any) {
+async function checkAdmin(request: Request, cookies: any, locals?: any) {
   const token = cookies.get('rtb_admin_token')?.value || request.headers.get('authorization')?.replace('Bearer ', '');
   if (!token) return null;
-  return await verifyAdminToken(token);
+  return await verifyAdminToken(token, undefined, locals);
 }
 
-export const GET: APIRoute = async ({ request, cookies }) => {
-  const admin = await checkAdmin(request, cookies);
+export const GET: APIRoute = async ({ request, cookies, locals }) => {
+  const admin = await checkAdmin(request, cookies, locals);
   if (!admin) {
     return new Response(
       JSON.stringify({ success: false, error: { code: 'UNAUTHORIZED', message: 'Admin token required' } }),
@@ -26,8 +26,8 @@ export const GET: APIRoute = async ({ request, cookies }) => {
   );
 };
 
-export const POST: APIRoute = async ({ request, cookies }) => {
-  const admin = await checkAdmin(request, cookies);
+export const POST: APIRoute = async ({ request, cookies, locals }) => {
+  const admin = await checkAdmin(request, cookies, locals);
   if (!admin) {
     return new Response(
       JSON.stringify({ success: false, error: { code: 'UNAUTHORIZED', message: 'Admin token required' } }),

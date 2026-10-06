@@ -13,7 +13,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
   // Protect Admin UI & Admin API routes (excluding login)
   if (pathname.startsWith('/admin') && pathname !== '/admin/login' && !pathname.startsWith('/admin/login')) {
     const token = context.cookies.get('rtb_admin_token')?.value;
-    const admin = token ? await verifyAdminToken(token) : null;
+    const admin = token ? await verifyAdminToken(token, undefined, context.locals) : null;
 
     if (!admin) {
       if (pathname.startsWith('/api/')) {

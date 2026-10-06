@@ -6,7 +6,7 @@ import { apiSuccess, apiError } from '@/lib/api/response';
 
 export const POST: APIRoute = async ({ request, cookies, locals }) => {
   const token = cookies.get('rtb_admin_token')?.value || request.headers.get('authorization')?.replace('Bearer ', '');
-  const admin = token ? await verifyAdminToken(token) : null;
+  const admin = token ? await verifyAdminToken(token, undefined, locals) : null;
 
   if (!admin) {
     return apiError('Admin authentication required.', locals.requestId);

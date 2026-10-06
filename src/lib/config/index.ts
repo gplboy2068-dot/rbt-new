@@ -34,7 +34,7 @@ export const publicConfig: PublicConfig = {
 };
 
 export function getServerConfig(env?: Record<string, any>): ServerConfig {
-  const jwtSecret = env?.ADMIN_JWT_SECRET || (typeof process !== 'undefined' ? process.env.ADMIN_JWT_SECRET : '') || 'rtb-default-dev-secret-key-2026';
+  const jwtSecret = env?.ADMIN_JWT_SECRET || (typeof process !== 'undefined' ? process.env.ADMIN_JWT_SECRET : '') ;
   return {
     jwtSecret,
     tokenExpirySeconds: 8 * 3600, // 8 hours

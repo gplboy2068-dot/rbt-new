@@ -1,6 +1,6 @@
-# RTB Exam Preparation Platform — Phase 0 Project Foundation
+# RBT Practice Exam — Free RBT Exam Preparation Platform
 
-An independent, high-performance RBT Exam Preparation Platform built on **Astro.js** and **Cloudflare Workers / D1 / R2 / KV / Queues**.
+An independent, high-performance RBT (Registered Behavior Technician) exam preparation platform built on **Astro.js** and **Cloudflare Workers / D1 / R2 / KV**. Live at https://rbtpracticeexam.xyz — 100% free, no sign-up required.
 
 ---
 
@@ -84,8 +84,8 @@ npm run build
 
 | Binding Name | Type | Purpose |
 | :--- | :--- | :--- |
-| `DB` | Cloudflare D1 | Primary relational database (`rtb_exam_db`) |
-| `STORAGE_BUCKET` | Cloudflare R2 | Asset & CSV storage (`rtb-exam-assets`) |
+| `DB` | Cloudflare D1 | Primary relational database (`rtb_exam_db` (existing Cloudflare resource name)) |
+| `STORAGE_BUCKET` | Cloudflare R2 | Asset & CSV storage (`rtb-exam-assets` (existing Cloudflare resource name)) |
 | `EDGE_KV` | Cloudflare KV | Edge cache & IP token buckets |
 | `JOBS_QUEUE` | Cloudflare Queues | Async batch CSV & AI jobs |
 

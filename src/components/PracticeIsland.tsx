@@ -109,22 +109,30 @@ export default function PracticeIsland() {
     setAiExplanation('');
 
     try {
-      const res = await fetch('/api/ai/tutor', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          action: 'explain_question',
-          questionContext: currentQuestion,
-        }),
-      });
-      const data = await res.json();
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 20000);
+      let res: Response;
+      try {
+        res = await fetch('/api/ai/tutor', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            action: 'explain_question',
+            questionContext: currentQuestion,
+          }),
+          signal: controller.signal,
+        });
+      } finally {
+        clearTimeout(timeoutId);
+      }
+      const data = await res.json().catch(() => ({ message: 'AI Tutor returned an unexpected response.' }));
       if (res.ok) {
         setAiExplanation(data.reply);
       } else {
         setAiExplanation(data.message || 'AI request limit reached.');
       }
-    } catch {
-      setAiExplanation('Error connecting to AI Tutor.');
+    } catch (err) {
+      setAiExplanation(err instanceof DOMException && err.name === 'AbortError' ? 'AI Tutor took too long to respond. Please try again.' : 'Error connecting to AI Tutor.');
     } finally {
       setAiLoading(false);
     }

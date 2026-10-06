@@ -1,8 +1,7 @@
 {
-  "name": "rtb-new-website",
+  "name": "rbt-practice-exam",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Free RBT (Registered Behavior Technician) practice exam platform - practice questions, timed mock exams, flashcards and AI tutor. No sign-up required.",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -10,10 +9,16 @@
     "test": "npx tsx src/tests/run-all.ts",
     "check": "tsc --noEmit"
   },
-  "keywords": [],
+  "keywords": [
+    "RBT",
+    "Registered Behavior Technician",
+    "BACB",
+    "practice exam",
+    "flashcards"
+  ],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "dependencies": {
     "@astrojs/cloudflare": "^11.2.0",
     "@astrojs/react": "^3.6.3",
@@ -26,7 +31,6 @@
     "jsonwebtoken": "^9.0.3",
     "lucide-react": "^0.453.0",
     "marked": "^18.0.14",
-    "next": "^14.2.15",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "tailwind-merge": "^2.6.1"

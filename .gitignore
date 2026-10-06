@@ -28,3 +28,14 @@ pnpm-debug.log*
 
 # Scratch / Temp debug files
 scratch/
+
+# Next.js build output (legacy - this project is Astro)
+.next/
+next-env.d.ts
+
+# TypeScript build info
+*.tsbuildinfo
+
+# Test / build artefacts
+dist/
+.astro/

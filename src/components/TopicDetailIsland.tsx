@@ -219,7 +219,7 @@ export default function TopicDetailIsland({
             <div>
               <div className="text-xs text-slate-500 font-bold uppercase">Question Bank</div>
               <div className="text-sm font-bold text-slate-900 dark:text-white">
-                Solve All 85+ Questions
+                Solve All {INITIAL_QUESTIONS.length}+ Questions
               </div>
             </div>
           </div>

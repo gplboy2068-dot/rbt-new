@@ -1,11 +1,15 @@
+# SECURITY NOTE: D1/KV/R2 IDs below are resource identifiers, not secrets.
+# Never put passwords, JWT secrets or API keys in this file.
+# Set secrets with: wrangler secret put ADMIN_PASSWORD / ADMIN_JWT_SECRET / DEEPSEEK_API_KEY
+# account_id is intentionally omitted - wrangler resolves it from your logged-in account.
+
 name = "rtb-exam-platform"
-account_id = "08ba1f0109a6e273a875835490d3b023"
 main = "./dist/_worker.js/index.js"
 compatibility_date = "2024-09-23"
 compatibility_flags = ["nodejs_compat"]
 
 # Static asset configuration for Astro client output
-assets = { directory = "./dist" }
+assets = { directory = "./dist", binding = "ASSETS" }
 
 # Cloudflare D1 Database Binding
 [[d1_databases]]
@@ -30,6 +34,6 @@ id = "9c53fe7363334755992a81e61675573d"
 # queue = "rtb-async-jobs"
 
 [vars]
-ENVIRONMENT = "development"
+ENVIRONMENT = "production"
 PUBLIC_SITE_NAME = "RBT Practice Exam"
 PUBLIC_SITE_URL = "https://rbtpracticeexam.xyz"

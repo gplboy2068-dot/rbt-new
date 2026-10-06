@@ -285,13 +285,21 @@ I'm your **Registered Behavior Technician (RBT®)** examination prep assistant.
     setIsLoading(true);
 
     try {
-      // Primary route with fallback
-      const res = await fetch('/api/v1/ai/tutor', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ action: actionType, query }),
-      });
-      const data = await res.json();
+      // Primary route with fallback - abort after 20s so the UI never hangs on "analysing"
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 20000);
+      let res: Response;
+      try {
+        res = await fetch('/api/v1/ai/tutor', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ action: actionType, query }),
+          signal: controller.signal,
+        });
+      } finally {
+        clearTimeout(timeoutId);
+      }
+      const data = await res.json().catch(() => ({ message: 'The AI Tutor returned an unexpected response. Please try again.' }));
 
       if (res.ok && (data.reply || data.data?.reply)) {
         const replyText = data.reply || data.data?.reply;
@@ -322,13 +330,16 @@ I'm your **Registered Behavior Technician (RBT®)** examination prep assistant.
           },
         ]);
       }
-    } catch {
+    } catch (err) {
+      const isTimeout = err instanceof DOMException && err.name === 'AbortError';
       setMessages((p) => [
         ...p,
         { 
           id: `err_${Date.now()}`, 
           sender: 'ai', 
-          text: '❌ **Connection Error:** Unable to reach AI Tutor. Please check your internet connection and try again.', 
+          text: isTimeout
+            ? '⏱️ **Timeout:** The AI Tutor took too long to respond. Please try again - if this keeps happening, the AI service may be temporarily slow.'
+            : '❌ **Connection Error:** Unable to reach AI Tutor. Please check your internet connection and try again.', 
           timestamp: Date.now() 
         },
       ]);

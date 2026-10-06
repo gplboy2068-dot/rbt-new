@@ -30,6 +30,7 @@ export async function testLaunchAudit(): Promise<boolean> {
   // AUDIT 1: Security & Admin Authentication Verification
   // ==========================================
   console.log('   - Audit 1: Admin Token Verification & Tamper Resistance...');
+  process.env.ADMIN_JWT_SECRET = process.env.ADMIN_JWT_SECRET || 'test-only-secret-for-local-tests';
   const validToken = await signAdminToken('admin_001');
   const verified = await verifyAdminToken(validToken);
   const fakeToken = await verifyAdminToken('tampered.invalid.jwt');

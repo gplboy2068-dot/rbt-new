@@ -37,6 +37,7 @@ export class DeepSeekProvider implements IAIProvider {
     }
 
     const res = await fetch('https://api.deepseek.com/chat/completions', {
+      signal: AbortSignal.timeout(15000),
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -89,6 +90,7 @@ export class OpenAIProvider implements IAIProvider {
     }
 
     const res = await fetch('https://api.openai.com/v1/chat/completions', {
+      signal: AbortSignal.timeout(15000),
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
